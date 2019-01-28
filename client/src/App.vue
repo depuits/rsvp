@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/manage">RSVP</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/history">{{ $t("nav.history") }}</router-link> |
+      <router-link to="/">{{ $t("nav.home") }}</router-link> |
+      <router-link to="/response">{{ $t("nav.response") }}</router-link> |
+			<select v-model="$i18n.locale">
+				<option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
+			</select>
     </div>
+
     <router-view />
   </div>
 </template>
@@ -12,6 +16,9 @@
 <script>
 export default {
 	name: 'App',
+  data () {
+    return { langs: ['nl', 'en'] }
+  }
 };
 </script>
 

@@ -8,7 +8,7 @@
 
 <script>
 export default {
-	name: 'Login',
+	name: 'code',
 	data() {
 		return {
 			input: {
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
-#login {
+#code {
 	width: 500px;
 	border: 1px solid #cccccc;
 	background-color: #ffffff;

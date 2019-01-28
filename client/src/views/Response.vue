@@ -1,13 +1,11 @@
 <template>
-  <div class="manage">
-    <img alt="Vue logo" src="../assets/logo.png">
-
+  <div class="response">
     <div v-if="this.authData">
       <div v-if="this.authData.Admin">
         <Admin />
       </div>
       <div v-else>
-        <Response />
+        <Rsvp />
       </div>
     </div>
     <div v-else>
@@ -21,14 +19,14 @@
 // @ is an alias to /src
 import Code from '@/components/Code.vue';
 import Admin from '@/components/Admin.vue';
-import Response from '@/components/Response.vue';
+import Rsvp from '@/components/Rsvp.vue';
 
 export default {
-	name: 'manage',
+	name: 'response',
 	components: {
 		Code,
 		Admin,
-		Response,
+		Rsvp,
 	},
 	data() {
 		return {
