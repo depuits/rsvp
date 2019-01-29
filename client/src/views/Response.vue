@@ -1,18 +1,17 @@
 <template>
-  <div class="response">
-    <div v-if="this.authData">
-      <div v-if="this.authData.Admin">
-        <Admin />
-      </div>
-      <div v-else>
-        <Rsvp />
-      </div>
-    </div>
-    <div v-else>
-      <Code @authenticated="setAuthenticated" />
-    </div>
-
-  </div>
+	<div class="response">
+		<div v-if="authData">
+			<div v-if="authData.Admin">
+				<Admin />
+			</div>
+			<div v-else>
+				<Rsvp />
+			</div>
+		</div>
+		<div v-else>
+			<Code @authenticated="setAuthenticated" />
+		</div>
+	</div>
 </template>
 
 <script>
@@ -22,7 +21,7 @@ import Admin from '@/components/Admin.vue';
 import Rsvp from '@/components/Rsvp.vue';
 
 export default {
-	name: 'response',
+	name: 'Response',
 	components: {
 		Code,
 		Admin,

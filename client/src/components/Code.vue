@@ -1,14 +1,14 @@
 <template>
-    <div id="code">
-        <h1>Enter your code</h1>
-        <input type="text" name="code" v-model="input.code" placeholder="Code" />
-        <button type="button" v-on:click="login()">Login</button>
-    </div>
+	<div id="code">
+		<h1>Enter your code</h1>
+		<input v-model="input.code" type="text" name="code" placeholder="Code" />
+		<button type="button" @click="login()">Login</button>
+	</div>
 </template>
 
 <script>
 export default {
-	name: 'code',
+	name: 'Code',
 	data() {
 		return {
 			input: {
