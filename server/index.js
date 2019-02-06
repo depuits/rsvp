@@ -58,6 +58,17 @@ app.get('/shedule', (req, res) => {
 	);
 });
 
+app.get('/history', (req, res) => {
+	res.send(
+		[
+			{
+				image: '',
+				name: 'history.birth',
+				desc: '',
+				date: new Date(1991, 11, 25),
+			},
+		]);
+});
 
 
 app.listen(process.env.PORT || 8083);

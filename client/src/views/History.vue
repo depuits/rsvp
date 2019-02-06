@@ -2,7 +2,9 @@
 	<div class="history">
 		<h1>Our history</h1>
 		
-		<HistoricalEvent :event="{ name: 'history.birth', date:new Date(1991, 11, 25), image:'placeholder' }" />
+		<div v-for="e in $store.state.history" :key="e.name">
+			<HistoricalEvent :event="e" />
+		</div>
 	</div>
 </template>
 
@@ -14,6 +16,9 @@ export default {
 	name: 'History',
 	components: {
 		HistoricalEvent,
+	},
+	created() {
+		this.$store.dispatch('loadHistory');
 	},
 };
 </script>

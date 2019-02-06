@@ -32,7 +32,6 @@ export default new Vuex.Store({
 				.get('shedule')
 				.then(
 					result => {
-						console.log(result);
 						context.commit('SET_SHEDULE', result.data);
 					},
 					error => {
@@ -43,15 +42,25 @@ export default new Vuex.Store({
 					context.commit('SET_LOADING', false);
 				});
 		},
-		loadHistory(context) {
-			context.commit('SET_HISTORY', [
-				{
-					image: '',
-					name: 'history.birth',
-					desc: '',
-					date: new Date(1991, 11, 25),
-				},
-			]);
+		loadHistory(context, force) {
+			if (context.state.history && !force) {
+				return; // data is already loaded
+			}
+
+			context.commit('SET_LOADING', true);
+			Api()
+				.get('history')
+				.then(
+					result => {
+						context.commit('SET_HISTORY', result.data);
+					},
+					error => {
+						console.error(error);
+					}
+				)
+				.then(() => {
+					context.commit('SET_LOADING', false);
+				});
 		},
 	},
 });
