@@ -1,0 +1,17 @@
+<template>
+	<div>
+		<img :src="event.image" :alt="$t(event.name)">
+		<h1>{{ $d(event.date, 'short') }}</h1>
+		<h2>{{ $t(event.name) }}</h2>
+		<p v-if="event.desc">{{ $t(event.desc) }}</p>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'HistoricalEvent',
+	props: {
+		event: { type: Object, required: true },
+	},
+};
+</script>

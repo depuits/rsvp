@@ -17,14 +17,14 @@ export default new Router({
 			path: '/history',
 			name: 'history',
 			// route level code-splitting
-			// this generates a separate chunk (about.[hash].js) for this route
+			// this generates a separate chunk (history.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
-			component: () => import(/* webpackChunkName: "about" */ './views/History.vue'),
+			component: () => import(/* webpackChunkName: "history" */ './views/History.vue'),
 		},
 		{
 			path: '/response',
 			name: 'response',
-			component: () => import('./views/Response.vue'),
+			component: () => import(/* webpackChunkName: "response" */ './views/Response.vue'),
 		},
 	],
 });

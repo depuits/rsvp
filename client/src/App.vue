@@ -21,7 +21,8 @@
 			</select>
 		</div>
 
-		<router-view />
+		<div v-if="$store.state.loading">Loading...</div>
+		<router-view v-else />
 	</div>
 </template>
 

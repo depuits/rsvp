@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<img :src="icon">
-		<p v-if="dateTime">{{ $d(dateTime, 'time') }}</p>
-		<p>{{ $t(name) }}</p>
+		<img :src="event.icon">
+		<p v-if="event.start">{{ $d(new Date(event.start), 'time') }}</p>
+		<p>{{ $t(event.name) }}</p>
 
 
 
-		<iframe v-if="mapUrl" :src="mapUrl" width="280" height="280" frameborder="0" style="border:0" allowfullscreen />
+		<iframe v-if="event.mapUrl" :src="event.mapUrl" width="280" height="280" frameborder="0" style="border:0" allowfullscreen />
 	</div>
 </template>
 
@@ -14,12 +14,7 @@
 export default {
 	name: 'Event',
 	props: {
-		name: { type: String, required: true },
-		icon: { type: String, required: true },
-		dateTime: { type: Object, required: true },
-		durarion: { type: Object, required: true },
-		location: { type: String, required: true },
-		mapUrl: { type: String, default: undefined },
+		event: { type: Object, required: true },
 	},
 };
 </script>

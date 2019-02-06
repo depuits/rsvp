@@ -10,6 +10,12 @@
 	},
 	"events": {
 		"law": "wedding law",
-		"church": "wedding church"
+		"church": "wedding church",
+		"reception": "reception",
+		"diner": "diner",
+		"party": "party"
+	},
+	"history": {
+		"birth": "birth"
 	}
 }
