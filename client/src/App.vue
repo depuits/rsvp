@@ -1,24 +1,37 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/history">{{ $t("nav.history") }}</router-link> |
-      <router-link to="/">{{ $t("nav.home") }}</router-link> |
-      <router-link to="/response">{{ $t("nav.response") }}</router-link> |
+	<div id="app">
+		<div id="nav">
+			<router-link to="/history">
+				{{ $t("nav.history") }}
+			</router-link> |
+			<router-link to="/">
+				{{ $t("nav.home") }}
+			</router-link> |
+			<router-link to="/response">
+				{{ $t("nav.response") }}
+			</router-link> |
 			<select v-model="$i18n.locale">
-				<option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
+				<option
+					v-for="(lang, i) in langs"
+					:key="`Lang${i}`"
+					:value="lang"
+				>
+					{{ lang }}
+				</option>
 			</select>
-    </div>
+		</div>
 
-    <router-view />
-  </div>
+		<div v-if="$store.state.loading">Loading...</div>
+		<router-view v-else />
+	</div>
 </template>
 
 <script>
 export default {
 	name: 'App',
-  data () {
-    return { langs: ['nl', 'en'] }
-  }
+	data() {
+		return { langs: ['nl', 'en'] };
+	},
 };
 </script>
 

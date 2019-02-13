@@ -1,17 +1,17 @@
 <template>
-  <p>{{ $t('hello') }}</p>
+	<p>{{ $t('hello') }}</p>
 </template>
 
 <script>
 export default {
-  name: 'HelloI18n'
-}
+	name: 'HelloI18n',
+};
 </script>
 
 <i18n>
 {
-  "en": {
-    "hello": "Hello i18n in SFC!"
-  }
+	"en": {
+		"hello": "Hello i18n in SFC!"
+	}
 }
 </i18n>

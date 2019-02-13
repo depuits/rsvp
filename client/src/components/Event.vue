@@ -1,25 +1,20 @@
 <template>
-    <div>
-        <img v-bind:src="icon" />
-        <p v-if="dateTime">{{ $d(dateTime, 'time') }}</p>
-        <p>{{ $t(name) }}</p>
+	<div>
+		<img :src="event.icon">
+		<p v-if="event.start">{{ $d(new Date(event.start), 'time') }}</p>
+		<p>{{ $t(event.name) }}</p>
 
 
 
-        <iframe v-if="mapUrl" v-bind:src="mapUrl" width="280" height="280" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
+		<iframe v-if="event.mapUrl" :src="event.mapUrl" width="280" height="280" frameborder="0" style="border:0" allowfullscreen />
+	</div>
 </template>
 
 <script>
 export default {
-    name: 'event',
-    props: {
-        name: String,
-        icon: String,
-        dateTime: Object,
-        durarion: Object,
-        location: String,
-        mapUrl: String,
-    }
-}
+	name: 'Event',
+	props: {
+		event: { type: Object, required: true },
+	},
+};
 </script>
