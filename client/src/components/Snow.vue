@@ -1,37 +1,33 @@
 <template>
-	<let-it-snow
-      v-bind="snowConf"
-      :show="show"    
-    ></let-it-snow>
-<template>    
+	<let-it-snow v-bind="snowConf" :show="show"></let-it-snow>
+</template>    
 
 <script>
-export default {
-  name: 'app',
-  data () {
-  	return {
-        snowConf: {
-            windPower : 1,  
-            speed : 3,
-            count : 12,
-            size : 10,
-            opacity : 1,
-            images: ['https://raw.githubusercontent.com/bob-chen/let_it_snow/master/demo/snow.png',
-                    'https://raw.githubusercontent.com/bob-chen/let_it_snow/master/demo/sock.png',
-                    'https://raw.githubusercontent.com/bob-chen/let_it_snow/master/demo/tree.png']
-        },
-        show: false      
-    }
-  },
-  mounted () {
-      this.show = true
-    //   setTimeout( () => {
-    //       this.show = false
-    //   }, 5000)
+import LetItSnow from 'vue-let-it-snow';
+import imgHeart from '../assets/images/heart.png';
 
-    //   setTimeout( () => {
-    //       this.show = true
-    //   }, 10000)      
-  }  
-}
+export default {
+	name: 'Snow',
+	components: {
+		LetItSnow,
+	},
+	data() {
+		return {
+			snowConf: {
+				show: true,
+				windPower: 0,
+				speed: 0.5,
+				count: 32,
+				size: 3,
+				opacity: 1,
+				interaction: true,
+				images: [imgHeart],
+			},
+			show: false,
+		};
+	},
+	mounted() {
+		this.show = true;
+	},
+};
 </script>
