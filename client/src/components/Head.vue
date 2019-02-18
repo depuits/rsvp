@@ -23,6 +23,7 @@ export default {
 header {
 	position: relative;
 	height: 200px;
+	overflow: auto;
 }
 
 img#main {

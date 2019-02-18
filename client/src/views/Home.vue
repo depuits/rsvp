@@ -5,9 +5,9 @@
 
 		<img alt="Vue logo" src="../assets/logo.png"/>
 
-		<div v-for="e in $store.state.shedule.events" :key="e.name">
-			<Event :event="e" />
-		</div>
+		<ul>
+			<Event v-for="e in $store.state.shedule.events" :key="e.name" :event="e" />
+		</ul>
 	</div>
 </template>
 
