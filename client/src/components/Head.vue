@@ -20,37 +20,87 @@ export default {
 </script>
 
 <style lang="scss">
+$bottomBar: 1rem;
+
+$navLeft: calc(50% + 4rem);
+$navRight: calc(50% - 3rem);
+
+$navWidth: 20rem;
+$borderRad: 0.5rem;
+
 header {
 	position: relative;
-	height: 200px;
-	overflow: auto;
-}
+	height: 14rem;
+	overflow: visible;
 
-img#main {
-	position: absolute;
-	height: 80%;
-	left: 10%;
-	bottom: 0;
-}
+	img#main {
+		position: absolute;
+		height: 80%;
+		right: $navLeft;
+		bottom: $bottomBar;
+	}
 
-nav {
-	a {
-		padding: 10px;
-		border: 2px solid #333;
-		font-weight: bold;
-		text-decoration: none;
-		color: #2c3e50;
-		&.router-link-exact-active {
-			color: #42b983;
+	h1 {
+		width: $navWidth;
+		position: absolute;
+		top: 2rem;
+		left: $navRight;
+		font-size: 3.5rem;
+	}
+
+	nav {
+		width: $navWidth;
+		position: absolute;
+		bottom: $bottomBar;
+		left: $navRight;
+		font-size: 1.5rem;
+
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+
+		display: flex;
+		justify-content: center;
+
+		a {
+			-webkit-flex: 1;
+			flex: 1;
+
+			padding: 1rem;
+			border: 0.2rem solid $frontColor;
+			border-bottom: 0;
+			font-weight: bold;
+			text-decoration: none;
+			color: $frontColor;
+			height: 75%;
+
+			&:first-child {
+				border-top-left-radius: $borderRad;
+			}
+
+			&:last-child {
+				border-top-right-radius: $borderRad;
+			}
+
+			&.router-link-exact-active {
+				color: #42b983;
+				border-top-left-radius: $borderRad;
+				border-top-right-radius: $borderRad;
+				height: 100%;
+			}
 		}
 	}
-}
 
-hr {
-	border: none;
-	height: 16px;
-	/* Set the hr color */
-	color: #333; /* old IE */
-	background-color: #333; /* Modern Browsers */
+	hr {
+		border: none;
+		margin: 0;
+		height: $bottomBar;
+		/* Set the hr color */
+		color: $frontColor; /* old IE */
+		background-color: $frontColor; /* Modern Browsers */
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
 }
 </style>

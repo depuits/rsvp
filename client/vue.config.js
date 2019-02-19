@@ -7,4 +7,13 @@ module.exports = {
 			enableInSFC: true,
 		},
 	},
+	css: {
+		loaderOptions: {
+			sass: {
+				data: `
+					@import "@/scss/_variables.scss";
+					`,
+			},
+		},
+	},
 };

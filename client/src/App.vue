@@ -42,29 +42,43 @@ export default {
 	font-family: FunnyDuck;
 	src: url('./assets/fonts/FunnyDuck.ttf');
 }
+:root {
+	font-size: 50%;
+	@media (min-width: 30rem) {
+		font-size: 70%;
+	}
+
+	@media (min-width: 48rem) {
+		font-size: 100%;
+	}
+}
 
 #app {
 	font-family: 'FunnyDuck', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: #333;
+	color: $frontColor;
 }
 #wrapper {
-	background-color: white;
+	background-color: $backColor;
 	margin: auto;
 
-	// Small devices (landscape phones, 576px and up)
-	@media (min-width: 576px) {
-		width: 100%;
-		border-bottom: 2px solid #333;
+	// Small devices
+	width: 100%;
+	border: 0;
+	border-bottom: 0.2rem solid $frontColor;
+
+	// Large devices
+	@media (min-width: 48rem) {
+		width: 80%;
+		border: 0.2rem solid $frontColor;
+		border-top: 0;
 	}
 
-	// Large devices (desktops, 992px and up)
-	@media (min-width: 992px) {
-		width: 80%;
-		border: 2px solid #333;
-		border-top: 0;
+	// Largest devices
+	@media (min-width: 80rem) {
+		width: 62rem;
 	}
 }
 
