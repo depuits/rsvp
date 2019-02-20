@@ -1,21 +1,61 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="263.000000pt" height="262.000000pt" viewBox="0 0 263.000000 262.000000"
- preserveAspectRatio="xMidYMid meet">
-<metadata>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="263.000000pt"
+   height="262.000000pt"
+   viewBox="0 0 263.000000 262.000000"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg8"
+   sodipodi:docname="duck.svg"
+   inkscape:version="0.92.1 r15371">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1362"
+     inkscape:window-height="781"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="1.351145"
+     inkscape:cx="83.813538"
+     inkscape:cy="91.627884"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg8" />
+  <metadata
+     id="metadata2">
 Created by potrace 1.15, written by Peter Selinger 2001-2017
+<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+  </cc:Work>
+</rdf:RDF>
 </metadata>
-<g transform="translate(0.000000,262.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M942 2274 c-122 -32 -201 -94 -285 -221 -75 -114 -86 -125 -151 -154
--40 -17 -63 -20 -140 -17 -90 3 -91 3 -94 -22 -6 -36 14 -91 47 -137 39 -55
-131 -99 231 -112 85 -11 110 -31 110 -85 0 -42 -22 -72 -100 -138 -159 -135
--239 -301 -227 -474 20 -288 233 -482 619 -566 138 -30 450 -32 603 -4 277 50
-450 129 586 266 208 209 271 551 168 905 -29 97 -85 212 -114 231 -36 24 -57
-11 -116 -73 -68 -96 -135 -155 -223 -200 -188 -94 -509 -123 -585 -52 -42 39
--29 72 63 162 97 95 131 154 147 257 20 132 -18 259 -102 334 -105 95 -295
-139 -437 100z"/>
-</g>
+  <g
+     transform="matrix(0.1212815,0,0,-0.1212815,-27.969413,307.06465)"
+     id="g6"
+     style="fill:#000000;stroke:none">
+    <path
+       d="m 942,2274 c -122,-32 -201,-94 -285,-221 -75,-114 -86,-125 -151,-154 -40,-17 -63,-20 -140,-17 -90,3 -91,3 -94,-22 -6,-36 14,-91 47,-137 39,-55 131,-99 231,-112 85,-11 110,-31 110,-85 0,-42 -22,-72 -100,-138 C 401,1253 321,1087 333,914 353,626 566,432 952,348 c 138,-30 450,-32 603,-4 277,50 450,129 586,266 208,209 271,551 168,905 -29,97 -85,212 -114,231 -36,24 -57,11 -116,-73 -68,-96 -135,-155 -223,-200 -188,-94 -509,-123 -585,-52 -42,39 -29,72 63,162 97,95 131,154 147,257 20,132 -18,259 -102,334 -105,95 -295,139 -437,100 z"
+       id="path4"
+       inkscape:connector-curvature="0" />
+  </g>
 </svg>

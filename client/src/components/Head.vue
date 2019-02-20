@@ -9,6 +9,15 @@
 			<router-link to="/response">{{ $t("nav.response") }}</router-link>
 		</nav>
 
+		<img id="duckLeft01" src="../assets/images/duck.svg"/>
+		<img id="duckLeft02" src="../assets/images/duck.svg"/>
+		<img id="duckLeft03" src="../assets/images/duck.svg"/>
+		<img id="duckLeft04" src="../assets/images/duck.svg"/>
+
+		<img id="duckRight01" src="../assets/images/duck.svg"/>
+		<img id="duckRight02" src="../assets/images/duck.svg"/>
+		<img id="duckRight03" src="../assets/images/duck.svg"/>
+
 		<hr/>
 	</header>
 </template>
@@ -30,10 +39,25 @@ $borderRad: 0.5rem;
 
 $navTrans: all 0.2s linear;
 
+@mixin duck($size, $pos, $left: true) {
+	@if $left {
+		right: calc(#{$navLeft} + #{$pos} + 4rem);
+		-webkit-transform: scaleX(-1);
+		transform: scaleX(-1);
+	} @else {
+		left: calc(#{$navRight} + #{$navWidth} + #{$pos});
+	}
+
+	height: $size;
+	position: absolute;
+	bottom: $bottomBar;
+	filter: $frontColorFilter;
+}
+
 header {
 	position: relative;
 	height: 14rem;
-	overflow: visible;
+	overflow: hidden;
 
 	img#main {
 		position: absolute;
@@ -41,6 +65,29 @@ header {
 		right: $navLeft;
 		bottom: $bottomBar;
 		filter: $frontColorFilter;
+	}
+
+	#duckLeft01 {
+		@include duck(1.5rem, 4.4rem);
+	}
+	#duckLeft02 {
+		@include duck(1.7rem, 8rem);
+	}
+	#duckLeft03 {
+		@include duck(1.4rem, 12rem);
+	}
+	#duckLeft04 {
+		@include duck(1.2rem, 18rem);
+	}
+
+	#duckRight01 {
+		@include duck(1.5rem, 2rem, false);
+	}
+	#duckRight02 {
+		@include duck(1.2rem, 6rem, false);
+	}
+	#duckRight03 {
+		@include duck(1.6em, 11rem, false);
 	}
 
 	h1 {
