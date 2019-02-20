@@ -40,6 +40,7 @@ header {
 		height: 80%;
 		right: $navLeft;
 		bottom: $bottomBar;
+		filter: $frontColorFilter;
 	}
 
 	h1 {
