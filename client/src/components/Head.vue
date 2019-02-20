@@ -6,7 +6,10 @@
 		<nav>
 			<router-link to="/history">{{ $t("nav.history") }}</router-link>
 			<router-link to="/">{{ $t("nav.home") }}</router-link>
-			<router-link to="/response">{{ $t("nav.response") }}</router-link>
+			<router-link to="/response">
+				{{ $t("nav.response") }}
+				<img src="../assets/images/duck.svg"/>
+			</router-link>
 		</nav>
 
 		<img id="duckLeft01" src="../assets/images/duck.svg"/>
@@ -132,6 +135,7 @@ header {
 			}
 
 			&.router-link-exact-active {
+				position: relative;
 				color: #42b983;
 				border-top-left-radius: $borderRad;
 				border-top-right-radius: $borderRad;
@@ -172,6 +176,15 @@ header {
 					-o-transition: $navTrans;
 					transition: $navTrans;
 				}
+			}
+
+			// duck image on top
+			img {
+				filter: $frontColorFilter;
+				position: absolute;
+				height: 1.5rem;
+				top: -1.5rem;
+				right: 0;
 			}
 		}
 	}
