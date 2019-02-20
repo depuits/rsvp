@@ -7,17 +7,17 @@
 			<div v-if="$store.state.loading">Loading...</div>
 			<router-view v-else />
 
-			<footer>
-				<select v-model="$i18n.locale">
-					<option
-						v-for="(lang, i) in langs"
-						:key="`Lang${i}`"
-						:value="lang">
-						{{ lang }}
-					</option>
-				</select>
-			</footer>
 		</div>
+		<footer>
+			<select v-model="$i18n.locale">
+				<option
+					v-for="(lang, i) in langs"
+					:key="`Lang${i}`"
+					:value="lang">
+					{{ lang }}
+				</option>
+			</select>
+		</footer>
 	</div>
 </template>
 
@@ -60,25 +60,33 @@ export default {
 	text-align: center;
 	color: $frontColor;
 }
-#wrapper {
+
+#wrapper,
+footer {
 	background-color: $backColor;
 	margin: auto;
 
 	// Small devices
 	width: 100%;
-	border: 0;
-	border-bottom: 0.2rem solid $frontColor;
 
 	// Large devices
 	@media (min-width: 48rem) {
 		width: 80%;
-		border: 0.2rem solid $frontColor;
-		border-top: 0;
 	}
 
 	// Largest devices
 	@media (min-width: 80rem) {
 		width: 62rem;
+	}
+}
+#wrapper {
+	border: 0;
+	border-bottom: 0.2rem solid $frontColor;
+
+	// Large devices
+	@media (min-width: 48rem) {
+		border: 0.2rem solid $frontColor;
+		border-top: 0;
 	}
 }
 

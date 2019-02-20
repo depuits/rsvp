@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 $bottomBar: 1rem;
 
 $navLeft: calc(50% + 4rem);
@@ -27,6 +27,8 @@ $navRight: calc(50% - 3rem);
 
 $navWidth: 20rem;
 $borderRad: 0.5rem;
+
+$navTrans: all 0.2s linear;
 
 header {
 	position: relative;
@@ -43,7 +45,7 @@ header {
 	h1 {
 		width: $navWidth;
 		position: absolute;
-		top: 2rem;
+		top: 1rem;
 		left: $navRight;
 		font-size: 3.5rem;
 	}
@@ -62,6 +64,7 @@ header {
 		justify-content: center;
 
 		a {
+			--max-height: 2.5rem;
 			-webkit-flex: 1;
 			flex: 1;
 
@@ -71,7 +74,6 @@ header {
 			font-weight: bold;
 			text-decoration: none;
 			color: $frontColor;
-			height: 75%;
 
 			&:first-child {
 				border-top-left-radius: $borderRad;
@@ -85,7 +87,43 @@ header {
 				color: #42b983;
 				border-top-left-radius: $borderRad;
 				border-top-right-radius: $borderRad;
-				height: 100%;
+
+				-webkit-transition: $navTrans;
+				-moz-transition: $navTrans;
+				-o-transition: $navTrans;
+				transition: $navTrans;
+
+				height: var(--max-height);
+			}
+
+			&:not(.router-link-exact-active) {
+				position: relative;
+				--height: 1.5rem;
+				bottom: calc(var(--height) - var(--max-height));
+
+				height: var(--heigth);
+
+				-webkit-transition: $navTrans;
+				-moz-transition: $navTrans;
+				-o-transition: $navTrans;
+				transition: $navTrans;
+
+				&:hover {
+					position: relative;
+					--height: var(--max-height);
+					bottom: calc(var(--height) - var(--max-height));
+
+					height: var(--heigth);
+
+					color: #2a664b;
+					border-top-left-radius: $borderRad;
+					border-top-right-radius: $borderRad;
+
+					-webkit-transition: $navTrans;
+					-moz-transition: $navTrans;
+					-o-transition: $navTrans;
+					transition: $navTrans;
+				}
 			}
 		}
 	}
