@@ -1,32 +1,45 @@
 <template>
 	<div id="code">
 		<h1>Enter your code</h1>
-		<input v-model="input.code" type="text" name="code" placeholder="Code" />
+		<input v-model="code" type="text" name="code" placeholder="Code" />
 		<button type="button" @click="login()">Login</button>
 	</div>
 </template>
 
 <script>
+import Api from '@/services/Api';
+
 export default {
 	name: 'Code',
 	data() {
 		return {
-			input: {
-				code: '',
-			},
+			code: '',
+			proccesing: false,
+			response: '',
 		};
 	},
 	methods: {
 		login() {
-			if (this.input.code != '') {
-				//TODO replace with api call
-				if (this.input.code == 'AAA') {
-					this.$emit('authenticated', {});
-				} else {
-					console.log('The code is incorrect');
-				}
+			if (this.code != '') {
+				this.proccesing = true;
+				Api()
+					.get('auth')
+					.then(
+						result => {
+							//TODO save response
+							this.$emit('authenticated', {});
+						},
+						error => {
+							this.response = 'The code is incorrect TODO translate';
+							console.log(this.response);
+							console.log(error);
+						}
+					).then(() => {
+						this.proccesing = false;
+					});
 			} else {
-				console.log('A code must be present');
+				this.response = 'A code must be present TODO translate';
+				console.log(this.response);
 			}
 		},
 	},
