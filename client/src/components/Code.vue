@@ -27,6 +27,7 @@ export default {
 					.then(
 						result => {
 							//TODO save response
+							console.log(result);
 							this.$emit('authenticated', {});
 						},
 						error => {
@@ -34,7 +35,8 @@ export default {
 							console.log(this.response);
 							console.log(error);
 						}
-					).then(() => {
+					)
+					.then(() => {
 						this.proccesing = false;
 					});
 			} else {
