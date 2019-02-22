@@ -1,7 +1,8 @@
 <template>
 	<div id="code">
-		<h1>Enter your code</h1>
-		<input v-model="code" type="text" name="code" placeholder="Code" />
+		<h1>{{ $t('login.prompt') }}</h1>
+		<input v-model="code" type="text" name="code" :placeholder="$t('login.code')" />
+		<p>{{ $t(response) }}</p>
 		<button type="button" @click="login()">Login</button>
 	</div>
 </template>
@@ -23,15 +24,13 @@ export default {
 			if (this.code != '') {
 				this.proccesing = true;
 				Api()
-					.get('auth')
+					.post('auth', { code: this.code })
 					.then(
 						result => {
-							//TODO save response
-							console.log(result);
-							this.$emit('authenticated', {});
+							this.$emit('authenticated', result.data);
 						},
 						error => {
-							this.response = 'The code is incorrect TODO translate';
+							this.response = 'login.error.incorrect';
 							console.log(this.response);
 							console.log(error);
 						}
@@ -40,7 +39,7 @@ export default {
 						this.proccesing = false;
 					});
 			} else {
-				this.response = 'A code must be present TODO translate';
+				this.response = 'login.error.empty';
 				console.log(this.response);
 			}
 		},

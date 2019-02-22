@@ -1,7 +1,7 @@
 <template>
 	<div class="response">
 		<div v-if="authData">
-			<div v-if="authData.Admin">
+			<div v-if="authData.admin">
 				<Admin />
 			</div>
 			<div v-else>

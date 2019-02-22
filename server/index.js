@@ -70,5 +70,24 @@ app.get('/history', (req, res) => {
 		]);
 });
 
+app.post('/auth', (req, res) => {
+	let code = req.body.code;
+
+	//TODO real code checking and return of data
+	if (code === 'AAA') {
+		res.send({
+			admin: true,
+			code: code,
+		});
+	} else if (code === 'BBB') {
+		res.send({
+			admin: false,
+			code: code,
+		});
+	} else {
+		res.status(401).body('Incorrect code.');
+	}
+});
+
 
 app.listen(process.env.PORT || 8083);
