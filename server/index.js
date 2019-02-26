@@ -3,10 +3,22 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
+const MongoClient = require('mongodb').MongoClient;
+var config = require('config');
+var dbUrl = config.get('dbUrl');
+var dbName = config.get('dbName');
+
 const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
+
+ 
+
+var client = await mongodb.MongoClient.connect(dbUrl, { useNewUrlParser: true });
+this.db = client.db(dbName);
+client.close();
+
 
 app.get('/shedule', (req, res) => {
 	res.send(
