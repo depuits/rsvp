@@ -5,6 +5,8 @@ const morgan = require('morgan');
 
 const MongoClient = require('mongodb').MongoClient;
 var config = require('config');
+
+var port = config.get('port');
 var dbUrl = config.get('dbUrl');
 var dbName = config.get('dbName');
 
@@ -13,11 +15,11 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
- 
+ /*
 
 var client = await mongodb.MongoClient.connect(dbUrl, { useNewUrlParser: true });
 this.db = client.db(dbName);
-client.close();
+client.close();*/
 
 
 app.get('/shedule', (req, res) => {
@@ -101,5 +103,4 @@ app.post('/auth', (req, res) => {
 	}
 });
 
-
-app.listen(process.env.PORT || 8083);
+app.listen(process.env.PORT || port);
