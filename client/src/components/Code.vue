@@ -47,13 +47,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #code {
-	width: 500px;
-	border: 1px solid #cccccc;
-	background-color: #ffffff;
 	margin: auto;
-	margin-top: 200px;
-	padding: 20px;
+	margin: 2rem;
 }
 </style>

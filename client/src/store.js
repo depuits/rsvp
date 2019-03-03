@@ -20,6 +20,9 @@ export default new Vuex.Store({
 		SET_HISTORY(state, history) {
 			state.history = history;
 		},
+		ADD_EVENT(state, event) {
+			state.shedule.events.push(event);
+		},
 	},
 	actions: {
 		loadShedule(context, force) {
@@ -53,6 +56,23 @@ export default new Vuex.Store({
 				.then(
 					result => {
 						context.commit('SET_HISTORY', result.data);
+					},
+					error => {
+						console.error(error);
+					}
+				)
+				.then(() => {
+					context.commit('SET_LOADING', false);
+				});
+		},
+
+		createEvent(context, event) {
+			context.commit('SET_LOADING', true);
+			Api()
+				.post('shedule', event)
+				.then(
+					result => {
+						context.commit('ADD_EVENT', result.data);
 					},
 					error => {
 						console.error(error);
