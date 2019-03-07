@@ -18,6 +18,9 @@ export default {
 	components: {
 		EventEdit,
 	},
+	created() {
+		this.$store.dispatch('loadShedule');
+	},
 	methods: {
 		createEvent: function() {
 			let event = {
@@ -29,9 +32,6 @@ export default {
 			};
 			this.$store.dispatch('createEvent', event);
 		},
-	},
-	created() {
-		this.$store.dispatch('loadShedule');
 	},
 };
 </script>
