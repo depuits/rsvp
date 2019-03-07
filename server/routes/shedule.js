@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const mongo = require('../lib/mongoUtil');
+const ObjectId = require('mongodb').ObjectId;
 const db = mongo.getDb();
-const col =db.collection('shedule');
+const col = db.collection('shedule');
 
 router.get('/', async function(req, res, next) {
 	let data = await col.find().toArray();
@@ -51,23 +52,36 @@ router.get('/', async function(req, res, next) {
 		],
 	}*/
 
-	res.send({
-		date: new Date(2019, 8, 23),
-		events: data,
-	});
+	res.send(data);
+});
+
+router.get('/date', async function(req, res, next) {
+	res.send(new Date(2019, 8, 23));
 });
 
 router.post('/', async function (req, res, next) {
 	//trust client to insert correct data
-	console.log('body nmae: ' + req.body.name);
-	let shedule = await col.findOneAndUpdate({ name: req.body.name }, { $set: req.body }, { upsert: true });
-	res.send(shedule.value);
+	let ret = await col.insertOne(req.body);
+	res.send(ret.ops[0]);
 });
 
-router.delete('/', async function (req, res, next) {
+router.put('/:id', async function (req, res, next) {
+	if (req.body._id && req.body._id != req.params.id) {
+		res.status(400);
+		res.send('body and url id mismatch');
+		return;
+	}
+
+	delete req.body._id;
 	//trust client to insert correct data
-	await col.deleteOne({ name: req.body.name });
+	let ret = await col.findOneAndUpdate({ _id: ObjectId(req.params.id) }, { $set: req.body });
+	res.send(ret.value);
+});
+
+router.delete('/:id', async function (req, res, next) {
+	await col.deleteOne({ _id: ObjectId(req.params.id) });
 	res.status(204);
+	res.send();
 });
 
 module.exports = router;

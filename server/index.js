@@ -12,7 +12,7 @@ const mongo = require('./lib/mongoUtil');
 const app = express();
 
 mongo.connect().then(() => {
-	app.use(morgan('combined'));
+	app.use(morgan('dev'));
 	app.use(bodyParser.json());
 	app.use(cors());
 

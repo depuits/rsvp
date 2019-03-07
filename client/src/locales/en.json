@@ -9,6 +9,7 @@
 		"intro": "Welcome to our wedding site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante ac eros ornare sagittis quis id mauris. Proin vulputate nec leo non scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 	},
 	"events": {
+		"new": "new event",
 		"law": "wedding law",
 		"church": "wedding church",
 		"reception": "reception",

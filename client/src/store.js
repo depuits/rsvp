@@ -8,6 +8,7 @@ export default new Vuex.Store({
 	state: {
 		loading: false,
 		shedule: null,
+		events: null,
 		history: null,
 	},
 	mutations: {
@@ -20,13 +21,25 @@ export default new Vuex.Store({
 		SET_HISTORY(state, history) {
 			state.history = history;
 		},
-		ADD_EVENT(state, event) {
-			state.shedule.events.push(event);
+		SET_EVENTS(state, events) {
+			state.events = events;
+		},
+		UPSERT_EVENT(state, event) {
+			const index = state.events.findIndex(e => e._id === event._id);
+			console.log('upsert ' + index + ': ' + event);
+			if (index === -1) {
+				state.events.push(event);
+			} else {
+				Vue.set(state.events, index, event);
+			}
+		},
+		REMOVE_EVENT(state, eventId) {
+			state.events = state.events.filter(e => e._id !== eventId);
 		},
 	},
 	actions: {
 		loadShedule(context, force) {
-			if (context.state.shedule && !force) {
+			if (context.state.events && !force) {
 				return; // data is already loaded
 			}
 
@@ -35,7 +48,7 @@ export default new Vuex.Store({
 				.get('shedule')
 				.then(
 					result => {
-						context.commit('SET_SHEDULE', result.data);
+						context.commit('SET_EVENTS', result.data);
 					},
 					error => {
 						console.error(error);
@@ -67,20 +80,40 @@ export default new Vuex.Store({
 		},
 
 		createEvent(context, event) {
-			context.commit('SET_LOADING', true);
 			Api()
 				.post('shedule', event)
 				.then(
 					result => {
-						context.commit('ADD_EVENT', result.data);
+						context.commit('UPSERT_EVENT', result.data);
 					},
 					error => {
 						console.error(error);
 					}
-				)
-				.then(() => {
-					context.commit('SET_LOADING', false);
-				});
+				);
+		},
+		updateEvent(context, event) {
+			Api()
+				.put('shedule/' + event._id, event)
+				.then(
+					result => {
+						context.commit('UPSERT_EVENT', result.data);
+					},
+					error => {
+						console.error(error);
+					}
+				);
+		},
+		deleteEvent(context, event) {
+			Api()
+				.delete('shedule/' + event._id)
+				.then(
+					() => {
+						context.commit('REMOVE_EVENT', event._id);
+					},
+					error => {
+						console.error(error);
+					}
+				);
 		},
 	},
 });
