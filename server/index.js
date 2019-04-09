@@ -3,6 +3,7 @@ require('express-async-errors');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const history = require('connect-history-api-fallback');
 
 const config = require('config');
 const port = config.get('port');
@@ -16,7 +17,9 @@ mongo.connect().then(() => {
 	app.use(bodyParser.json());
 	app.use(cors());
 
-	app.use('/api', require('./routes'));
+	app.use('/api', require('./routes')); // api endpoints
+	app.use(express.static('public')); // client and other static resources
+	app.use(history());
 
 	app.listen(port);
 

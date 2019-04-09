@@ -4,8 +4,8 @@
 		<div id="wrapper">
 			<Head />
 
-			<div v-if="$store.state.loading">Loading...</div>
-			<router-view v-else />
+			<div v-if="$store.state.loading" class="loading">Loading...</div>
+			<router-view />
 
 		</div>
 		<footer>
