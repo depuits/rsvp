@@ -1,4 +1,5 @@
 module.exports = {
+	publicPath: '/rsvp/',
 	pluginOptions: {
 		i18n: {
 			locale: 'en',
