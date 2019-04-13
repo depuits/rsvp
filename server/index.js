@@ -17,9 +17,11 @@ mongo.connect().then(() => {
 	app.use(bodyParser.json());
 	app.use(cors());
 
-	app.use('/api', require('./routes')); // api endpoints
-	app.use(express.static('public')); // client and other static resources
+	const staticFileMiddleware = express.static('public'); // client and other static resources
+	app.use(staticFileMiddleware);
 	app.use(history());
+	app.use(staticFileMiddleware);
+	app.use('/api', require('./routes')); // api endpoints
 
 	app.listen(port);
 
