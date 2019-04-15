@@ -6,6 +6,7 @@
     "start": "node ./node_modules/nodemon/bin/nodemon.js index.js"
   },
   "dependencies": {
+    "bluebird": "^3.5.4",
     "body-parser": "^1.18.3",
     "config": "^3.0.1",
     "connect-history-api-fallback": "^1.6.0",
