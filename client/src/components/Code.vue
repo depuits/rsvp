@@ -3,7 +3,7 @@
 		<h1>{{ $t('login.prompt') }}</h1>
 		<input v-model="code" type="text" name="code" :placeholder="$t('login.code')" />
 		<p>{{ $t(response) }}</p>
-		<button type="button" @click="login()">
+		<button class="ld-over-inverse running" type="button" @click="login()">
 			<div v-if="proccesing" class="lds-heart"><div></div></div>
 			<div v-else>Login</div>
 		</button>
