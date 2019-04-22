@@ -21,7 +21,7 @@ export default {
 	},
 	computed: mapState([
 		// map this.count to store.state.count
-		'events'
+		'events',
 	]),
 	created() {
 		this.$store.dispatch('loadShedule');

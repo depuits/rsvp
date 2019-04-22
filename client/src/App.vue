@@ -1,19 +1,15 @@
 <template>
 	<div id="app">
-		<Snow id="snow"/>
+		<Snow id="snow" />
 		<div id="wrapper">
 			<Head />
 
 			<div v-if="$store.state.loading" class="loading">Loading...</div>
 			<router-view />
-
 		</div>
 		<footer>
 			<select v-model="$i18n.locale">
-				<option
-					v-for="(lang, i) in langs"
-					:key="`Lang${i}`"
-					:value="lang">
+				<option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
 					{{ lang }}
 				</option>
 			</select>

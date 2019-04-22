@@ -1,27 +1,27 @@
 <template>
 	<header>
-		<img id="main" alt="couple" src="../assets/images/couple.svg"/>
+		<img id="main" alt="couple" src="../assets/images/couple.svg" />
 		<!-- <img alt="duck" src="../assets/images/duck.svg"/> -->
 		<h1>Joeri &amp; Elien</h1>
 		<nav>
-			<router-link to="/history">{{ $t("nav.history") }}</router-link>
-			<router-link to="/">{{ $t("nav.home") }}</router-link>
+			<router-link to="/history">{{ $t('nav.history') }}</router-link>
+			<router-link to="/">{{ $t('nav.home') }}</router-link>
 			<router-link to="/response">
-				{{ $t("nav.response") }}
-				<img src="../assets/images/duck.svg"/>
+				{{ $t('nav.response') }}
+				<img src="../assets/images/duck.svg" />
 			</router-link>
 		</nav>
 
-		<img id="duckLeft01" src="../assets/images/duck.svg"/>
-		<img id="duckLeft02" src="../assets/images/duck.svg"/>
-		<img id="duckLeft03" src="../assets/images/duck.svg"/>
-		<img id="duckLeft04" src="../assets/images/duck.svg"/>
+		<img id="duckLeft01" src="../assets/images/duck.svg" />
+		<img id="duckLeft02" src="../assets/images/duck.svg" />
+		<img id="duckLeft03" src="../assets/images/duck.svg" />
+		<img id="duckLeft04" src="../assets/images/duck.svg" />
 
-		<img id="duckRight01" src="../assets/images/duck.svg"/>
-		<img id="duckRight02" src="../assets/images/duck.svg"/>
-		<img id="duckRight03" src="../assets/images/duck.svg"/>
+		<img id="duckRight01" src="../assets/images/duck.svg" />
+		<img id="duckRight02" src="../assets/images/duck.svg" />
+		<img id="duckRight03" src="../assets/images/duck.svg" />
 
-		<hr/>
+		<hr />
 	</header>
 </template>
 

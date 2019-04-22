@@ -1,6 +1,6 @@
 <template>
 	<let-it-snow v-bind="snowConf" :show="show"></let-it-snow>
-</template>    
+</template>
 
 <script>
 import LetItSnow from 'vue-let-it-snow';

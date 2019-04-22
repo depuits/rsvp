@@ -1,11 +1,11 @@
 <template>
 	<li>
-		<input @change="change" v-model="event.name" />
-		<img :src="event.icon">
-		<input @change="change" v-model="event.start" />
-		<input @change="change" v-model="event.end" />
-		<input @change="change" v-model="event.mapUrl" />
-		<input @change="change" v-model="event.location" />
+		<input v-model="event.name" @change="change" />
+		<img :src="event.icon" />
+		<input v-model="event.start" @change="change" />
+		<input v-model="event.end" @change="change" />
+		<input v-model="event.mapUrl" @change="change" />
+		<input v-model="event.location" @change="change" />
 
 		<iframe v-if="event.mapUrl" :src="event.mapUrl" width="280" height="280" frameborder="0" style="border:0" />
 

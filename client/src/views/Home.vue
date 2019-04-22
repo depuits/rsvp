@@ -1,9 +1,9 @@
 <template>
 	<div v-if="events" class="home">
-		<h1>{{ $t("home.title") }}</h1>
-		<p>{{ $t("home.intro") }}</p>
+		<h1>{{ $t('home.title') }}</h1>
+		<p>{{ $t('home.intro') }}</p>
 
-		<img alt="Vue logo" src="../assets/logo.png"/>
+		<img alt="Vue logo" src="../assets/logo.png" />
 
 		<ul>
 			<Event v-for="e in events" :key="e._id" :event="e" />
@@ -23,7 +23,7 @@ export default {
 	},
 	computed: mapState([
 		// map this to store.state
-		'events'
+		'events',
 	]),
 	created() {
 		this.$store.dispatch('loadShedule');
