@@ -1,12 +1,22 @@
 <template>
 	<div id="code">
 		<h1>{{ $t('login.prompt') }}</h1>
-		<input v-model="code" type="text" name="code" :placeholder="$t('login.code')" />
-		<p>{{ $t(response) }}</p>
-		<button class="ld-over-inverse running" type="button" @click="login()">
+
+		<div class="ui action input">
+			<input v-model="code" type="text" :placeholder="$t('login.code')" />
+			<sui-button animated @click="login()">
+				<sui-button-content visible>{{$t('login.btn.submit')}}</sui-button-content>
+				<sui-button-content hidden>
+					<sui-icon name="right arrow" />
+				</sui-button-content>
+			</sui-button>
+		</div>
+
+		<p v-if="!proccesing">{{ $t(response) }}</p>
+		<!-- <button :class="['ld-over-inverse', proccesing ? 'running' : '']" type="button" @click="login()">
 			<div v-if="proccesing" class="lds-heart"><div></div></div>
 			<div v-else>Login</div>
-		</button>
+		</button> -->
 	</div>
 </template>
 
@@ -43,7 +53,7 @@ export default {
 						}
 					)
 					.then(() => {
-						this.proccesing = false;
+						//this.proccesing = false;
 					});
 			} else {
 				this.response = 'login.error.empty';

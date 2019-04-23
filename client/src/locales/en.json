@@ -25,6 +25,9 @@
 		"error": {
 			"empty": "A code must be present",
 			"incorrect": "The given code could not be verified."
+		},
+		"btn": {
+			"submit": "next"
 		}
 	}
 }
