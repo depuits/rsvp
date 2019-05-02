@@ -38,6 +38,10 @@ export default {
 	font-family: FunnyDuck;
 	src: url('./assets/fonts/FunnyDuck.ttf');
 }
+
+@import '@/scss/inputs.scss';
+@import '@/scss/loader.scss';
+
 :root {
 	font-size: 50%;
 	@media (min-width: 30rem) {

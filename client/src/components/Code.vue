@@ -2,21 +2,16 @@
 	<div id="code">
 		<h1>{{ $t('login.prompt') }}</h1>
 
-		<div class="ui action input">
+		<div class="group">
 			<input v-model="code" type="text" :placeholder="$t('login.code')" />
-			<sui-button animated @click="login()">
-				<sui-button-content visible>{{$t('login.btn.submit')}}</sui-button-content>
-				<sui-button-content hidden>
-					<sui-icon name="right arrow" />
-				</sui-button-content>
-			</sui-button>
+
+			<button :class="['ld-over-inverse', proccesing ? 'running' : '']" type="button" @click="login()">
+				<div v-if="proccesing" class="lds-heart"><div></div></div>
+				<div v-else>{{ $t('login.btn.submit') }}</div>
+			</button>
 		</div>
 
 		<p v-if="!proccesing">{{ $t(response) }}</p>
-		<!-- <button :class="['ld-over-inverse', proccesing ? 'running' : '']" type="button" @click="login()">
-			<div v-if="proccesing" class="lds-heart"><div></div></div>
-			<div v-else>Login</div>
-		</button> -->
 	</div>
 </template>
 

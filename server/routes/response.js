@@ -11,14 +11,23 @@ router.post('/retrieve', (req, res) => {
 			admin: true,
 			code: code,
 		});
-	} else if (code === 'BBB') {
-		res.send({
-			admin: false,
-			code: code,
-		});
 	} else {
-		res.status(401).body('Incorrect code.');
+		if (code === 'BBB') {
+			res.send({
+				admin: false,
+				code: code,
+			});
+		} else {
+			res.status(401).body('Incorrect code.');
+		}
 	}
+});
+
+router.post('/update', (req, res) => {
+	let data = req.body;
+	//let code = data.code;
+	
+	res.send(data);
 });
 
 module.exports = router;

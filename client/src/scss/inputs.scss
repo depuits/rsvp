@@ -1,0 +1,36 @@
+input {
+	-webkit-tap-highlight-color: rgba(255,255,255,0);
+	text-align: left;
+	line-height: 1.2em;
+	font-family: 'FunnyDuck', Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+	padding: .67em 1em;
+	background: #fff;
+	border: 1px solid rgba(34,36,38,.15);
+	color: rgba(0,0,0,.87);
+	border-radius: .28rem;
+}
+
+button {
+	cursor: pointer;
+	border: 1px solid rgba(34,36,38,.15);
+	background: #e0e1e2;
+	color: rgba(0,0,0,.6);
+	font-family: 'FunnyDuck', Helvetica, Arial, sans-serif;
+	margin: 0 .25em 0 0;
+	padding: .78em 1.5em .78em;
+    font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1em;
+	border-radius: .28rem;
+}
+
+.group > input {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.group > button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
