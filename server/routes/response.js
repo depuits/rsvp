@@ -25,9 +25,23 @@ router.post('/retrieve', (req, res) => {
 
 router.post('/update', (req, res) => {
 	let data = req.body;
-	//let code = data.code;
-	
-	res.send(data);
+	let code = data.code;
+
+	if (code !== 'xxx') {
+		//check if code is valid
+	}
+
+	// update data from db
+	var resp = {
+		code: 'xxx',
+		response: {},
+		info: {
+			names: [ 'friend', 'partner' ],
+			plusOne: false
+		}
+	};
+
+	res.send(resp);
 });
 
 module.exports = router;
