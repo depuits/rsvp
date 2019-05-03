@@ -136,7 +136,7 @@ header {
 
 			&.router-link-exact-active {
 				position: relative;
-				color: #42b983;
+				color: $activeColor;
 				border-top-left-radius: $borderRad;
 				border-top-right-radius: $borderRad;
 

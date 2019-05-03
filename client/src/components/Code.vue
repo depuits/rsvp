@@ -3,11 +3,13 @@
 		<h1>{{ $t('login.prompt') }}</h1>
 
 		<div class="group">
-			<input v-model="code" type="text" :placeholder="$t('login.code')" />
+			<input v-model="code" type="text" :placeholder="$t('login.code')" :disabled="proccesing" />
 
-			<button :class="['ld-over-inverse', proccesing ? 'running' : '']" type="button" @click="login()">
-				<div v-if="proccesing" class="lds-heart"><div></div></div>
-				<div v-else>{{ $t('login.btn.submit') }}</div>
+			<button type="button" @click="login()" :disabled="proccesing">
+				{{ $t('login.btn.submit') }}
+				<div v-if="proccesing" class="overlay tint">
+					<img class="lds-heart backColor" src="../assets/images/heart.png" />
+				</div>
 			</button>
 		</div>
 
@@ -48,7 +50,7 @@ export default {
 						}
 					)
 					.then(() => {
-						//this.proccesing = false;
+						this.proccesing = false;
 					});
 			} else {
 				this.response = 'login.error.empty';

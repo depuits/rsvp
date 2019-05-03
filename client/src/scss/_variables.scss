@@ -1,5 +1,18 @@
 $frontColor: #333;
 $backColor: #fff;
 
+$activeColor: #f1283f;
+
 //calculate filter from hex https://codepen.io/sosuke/pen/Pjoqqp
 $frontColorFilter: invert(15%) sepia(0%) saturate(2%) hue-rotate(81deg) brightness(100%) contrast(85%);
+$backColorFilter: invert(100%) sepia(1%) saturate(1136%) hue-rotate(208deg) brightness(116%) contrast(100%);
+
+.frontColor {
+    filter: $frontColorFilter;
+    color: $frontColor;
+}
+
+.backColor {
+    filter: $backColorFilter;
+    color: $backColor;
+}

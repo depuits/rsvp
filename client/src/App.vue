@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<Snow id="snow" />
+		<!-- <Snow id="snow" /> -->
 		<div id="wrapper">
-			<Head />
+			<!-- <Head /> -->
 
 			<div v-if="$store.state.loading" class="loading">Loading...</div>
 			<router-view />
@@ -40,7 +40,7 @@ export default {
 }
 
 @import '@/scss/inputs.scss';
-@import '@/scss/loader.scss';
+@import '@/scss/heartbeat.scss';
 
 :root {
 	font-size: 50%;
