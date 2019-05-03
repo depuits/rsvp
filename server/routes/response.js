@@ -3,7 +3,7 @@ const config = require('config');
 const adminPass = config.get('adminPass');
 
 router.post('/retrieve', (req, res) => {
-	let code = req.body.code;
+	let code = req.body.code.toLowerCase(); // we make the string lower case because capitals are not clear in the font
 
 	//TODO real code checking and return of data
 	if (code === adminPass) {

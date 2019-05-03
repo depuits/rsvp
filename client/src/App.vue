@@ -1,11 +1,13 @@
 <template>
 	<div id="app">
-		<!-- <Snow id="snow" /> -->
+		<Snow id="snow" />
 		<div id="wrapper">
-			<!-- <Head /> -->
+			<Head />
 
-			<div v-if="$store.state.loading" class="loading">Loading...</div>
-			<router-view />
+			<div v-if="$store.state.loading">
+				<img class="lds-heart frontColor" src="./assets/images/heart.png" />
+			</div>
+			<router-view v-else />
 		</div>
 		<footer>
 			<select v-model="$i18n.locale">

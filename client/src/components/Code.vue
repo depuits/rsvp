@@ -5,7 +5,7 @@
 		<div class="group">
 			<input v-model="code" type="text" :placeholder="$t('login.code')" :disabled="proccesing" />
 
-			<button type="button" @click="login()" :disabled="proccesing">
+			<button type="button" :disabled="proccesing" @click="login()">
 				{{ $t('login.btn.submit') }}
 				<div v-if="proccesing" class="overlay tint">
 					<img class="lds-heart backColor" src="../assets/images/heart.png" />
