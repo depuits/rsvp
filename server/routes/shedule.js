@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const mongo = require('../lib/mongoUtil');
-const ObjectId = require('mongodb').ObjectId;
+const ObjectId = require('mongodb').ObjectID;
 const db = mongo.getDb();
 const col = db.collection('shedule');
 

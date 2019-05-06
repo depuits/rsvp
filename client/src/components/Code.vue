@@ -38,7 +38,7 @@ export default {
 			if (this.code) {
 				this.proccesing = true;
 				Api()
-					.post('response/retrieve', {}, { headers: { 'x-code':  this.code }})
+					.post('response/retrieve', {}, { headers: { 'x-code': this.code } })
 					.then(
 						result => {
 							this.$emit('authenticated', result.data);

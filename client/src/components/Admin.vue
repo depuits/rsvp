@@ -5,7 +5,7 @@
 		<h2>Guests</h2>
 		<div v-if="responses && responses.length">
 			<ul>
-				<EventEdit v-for="r in responses" :key="r.code" :response="r" />
+				<GuestResponse v-for="r in responses" :key="r.code" :response="r" :auth-data="authData" @removed="guestRemoved" />
 			</ul>
 		</div>
 		<div v-else>No guests created</div>
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import EventEdit from '@/components/EventEdit.vue';
+import GuestResponse from '@/components/GuestResponse.vue';
 import Api from '@/services/Api';
 
 export default {
 	name: 'Admin',
 	components: {
-		EventEdit,
+		GuestResponse,
 	},
 	props: {
 		authData: { type: Object, required: true },
@@ -32,8 +32,12 @@ export default {
 		};
 	},
 	created() {
+		this.loadGuests();
+	},
+	methods: {
+		loadGuests: function() {
 		Api()
-			.get('response/all', { headers: { 'x-code':  this.authData.code }})
+			.get('response/all', { headers: { 'x-code': this.authData.code } })
 			.then(
 				result => {
 					this.responses = result.data;
@@ -42,12 +46,11 @@ export default {
 					console.error(error);
 				}
 			);
-	},
-	methods: {
+		},
 		createGuest: function() {
-			let data = { };
+			let data = {};
 			Api()
-				.post('response/create', data, { headers: { 'x-code':  this.authData.code }})
+				.post('response/create', data, { headers: { 'x-code': this.authData.code } })
 				.then(
 					result => {
 						this.responses.push(result.data);
@@ -56,6 +59,9 @@ export default {
 						alert(this.$t('admin.guest.createFailed'));
 					}
 				);
+		},
+		guestRemoved(resp) {
+			this.loadGuests();
 		},
 	},
 };

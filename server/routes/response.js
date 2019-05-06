@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const adminPass = config.get('adminPass');
 
 const mongo = require('../lib/mongoUtil');
+const ObjectId = require('mongodb').ObjectID;
 const db = mongo.getDb();
 const col = db.collection('response');
 
@@ -73,7 +74,6 @@ router.post('/update', (req, res) => {
 
 router.get('/all', checkAdmin, async (req, res) => {
 	let data = await col.find().toArray();
-	console.log(data);
 	res.send(data);
 });
 
@@ -90,6 +90,25 @@ router.post('/create', checkAdmin, async (req, res) => {
 	//insert in db
 	let ret = await col.insertOne(data);
 	res.send(ret.ops[0]);
+});
+
+router.put('/:id', checkAdmin, async function (req, res, next) {
+	if (req.body._id && req.body._id != req.params.id) {
+		res.status(400);
+		res.send('body and url id mismatch');
+		return;
+	}
+
+	delete req.body._id;
+	//trust client to insert correct data
+	let ret = await col.findOneAndUpdate({ _id: ObjectId(req.params.id) }, { $set: req.body }, { returnOriginal: false });
+	res.send(ret.value);
+});
+
+router.delete('/:id', checkAdmin, async function (req, res, next) {
+	await col.deleteOne({ _id: ObjectId(req.params.id) });
+	res.status(204);
+	res.send();
 });
 
 module.exports = router;

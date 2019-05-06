@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<!-- <Snow id="snow" /> -->
+		<Snow id="snow" />
 		<div id="wrapper">
-			<!-- <Head /> -->
+			<Head />
 
 			<div v-if="$store.state.loading">
 				<img class="lds-heart frontColor" src="./assets/images/heart.png" />
