@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# ignore everything in images
+server/public/images/*
+# except for the placeholder
+!server/public/images/placeholder.png

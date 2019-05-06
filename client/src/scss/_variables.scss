@@ -2,6 +2,7 @@ $frontColor: #333;
 $backColor: #fff;
 
 $activeColor: #f14628;
+$hoverColor: #9e2914;
 
 //calculate filter from hex https://codepen.io/sosuke/pen/Pjoqqp
 $frontColorFilter: invert(15%) sepia(0%) saturate(2%) hue-rotate(81deg) brightness(100%) contrast(85%);

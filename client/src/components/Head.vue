@@ -167,7 +167,7 @@ header {
 
 					height: var(--heigth);
 
-					color: #2a664b;
+					color: $hoverColor;
 					border-top-left-radius: $borderRad;
 					border-top-right-radius: $borderRad;
 

@@ -12,7 +12,7 @@ router.post('/retrieve', (req, res) => {
 			code: code,
 		});
 	} else {
-		if (code === 'BBB') {
+		if (code === 'bbb') {
 			res.send({
 				admin: false,
 				code: code,
