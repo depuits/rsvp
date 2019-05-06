@@ -38,15 +38,13 @@ export default {
 			if (this.code) {
 				this.proccesing = true;
 				Api()
-					.post('response/retrieve', { code: this.code })
+					.post('response/retrieve', {}, { headers: { 'x-code':  this.code }})
 					.then(
 						result => {
 							this.$emit('authenticated', result.data);
 						},
 						error => {
 							this.response = 'login.error.incorrect';
-							console.log(this.response);
-							console.log(error);
 						}
 					)
 					.then(() => {
@@ -54,7 +52,6 @@ export default {
 					});
 			} else {
 				this.response = 'login.error.empty';
-				console.log(this.response);
 			}
 		},
 	},
@@ -63,7 +60,6 @@ export default {
 
 <style scoped lang="scss">
 #code {
-	margin: auto;
 	margin: 2rem;
 }
 </style>

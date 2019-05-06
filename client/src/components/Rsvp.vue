@@ -7,5 +7,8 @@
 <script>
 export default {
 	name: 'Rsvp',
+	props: {
+		authData: { type: Object, required: true },
+	},
 };
 </script>

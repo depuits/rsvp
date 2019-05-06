@@ -14,7 +14,7 @@ input {
 	color: rgba(0,0,0,.9);
 }
 input:focus {
-	border-color: rgba(59, 120, 177, 0.377);
+	border-color: $activeColor;
 }
 input:disabled {
     background: #eee;

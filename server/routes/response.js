@@ -1,25 +1,52 @@
 const router = require('express').Router();
 const config = require('config');
+const crypto = require('crypto');
 const adminPass = config.get('adminPass');
 
-router.post('/retrieve', (req, res) => {
-	let code = req.body.code.toLowerCase(); // we make the string lower case because capitals are not clear in the font
+const mongo = require('../lib/mongoUtil');
+const db = mongo.getDb();
+const col = db.collection('response');
 
-	//TODO real code checking and return of data
-	if (code === adminPass) {
+function checkAdmin(req, res, next) {
+	if (res.locals.admin) {
+		return next();
+	}
+
+	res.status(401).json({ msg: 'Must be admin.' });
+}
+
+router.use(async (req, res, next) => {
+	let code = req.header('x-code');
+	if (!code) {
+		return res.status(401).json({ msg: 'No code given.' });
+	}
+
+	code = code.toLowerCase(); // we make the string lower case because capitals are not clear in the font
+	res.locals.code = code;
+
+	if (code === adminPass.toLowerCase()) {
+		res.locals.admin = true;
+		return next();
+	} else {
+		var resp = await col.findOne({ code: code });
+		if (resp) {
+			res.locals.response = resp;
+			return next();
+		}
+	}
+
+	return res.status(401).json({ msg: 'Invalid code.' });
+});
+
+router.post('/retrieve', (req, res) => {
+	if (res.locals.admin) {
 		res.send({
 			admin: true,
-			code: code,
+			code: res.locals.code,
+			responses: {},
 		});
 	} else {
-		if (code === 'bbb') {
-			res.send({
-				admin: false,
-				code: code,
-			});
-		} else {
-			res.status(401).body('Incorrect code.');
-		}
+		res.send(res.locals.response);
 	}
 });
 
@@ -42,6 +69,27 @@ router.post('/update', (req, res) => {
 	};
 
 	res.send(resp);
+});
+
+router.get('/all', checkAdmin, async (req, res) => {
+	let data = await col.find().toArray();
+	console.log(data);
+	res.send(data);
+});
+
+router.post('/create', checkAdmin, async (req, res) => {
+	let data = req.body;
+
+	data.created = new Date();
+
+	do {
+		//create a new code for our data
+		data.code = crypto.randomBytes(4).toString('hex');
+	} while (await col.findOne({ code: data.code })); // repeat if the code happens to be in the database
+
+	//insert in db
+	let ret = await col.insertOne(data);
+	res.send(ret.ops[0]);
 });
 
 module.exports = router;

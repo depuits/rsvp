@@ -1,40 +1,61 @@
 <template>
-	<div v-if="events" class="admin">
+	<div class="admin">
 		<h1>This is the admin page</h1>
 
-		<ul>
-			<EventEdit v-for="e in events" :key="e._id" :event="e" />
-		</ul>
+		<h2>Guests</h2>
+		<div v-if="responses && responses.length">
+			<ul>
+				<EventEdit v-for="r in responses" :key="r.code" :response="r" />
+			</ul>
+		</div>
+		<div v-else>No guests created</div>
 
-		<button @click="createEvent">Create event</button>
+		<button @click="createGuest">{{ $t('admin.guest.create') }}</button>
 	</div>
 </template>
 
 <script>
 import EventEdit from '@/components/EventEdit.vue';
-import { mapState } from 'vuex';
+import Api from '@/services/Api';
 
 export default {
 	name: 'Admin',
 	components: {
 		EventEdit,
 	},
-	computed: mapState([
-		// map this.count to store.state.count
-		'events',
-	]),
+	props: {
+		authData: { type: Object, required: true },
+	},
+	data() {
+		return {
+			responses: [],
+		};
+	},
 	created() {
-		this.$store.dispatch('loadShedule');
+		Api()
+			.get('response/all', { headers: { 'x-code':  this.authData.code }})
+			.then(
+				result => {
+					this.responses = result.data;
+				},
+				error => {
+					console.error(error);
+				}
+			);
 	},
 	methods: {
-		createEvent: function() {
-			let event = {
-				name: 'events.new',
-				icon: '',
-				start: new Date(),
-				end: new Date(),
-			};
-			this.$store.dispatch('createEvent', event);
+		createGuest: function() {
+			let data = { };
+			Api()
+				.post('response/create', data, { headers: { 'x-code':  this.authData.code }})
+				.then(
+					result => {
+						this.responses.push(result.data);
+					},
+					error => {
+						alert(this.$t('admin.guest.createFailed'));
+					}
+				);
 		},
 	},
 };

@@ -2,10 +2,10 @@
 	<div class="response">
 		<div v-if="authData">
 			<div v-if="authData.admin">
-				<Admin />
+				<Admin :auth-data="authData" />
 			</div>
 			<div v-else>
-				<Rsvp />
+				<Rsvp :auth-data="authData" />
 			</div>
 		</div>
 		<div v-else>

@@ -29,5 +29,11 @@
 		"btn": {
 			"submit": "next"
 		}
+	},
+	"admin": {
+		"guest": {
+			"create": "Create guest",
+			"createFailed": "Guest creation failed."
+		}
 	}
 }
