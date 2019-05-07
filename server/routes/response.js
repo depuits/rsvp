@@ -6,7 +6,7 @@ const adminPass = config.get('adminPass');
 const mongo = require('../lib/mongoUtil');
 const ObjectId = require('mongodb').ObjectID;
 const db = mongo.getDb();
-const col = db.collection('response');
+const col = db.collection('guest');
 
 function checkAdmin(req, res, next) {
 	if (res.locals.admin) {
@@ -29,9 +29,9 @@ router.use(async (req, res, next) => {
 		res.locals.admin = true;
 		return next();
 	} else {
-		var resp = await col.findOne({ code: code });
-		if (resp) {
-			res.locals.response = resp;
+		var guest = await col.findOne({ 'info.code': code });
+		if (guest) {
+			res.locals.guest = guest;
 			return next();
 		}
 	}
@@ -44,20 +44,17 @@ router.post('/retrieve', (req, res) => {
 		res.send({
 			admin: true,
 			code: res.locals.code,
-			responses: {},
 		});
 	} else {
-		res.send(res.locals.response);
+		res.send(res.locals.guest);
 	}
 });
 
 router.post('/update', (req, res) => {
+	//update a quests response
+	//TODO implement correct behaviour
 	let data = req.body;
 	let code = data.code;
-
-	if (code !== 'xxx') {
-		//check if code is valid
-	}
 
 	// update data from db
 	var resp = {
@@ -73,22 +70,26 @@ router.post('/update', (req, res) => {
 });
 
 router.get('/all', checkAdmin, async (req, res) => {
-	let data = await col.find().toArray();
-	res.send(data);
+	let guests = await col.find().toArray();
+	res.send(guests);
 });
 
 router.post('/create', checkAdmin, async (req, res) => {
-	let data = req.body;
-
-	data.created = new Date();
+	let guest = {
+		created: new Date(),
+		info: {
+			names: [],
+			partner: false,
+		},
+	};
 
 	do {
-		//create a new code for our data
-		data.code = crypto.randomBytes(4).toString('hex');
-	} while (await col.findOne({ code: data.code })); // repeat if the code happens to be in the database
+		//create a new code for our guest
+		guest.info.code = crypto.randomBytes(4).toString('hex');
+	} while (await col.findOne({ 'info.code': guest.info.code })); // repeat if the code happens to be in the database
 
 	//insert in db
-	let ret = await col.insertOne(data);
+	let ret = await col.insertOne(guest);
 	res.send(ret.ops[0]);
 });
 
@@ -101,7 +102,7 @@ router.put('/:id', checkAdmin, async function (req, res, next) {
 
 	delete req.body._id;
 	//trust client to insert correct data
-	let ret = await col.findOneAndUpdate({ _id: ObjectId(req.params.id) }, { $set: req.body }, { returnOriginal: false });
+	let ret = await col.findOneAndUpdate({ _id: ObjectId(req.params.id) }, { $set: { info: req.body } }, { returnOriginal: false });
 	res.send(ret.value);
 });
 
