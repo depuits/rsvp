@@ -7,7 +7,7 @@
 			<div v-if="$store.state.loading">
 				<img class="lds-heart frontColor" src="./assets/images/heart.png" />
 			</div>
-			<router-view v-else />
+			<router-view v-else class="content" />
 		</div>
 		<footer>
 			<select v-model="$i18n.locale">
@@ -36,10 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-@font-face {
-	font-family: FunnyDuck;
-	src: url('./assets/fonts/FunnyDuck.ttf');
-}
+
 
 @import '@/scss/inputs.scss';
 @import '@/scss/heartbeat.scss';

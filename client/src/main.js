@@ -3,10 +3,12 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import i18n from './i18n';
+import Buefy from 'buefy';
 import LetItSnow from 'vue-let-it-snow';
 
 Vue.config.productionTip = false;
 
+Vue.use(Buefy);
 Vue.use(LetItSnow);
 
 new Vue({

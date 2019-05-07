@@ -96,9 +96,10 @@ header {
 	h1 {
 		width: $navWidth;
 		position: absolute;
-		top: 1rem;
+		top: 3rem;
 		left: $navRight;
 		font-size: 3.5rem;
+		font-weight: bold;
 	}
 
 	nav {
@@ -145,7 +146,7 @@ header {
 				-o-transition: $navTrans;
 				transition: $navTrans;
 
-				height: var(--max-height);
+				//height: var(--max-height);
 			}
 
 			&:not(.router-link-exact-active) {
