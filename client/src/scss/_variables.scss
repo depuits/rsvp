@@ -1,9 +1,11 @@
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
+
 @font-face {
 	font-family: FunnyDuck;
 	src: url('~@/assets/fonts/FunnyDuck.ttf');
 }
+
 $family-primary: 'FunnyDuck', Helvetica, Arial, sans-serif;
 
 $frontColor: #333;

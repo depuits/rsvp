@@ -6,6 +6,8 @@ import i18n from './i18n';
 import Buefy from 'buefy';
 import LetItSnow from 'vue-let-it-snow';
 
+import '@mdi/font/css/materialdesignicons.min.css';
+
 Vue.config.productionTip = false;
 
 Vue.use(Buefy);

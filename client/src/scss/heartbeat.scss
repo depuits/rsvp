@@ -1,3 +1,15 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;  
+}
+
+.tint {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 .lds-heart {
 	animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 	max-width: 90%;
