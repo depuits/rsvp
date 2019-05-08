@@ -1,10 +1,25 @@
 <template>
-	<li>
-		<input v-model="guest.info.code" readonly />
-		<input v-for="(n, i) in guest.info.names" :key="i" v-model="guest.info.names[i]" @change="change" />
-		<button @click="addName">Add name</button>
+	<li class="columns">
+		<div class="column">
+			<b-field horizontal label="Code"><b-input v-model="guest.info.code" readonly /></b-field>
 
-		<button @click="remove">Delete</button>
+			<b-field horizontal grouped :label="i ? '' : 'names'"  v-for="(n, i) in guest.info.names" :key="i">
+				<div class="field has-addons is-expanded">
+					<b-input v-model="guest.info.names[i]" @change="change" />
+					<div class="control">
+						<b-button @click="removeName(i)" type="is-danger"><b-icon icon="account-remove" /></b-button>
+					</div>
+				</div>
+			</b-field>
+			<b-field horizontal>
+				<div class="control">
+					<b-button @click="addName">Add name</b-button>
+				</div>
+			</b-field>
+		</div>
+		<div class="column">
+			<b-button @click="remove">Delete</b-button>
+		</div>
 	</li>
 </template>
 
@@ -38,6 +53,11 @@ export default {
 	methods: {
 		addName: function() {
 			this.guest.info.names.push('');
+			change();
+		},
+		removeName: function(i) {
+			this.guest.info.names.splice(i, 1);
+			change();
 		},
 		remove: function() {
 			Api()
