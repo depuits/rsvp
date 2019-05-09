@@ -5,7 +5,7 @@
 
 			<b-field v-for="(n, i) in guest.info.names" :key="i" :label="i ? '' : 'names'" grouped horizontal>
 				<div class="field has-addons is-expanded">
-					<b-input v-model="guest.info.names[i]" @change="change" />
+					<b-input v-model="guest.info.names[i]" expanded @input="change" />
 					<div class="control">
 						<b-button type="is-danger" @click="removeName(i)"><b-icon icon="account-remove"/></b-button>
 					</div>
