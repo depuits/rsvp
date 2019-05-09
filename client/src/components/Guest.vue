@@ -16,6 +16,9 @@
 					<b-button @click="addName">Add name</b-button>
 				</div>
 			</b-field>
+			<b-field horizontal label="partner">
+				<b-switch v-model="guest.info.partner"></b-switch>
+			</b-field>
 		</div>
 		<div class="column">
 			<b-button @click="remove">Delete</b-button>
