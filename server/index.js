@@ -19,7 +19,9 @@ mongo.connect().then(() => {
 
 	app.use('/api', require('./routes')); // api endpoints
 	
-	const staticFileMiddleware = express.static('public'); // client and other static resources
+	app.use(express.static('public')); // static resources
+
+	const staticFileMiddleware = express.static('client'); // client resources
 	app.use(staticFileMiddleware);
 	app.use(history());
 	app.use(staticFileMiddleware);
