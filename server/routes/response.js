@@ -2,6 +2,7 @@ const router = require('express').Router();
 const config = require('config');
 const crypto = require('crypto');
 const adminPass = config.get('adminPass');
+const deadLine = config.get('deadLine');
 
 const mongo = require('../lib/mongoUtil');
 const ObjectId = require('mongodb').ObjectID;
@@ -31,6 +32,7 @@ router.use(async (req, res, next) => {
 	} else {
 		var guest = await col.findOne({ 'info.code': code });
 		if (guest) {
+			guest.deadLine = deadLine;
 			res.locals.guest = guest;
 			return next();
 		}
@@ -51,10 +53,13 @@ router.post('/retrieve', (req, res) => {
 });
 
 router.post('/update', (req, res) => {
+	if(deadLine < new Date()) {
+		res.status(410).json({ msg: 'Past deadline.' });
+	}
+
 	//update a quests response
 	//TODO implement correct behaviour
 	let data = req.body;
-	let code = data.code;
 
 	// update data from db
 	var resp = {
