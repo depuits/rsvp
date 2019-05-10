@@ -52,12 +52,12 @@ router.post('/retrieve', (req, res) => {
 	}
 });
 
-router.post('/update', (req, res) => {
+router.post('/update', async (req, res) => {
 	if(deadLine < new Date()) {
 		res.status(410).json({ msg: 'Past deadline.' });
 	}
 
-	// update data from db	
+	// update data from db
 	//trust client to insert correct data
 	let resp = await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { response: req.body } }, { returnOriginal: false });
 
