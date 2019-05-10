@@ -7,7 +7,7 @@ var config = {
 	dbUrl: 'mongodb://localhost:27017',
 	dbName: 'rsvp',
 	adminPass: 'secret',
-	deadLine: new Date(2019, 8, 1),
+	deadLine: new Date(2019, 7, 1),
 };
 
 module.exports = config;

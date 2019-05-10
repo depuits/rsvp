@@ -12,6 +12,7 @@
 					password-reveal
 					maxlength="8"
 					size="is-large"
+					custom-class="upperCaseCode"
 				/>
 
 				<div class="control">
@@ -71,9 +72,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss">
-#code input.input {
-	text-transform: uppercase;
-}
-</style>

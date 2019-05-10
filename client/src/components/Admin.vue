@@ -10,7 +10,7 @@
 		</div>
 		<div v-else>No guests created</div>
 
-		<button @click="createGuest">{{ $t('admin.guest.create') }}</button>
+		<b-button @click="createGuest">{{ $t('admin.guest.create') }}</b-button>
 	</div>
 </template>
 
