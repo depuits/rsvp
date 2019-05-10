@@ -57,19 +57,9 @@ router.post('/update', (req, res) => {
 		res.status(410).json({ msg: 'Past deadline.' });
 	}
 
-	//update a quests response
-	//TODO implement correct behaviour
-	let data = req.body;
-
-	// update data from db
-	var resp = {
-		code: 'xxx',
-		response: {},
-		info: {
-			names: [ 'friend', 'partner' ],
-			plusOne: false
-		}
-	};
+	// update data from db	
+	//trust client to insert correct data
+	let resp = await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { response: req.body } }, { returnOriginal: false });
 
 	res.send(resp);
 });
