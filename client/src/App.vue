@@ -38,14 +38,31 @@ export default {
 <style lang="scss">
 @import '@/scss/heartbeat.scss';
 
+// prettier-ignore
 :root {
 	font-size: 50%;
+	
+	.mdi-18px.mdi-set, .mdi-18px.mdi:before { font-size: 9px; }
+	.mdi-24px.mdi-set, .mdi-24px.mdi:before { font-size: 12px; }
+	.mdi-36px.mdi-set, .mdi-36px.mdi:before { font-size: 18px; }
+	.mdi-48px.mdi-set, .mdi-48px.mdi:before { font-size: 24px; }
+
 	@media (min-width: 30rem) {
 		font-size: 70%;
+
+		.mdi-18px.mdi-set, .mdi-18px.mdi:before { font-size: 12px; }
+		.mdi-24px.mdi-set, .mdi-24px.mdi:before { font-size: 17px; }
+		.mdi-36px.mdi-set, .mdi-36px.mdi:before { font-size: 25px; }
+		.mdi-48px.mdi-set, .mdi-48px.mdi:before { font-size: 34px; }
 	}
 
 	@media (min-width: 48rem) {
 		font-size: 100%;
+
+		.mdi-18px.mdi-set, .mdi-18px.mdi:before { font-size: 18px; }
+		.mdi-24px.mdi-set, .mdi-24px.mdi:before { font-size: 24px; }
+		.mdi-36px.mdi-set, .mdi-36px.mdi:before { font-size: 36px; }
+		.mdi-48px.mdi-set, .mdi-48px.mdi:before { font-size: 48px; }
 	}
 }
 
