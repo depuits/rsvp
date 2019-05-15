@@ -3,11 +3,13 @@ const config = require('config');
 const crypto = require('crypto');
 const adminPass = config.get('adminPass');
 const deadLine = config.get('deadLine');
+const defaultQuestions = config.get('defaultQuestions');
 
 const mongo = require('../lib/mongoUtil');
 const ObjectId = require('mongodb').ObjectID;
 const db = mongo.getDb();
 const col = db.collection('guest');
+
 
 function checkAdmin(req, res, next) {
 	if (res.locals.admin) {
@@ -33,6 +35,7 @@ router.use(async (req, res, next) => {
 		var guest = await col.findOne({ 'info.code': code });
 		if (guest) {
 			guest.deadLine = deadLine;
+			guest.defaultQuestions = defaultQuestions;
 			res.locals.guest = guest;
 			return next();
 		}
@@ -73,8 +76,9 @@ router.post('/create', checkAdmin, async (req, res) => {
 	let guest = {
 		created: new Date(),
 		info: {
-			names: [],
-			partner: false,
+			names: [],			// names of the invited perons
+			partner: false,		// can the person bring a partner
+			questions: [], 		// extra questions a person should answer
 		},
 	};
 

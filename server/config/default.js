@@ -8,6 +8,10 @@ var config = {
 	dbName: 'rsvp',
 	adminPass: 'secret',
 	deadLine: new Date(2019, 7, 1),
+	defaultQuestions: [
+		'music',
+		'food',
+	],
 };
 
 module.exports = config;

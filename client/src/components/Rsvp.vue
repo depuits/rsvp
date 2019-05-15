@@ -10,6 +10,19 @@
 		<div>Komen jullie?</div>
 		<b-switch></b-switch>
 
+		<b-field>
+            <b-input type="textarea" placeholder="Opmerkingen." />
+        </b-field>
+
+		<b-field v-for="q in authData.defaultQuestions" :key="q" :label="q">
+            <b-input type="textarea" placeholder="answer." />
+        </b-field>
+
+		<p>Extra questions:</p>
+		<b-field v-for="q in authData.info.questions" :key="q" :label="q">
+            <b-input type="textarea" placeholder="answer." />
+        </b-field>
+
 		<p>U kan de response aanpassen tot {{ $d(new Date(authData.deadLine), 'short') }}.</p>
 	</div>
 </template>

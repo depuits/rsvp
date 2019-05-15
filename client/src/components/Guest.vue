@@ -70,20 +70,22 @@ export default {
 			alert('todo');
 		},
 		remove: function() {
-			if (!confirm('Are you sure?')) {
-				return;
-			}
-
-			Api()
-				.delete(`response/${this.guest._id}`, { headers: { 'x-code': this.authData.code } })
-				.then(
-					result => {
-						this.$emit('removed', this.guest);
-					},
-					error => {
-						console.error(error);
-					}
-				);
+			this.$dialog.confirm({
+				message: 'Are you sure?',
+				onConfirm: () => {
+					Api()
+						.delete(`response/${this.guest._id}`, { headers: { 'x-code': this.authData.code } })
+						.then(
+							result => {
+								this.$emit('removed', this.guest);
+							},
+							error => {
+								this.$toast.open('failed');
+								console.error(error);
+							}
+						);
+				}
+			});
 		},
 	},
 };
