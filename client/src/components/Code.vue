@@ -12,7 +12,7 @@
 					password-reveal
 					maxlength="8"
 					size="is-large"
-					custom-class="upperCaseCode"
+					custom-class="is-uppercase"
 				/>
 
 				<div class="control">

@@ -2,7 +2,7 @@
 	<li>
 		<div class="columns">
 			<div class="column is-four-fifths">
-				<b-field horizontal label="Code"><b-input v-model="guest.info.code" readonly custom-class="upperCaseCode"/></b-field>
+				<b-field horizontal label="Code"><b-input v-model="guest.info.code" readonly custom-class="is-uppercase"/></b-field>
 
 				<b-field v-for="(n, i) in guest.info.names" :key="i" :label="i ? '' : 'names'" grouped horizontal>
 					<div class="field has-addons is-expanded">

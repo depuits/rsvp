@@ -12,7 +12,7 @@ $frontColor: #333;
 $backColor: #fff;
 
 $activeColor: #f14628;
-$hoverColor: #9e2914;
+$hoverColor: #1d1b1b;
 
 //calculate filter from hex https://codepen.io/sosuke/pen/Pjoqqp
 $frontColorFilter: invert(15%) sepia(0%) saturate(2%) hue-rotate(81deg) brightness(100%) contrast(85%);
@@ -28,9 +28,23 @@ $backColorFilter: invert(100%) sepia(1%) saturate(1136%) hue-rotate(208deg) brig
 	color: $backColor;
 }
 
-.upperCaseCode {
-	text-transform: uppercase;
-}
+//bulma overides
+// https://bulma.io/documentation/customize/variables/
+$primary: #f14628;
+$primary-invert: findColorInvert($primary);
+
+$colors: (
+	"white": ($white, $black),
+	"black": ($black, $white),
+	"light": ($light, $light-invert),
+	"dark": ($dark, $dark-invert),
+	"primary": ($primary, $primary-invert),
+	"info": ($info, $info-invert),
+	"success": ($success, $success-invert),
+	"warning": ($warning, $warning-invert),
+	"danger": ($danger, $danger-invert)
+);
+
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";

@@ -41,13 +41,13 @@ export default {
 // prettier-ignore
 :root {
 	font-size: 50%;
-	
+
 	.mdi-18px.mdi-set, .mdi-18px.mdi:before { font-size: 9px; }
 	.mdi-24px.mdi-set, .mdi-24px.mdi:before { font-size: 12px; }
 	.mdi-36px.mdi-set, .mdi-36px.mdi:before { font-size: 18px; }
 	.mdi-48px.mdi-set, .mdi-48px.mdi:before { font-size: 24px; }
 
-	@media (min-width: 30rem) {
+	@media (min-width: 25rem) {
 		font-size: 70%;
 
 		.mdi-18px.mdi-set, .mdi-18px.mdi:before { font-size: 12px; }
@@ -56,7 +56,7 @@ export default {
 		.mdi-48px.mdi-set, .mdi-48px.mdi:before { font-size: 34px; }
 	}
 
-	@media (min-width: 48rem) {
+	@media (min-width: 38rem) {
 		font-size: 100%;
 
 		.mdi-18px.mdi-set, .mdi-18px.mdi:before { font-size: 18px; }
@@ -72,34 +72,34 @@ export default {
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: $frontColor;
-}
 
-#wrapper,
-footer {
-	background-color: $backColor;
-	margin: auto;
+	#wrapper,
+	footer {
+		background-color: $backColor;
+		margin: auto;
 
-	// Small devices
-	width: 100%;
+		// Small devices
+		width: 100%;
 
-	// Large devices
-	@media (min-width: 48rem) {
-		width: 80%;
+		// Large devices
+		@media (min-width: 48rem) {
+			width: 80%;
+		}
+
+		// Largest devices
+		@media (min-width: 80rem) {
+			width: 62rem;
+		}
 	}
+	#wrapper {
+		border: 0;
+		border-bottom: 0.2rem solid $frontColor;
 
-	// Largest devices
-	@media (min-width: 80rem) {
-		width: 62rem;
-	}
-}
-#wrapper {
-	border: 0;
-	border-bottom: 0.2rem solid $frontColor;
-
-	// Large devices
-	@media (min-width: 48rem) {
-		border: 0.2rem solid $frontColor;
-		border-top: 0;
+		// Large devices
+		@media (min-width: 48rem) {
+			border: 0.2rem solid $frontColor;
+			border-top: 0;
+		}
 	}
 }
 

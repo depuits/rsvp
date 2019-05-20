@@ -6,8 +6,8 @@
 		<nav>
 			<router-link to="/history">{{ $t('nav.history') }}</router-link>
 			<router-link to="/">{{ $t('nav.home') }}</router-link>
-			<router-link to="/response">
-				{{ $t('nav.response') }}
+			<router-link to="/rsvp">
+				{{ $t('nav.rsvp') }}
 				<img src="../assets/images/duck.svg" />
 			</router-link>
 		</nav>

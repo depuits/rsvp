@@ -2,7 +2,7 @@
 	"nav": {
 		"home": "The day",
 		"history": "History",
-		"response": "RSVP"
+		"rsvp": "RSVP"
 	},
 	"home": {
 		"title": "Wedding day!",
@@ -35,5 +35,22 @@
 			"create": "Create guest",
 			"createFailed": "Guest creation failed."
 		}
+	},
+	"rsvp": {
+		"welcome": "Hello Thanks for filling in our rsvp.",
+		"and": "and",
+		"deadline": "You can change your respone until {date}.",
+		"attending": "Attending",
+		"attendingSelect": "Select who is attending:",
+		"yes": "Yep",
+		"no": "Nope",
+		"partner": {
+			"attending": "Will you bring a partner?",
+			"name": "Name of partner",
+			"fiction": "My partner is imaginary."
+		},
+		"save": "Send reply",
+		"successText": "Everythnig was saved successfull.",
+		"successConfirm": "Cool!"
 	}
 }

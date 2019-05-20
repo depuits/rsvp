@@ -22,9 +22,9 @@ export default new Router({
 			component: () => import(/* webpackChunkName: "history" */ './views/History.vue'),
 		},
 		{
-			path: '/response',
-			name: 'response',
-			component: () => import(/* webpackChunkName: "response" */ './views/Response.vue'),
+			path: '/rsvp',
+			name: 'rsvp',
+			component: () => import(/* webpackChunkName: "response" */ './views/Rsvp.vue'),
 		},
 	],
 });

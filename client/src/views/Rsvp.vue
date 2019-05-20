@@ -1,11 +1,11 @@
 <template>
-	<div class="response">
+	<div class="rsvp">
 		<div v-if="authData">
 			<div v-if="authData.admin">
 				<Admin :auth-data="authData" />
 			</div>
 			<div v-else>
-				<Rsvp :auth-data="authData" />
+				<Response :auth-data="authData" />
 			</div>
 		</div>
 		<div v-else>
@@ -18,14 +18,14 @@
 // @ is an alias to /src
 import Code from '@/components/Code.vue';
 import Admin from '@/components/Admin.vue';
-import Rsvp from '@/components/Rsvp.vue';
+import Response from '@/components/Response.vue';
 
 export default {
-	name: 'Response',
+	name: 'Rsvp',
 	components: {
 		Code,
 		Admin,
-		Rsvp,
+		Response,
 	},
 	data() {
 		return {
