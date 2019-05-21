@@ -32,7 +32,7 @@
 				<b-switch v-model="partner">{{ $t('rsvp.partner.attending') }}</b-switch>
 				<div v-if="partner">
 					<b-field :label="$t('rsvp.partner.name')">
-						<b-input :placeholder="$t('rsvp.partner.name')" icon="account"></b-input>
+						<b-input v-model="partnerName" :placeholder="$t('rsvp.partner.name')" icon="account"></b-input>
 					</b-field>
 				</div>
 			</div>
@@ -76,7 +76,7 @@ export default {
 			partner: false,
 			partnerName: '',
 			proccesing: false,
-			questions: {}
+			questions: {},
 		};
 	},
 	computed: {
@@ -95,8 +95,14 @@ export default {
 		},
 	},
 	created() {
+		let resp = this.authData.response;
 		if (this.authData.response) {
 			//fill in data from response
+			this.coming = resp.coming;
+			this.comingNames = resp.comingNames;
+			this.partner = resp.partnerName !== '';
+			this.partnerName = resp.partnerName;
+			this.questions = resp.questions;
 		}
 	},
 	methods: {
@@ -111,7 +117,7 @@ export default {
 			let data = {
 				coming: this.coming,
 				comingNames: this.comingNames,
-				partnerName: this.partner ? '' : this.partnerName,
+				partnerName: this.partner ? this.partnerName : '',
 				questions: this.questions,
 			};
 

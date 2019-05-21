@@ -53,8 +53,9 @@
 		"successText": "Everythnig was saved successfull.",
 		"successConfirm": "Cool!"
 	},
-	"questions": {
-		"remarks": "",
-		"food": "",
+	"question": {
+		"remarks": "I need to mention:",
+		"food": "Any special food requirements?",
+		"music": "This song will get me on the dancefloor."
 	}
 }

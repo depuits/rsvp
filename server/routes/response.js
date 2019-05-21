@@ -60,13 +60,28 @@ router.post('/update', async (req, res) => {
 		res.status(410).json({ msg: 'Past deadline.' });
 	}
 
+	let info = res.locals.guest.info;
+	let data = req.body;
+
+	if (data.coming === 'yes') {
+		if (data.comingNames && data.comingNames.length === 0) {
+			data.comingNames = info.names;
+		}
+
+		if (!info.partner) {
+			data.partnerName = ''; // reset partner if it was not allowed
+		}
+	} else {
+		data.comingNames = [];
+	}
+
 	// update data from db
 	//trust client to insert correct data
-	let resp = await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { response: req.body } }, { returnOriginal: true });
-	await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { lastUpdate: new Date() } });
-	if (!resp) {
+	let resp = await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest._id) }, { $set: { response: data } }, { returnOriginal: true });
+	await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest._id) }, { $set: { lastUpdate: new Date() } });
+	if (!resp.value.response) {
 		// if the response was not previously set then set the created date
-		await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { responded: new Date() } });
+		await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest._id) }, { $set: { responded: new Date() } });
 	}
 
 	res.status(204);
