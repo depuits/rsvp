@@ -52,5 +52,9 @@
 		"save": "Send reply",
 		"successText": "Everythnig was saved successfull.",
 		"successConfirm": "Cool!"
+	},
+	"questions": {
+		"remarks": "",
+		"food": "",
 	}
 }

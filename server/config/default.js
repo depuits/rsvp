@@ -9,8 +9,9 @@ var config = {
 	adminPass: 'secret',
 	deadLine: new Date(2019, 7, 1),
 	defaultQuestions: [
-		'music',
-		'food',
+		'question.music',
+		'question.food',
+		'question.remarks',
 	],
 };
 

@@ -40,11 +40,11 @@
 			<hr />
 
 			<b-field v-for="q in authData.defaultQuestions" :key="q" :label="$t(q)">
-				<b-input type="textarea" />
+				<b-input v-model="questions[q]" type="textarea" />
 			</b-field>
 
 			<b-field v-for="q in authData.info.questions" :key="q" :label="$t(q)">
-				<b-input type="textarea" />
+				<b-input v-model="questions[q]" type="textarea" />
 			</b-field>
 		</div>
 
@@ -76,6 +76,7 @@ export default {
 			partner: false,
 			partnerName: '',
 			proccesing: false,
+			questions: {}
 		};
 	},
 	computed: {
@@ -105,8 +106,17 @@ export default {
 			}
 
 			this.proccesing = true;
+
+			//assemble data
+			let data = {
+				coming: this.coming,
+				comingNames: this.comingNames,
+				partnerName: this.partner ? '' : this.partnerName,
+				questions: this.questions,
+			};
+
 			Api()
-				.post('response/update', {}, { headers: { 'x-code': this.authData.info.code } })
+				.post('response/update', data, { headers: { 'x-code': this.authData.info.code } })
 				.then(
 					result => {
 						console.log(this.$t('rsvp.successText'));

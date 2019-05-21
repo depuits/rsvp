@@ -62,9 +62,15 @@ router.post('/update', async (req, res) => {
 
 	// update data from db
 	//trust client to insert correct data
-	let resp = await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { response: req.body } }, { returnOriginal: false });
+	let resp = await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { response: req.body } }, { returnOriginal: true });
+	await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { lastUpdate: new Date() } });
+	if (!resp) {
+		// if the response was not previously set then set the created date
+		await col.findOneAndUpdate({ _id: ObjectId(res.locals.guest.id) }, { $set: { responded: new Date() } });
+	}
 
-	res.send(resp);
+	res.status(204);
+	res.send();
 });
 
 router.get('/all', checkAdmin, async (req, res) => {
