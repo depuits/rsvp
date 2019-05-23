@@ -17,7 +17,12 @@
 		"party": "party"
 	},
 	"history": {
-		"birth": "birth"
+		"him": {
+			"birth": "birth"
+		},
+		"her": {
+			"birth": "birth"
+		}
 	},
 	"login": {
 		"code": "code",
