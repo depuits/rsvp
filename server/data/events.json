@@ -1,0 +1,42 @@
+[
+    {
+        "name": "events.law",
+        "icon": "",
+        "start": "2019-08-23T15:15:00.000Z",
+        "end": "2019-08-23T15:30:00.000Z",
+        "location": "address comes here",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d627.0449197124369!2d3.7043862009425705!3d51.04977001097552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3716f0844a715%3A0xe5065b582571067!2zNTHCsDAyJzU4LjQiTiAzwrA0MicxOC4xIkU!5e0!3m2!1sen!2sbe!4v1548686687811"
+    },
+    {
+        "name": "events.church",
+        "icon": "",
+        "start": "2019-08-23T15:45:00.000Z",
+        "end": "2019-08-23T16:30:00.000Z",
+        "location": "address comes here",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d627.0449197124369!2d3.7043862009425705!3d51.04977001097552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3716f0844a715%3A0xe5065b582571067!2zNTHCsDAyJzU4LjQiTiAzwrA0MicxOC4xIkU!5e0!3m2!1sen!2sbe!4v1548686687811"
+    },
+    {
+        "name": "events.reception",
+        "icon": "",
+        "start": "2019-08-23T18:00:00.000Z",
+        "end": "2019-08-23T19:00:00.000Z",
+        "location": "address comes here",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d627.0449197124369!2d3.7043862009425705!3d51.04977001097552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3716f0844a715%3A0xe5065b582571067!2zNTHCsDAyJzU4LjQiTiAzwrA0MicxOC4xIkU!5e0!3m2!1sen!2sbe!4v1548686687811"
+    },
+    {
+        "name": "events.diner",
+        "icon": "",
+        "start": "2019-08-23T19:00:00.000Z",
+        "end": "2019-08-23T22:30:00.000Z",
+        "location": "address comes here",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d627.0449197124369!2d3.7043862009425705!3d51.04977001097552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3716f0844a715%3A0xe5065b582571067!2zNTHCsDAyJzU4LjQiTiAzwrA0MicxOC4xIkU!5e0!3m2!1sen!2sbe!4v1548686687811"
+    },
+    {
+        "name": "events.party",
+        "icon": "",
+        "start": "2019-08-23T23:00:00.000Z",
+        "end": "2019-08-24T04:30:00.000Z",
+        "location": "address comes here",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d627.0449197124369!2d3.7043862009425705!3d51.04977001097552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3716f0844a715%3A0xe5065b582571067!2zNTHCsDAyJzU4LjQiTiAzwrA0MicxOC4xIkU!5e0!3m2!1sen!2sbe!4v1548686687811"
+    }
+]
