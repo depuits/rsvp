@@ -2,6 +2,7 @@
 //https://codepen.io/Youakeem/pen/VmOoeY/
 
 $lineColor: $primary;
+$lineWidth: 2px;
 
 .timeline {
 	text-align: center;
@@ -21,7 +22,7 @@ $lineColor: $primary;
 			display: block;
 			width: 80%;
 			margin: auto;
-			height: 1px;
+			height: $lineWidth;
 			background: $lineColor;
 		}
 		&:after {
@@ -29,7 +30,7 @@ $lineColor: $primary;
 			display: block;
 			width: 80%;
 			margin: auto;
-			height: 1px;
+			height: $lineWidth;
 			background: $lineColor;
 		}
 
@@ -54,7 +55,7 @@ $lineColor: $primary;
 			.events {
 				position: relative;
 				float: left;
-				border-right: 1px solid $lineColor;
+				border-right: $lineWidth solid $lineColor;
 				padding: 30px;
 				text-align: right;
 				width: 50%;
@@ -63,7 +64,7 @@ $lineColor: $primary;
 					content: '';
 					width: 40%;
 					display: inline-block;
-					height: 1px;
+					height: $lineWidth;
 					background: $lineColor;
 
 					position: absolute;
@@ -115,7 +116,7 @@ $lineColor: $primary;
 					width: 50%;
 					float: left;
 					border-left: 0;
-					border-right: 1px solid $lineColor;
+					border-right: $lineWidth solid $lineColor;
 					text-align: right;
 
 					&:after {
@@ -147,10 +148,10 @@ $lineColor: $primary;
 
 			&--right {
 				.events {
-					width: calc(50% + 1px);
+					width: calc(50% + #{$lineWidth});
 					float: right;
 					border-right: 0;
-					border-left: 1px solid $lineColor;
+					border-left: $lineWidth solid $lineColor;
 					text-align: left;
 
 					&:after {
