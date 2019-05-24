@@ -7,7 +7,7 @@
 		</div>
 
 		<ul class="days">
-			<HistoricalEvent v-for="e in data.events" :key="e.desc" :event="e" />
+			<HistoricalEvent v-for="e in data.events" :key="e.image + e.desc" :event="e" />
 		</ul>
 	</div>
 </template>

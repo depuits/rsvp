@@ -1,8 +1,8 @@
 <template>
 	<li :class="['day', sideClass]">
 		<div class="events">
-			<div v-if="event.image" class="day__img">
-				<img :src="event.image" />
+			<div v-if="image" class="day__img">
+				<img :src="image" />
 				<p v-if="event.desc" class="caption">{{ $t(event.desc) }}</p>
 			</div>
 			<p v-else>{{ $t(event.desc) }}</p>
@@ -29,6 +29,13 @@ export default {
 					return '';
 			}
 		},
+		image() {
+			if (this.event.image) {
+				return new URL(this.event.image, process.env.VUE_APP_ROOT_IMG).href
+			}
+
+			return '';
+		}
 	},
 };
 </script>
