@@ -110,6 +110,41 @@ $lineColor: $primary;
 			// selector for switching side each event
 			// &:nth-child(odd) { 
 			// we are however explicitly saying left or right
+			&--left {
+				.events {
+					width: 50%;
+					float: left;
+					border-left: 0;
+					border-right: 1px solid $lineColor;
+					text-align: right;
+
+					&:after {
+						left: auto;
+						right: 0;
+					}
+
+					.date {
+						right: auto;
+						left: 100%;
+						text-align: left;
+					}
+
+					.day__img {
+						margin-left: auto;
+						margin-right: -30px;
+
+						img {
+							float: right;
+						}
+
+						.caption {
+							left: auto;
+							right: 0;
+						}
+					}
+				}
+			}
+
 			&--right {
 				.events {
 					width: calc(50% + 1px);

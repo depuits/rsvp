@@ -22,7 +22,7 @@ export default {
 			/* eslint-disable */
 			switch (this.event.class) {
 				case 'him':
-					return '';
+					return 'day--left';
 				case 'her':
 					return 'day--right';
 				default:
