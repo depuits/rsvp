@@ -55,20 +55,32 @@ $lineWidth: 2px;
 			.events {
 				position: relative;
 				float: left;
-				border-right: $lineWidth solid $lineColor;
+				left: 25%;
 				padding: 30px;
-				text-align: right;
+				text-align: center;
 				width: calc(50% + #{$lineWidth}/2);
+
+				&:before {
+					content: '';
+					display: inline-block;
+					width: $lineWidth;
+					background: $lineColor;
+
+					transform: translateX(calc(-#{$lineWidth}/2));
+					position: absolute;
+					top: 0;
+					bottom: 0;
+				}
 
 				&:after {
 					content: '';
-					width: 40%;
 					display: inline-block;
 					height: $lineWidth;
 					background: $lineColor;
 
 					position: absolute;
-					right: 0;
+					right: 10%;
+					left: 10%;
 				}
 
 				.date {
@@ -86,13 +98,12 @@ $lineWidth: 2px;
 				}
 
 				.day__img {
-					margin-right: -30px;
 					position: relative;
 					overflow: hidden;
 
 					img {
 						display: block;
-						float: right;
+						//float: right;
 					}
 
 					.caption {
@@ -100,6 +111,7 @@ $lineWidth: 2px;
 						margin: 0;
 
 						bottom: 0;
+						left: 0;
 						right: 0;
 						padding: 20px;
 						background: rgba(#000, 0.7);
@@ -113,13 +125,17 @@ $lineWidth: 2px;
 			// we are however explicitly saying left or right
 			&--left {
 				.events {
-					width: calc(50% + #{$lineWidth}/2);
+					left: 0;
 					float: left;
 					border-left: 0;
 					border-right: $lineWidth solid $lineColor;
 					text-align: right;
 
+					&::before {
+						content: none;
+					}
 					&:after {
+						width: 40%;
 						left: auto;
 						right: 0;
 					}
@@ -148,13 +164,17 @@ $lineWidth: 2px;
 
 			&--right {
 				.events {
-					width: calc(50% + #{$lineWidth}/2);
+					left: 0;
 					float: right;
 					border-right: 0;
 					border-left: $lineWidth solid $lineColor;
 					text-align: left;
 
+					&::before {
+						content: none;
+					}
 					&:after {
+						width: 40%;
 						right: auto;
 						left: 0;
 					}
