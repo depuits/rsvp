@@ -1,13 +1,13 @@
 [
 	{
 		"class": "him",
-		"image": "images/placeholder.png",
+		"image": "placeholder.png",
 		"desc": "history.him.birth",
 		"date": "1991-11-25T00:00:00.000Z"
 	},
 	{
 		"class": "him",
-		"image": "images/placeholder.png"
+		"image": "placeholder.png"
 	},
 	{
 		"class": "him",
@@ -21,11 +21,11 @@
 	},
 	{
 		"class": "her",
-		"image": "images/placeholder.png"
+		"image": "placeholder.png"
 	},
 	{
 		"class": "us",
-		"image": "images/placeholder.png",
+		"image": "placeholder.png",
 		"desc": "history.us.first",
 		"date": "2012-04-21T00:00:00.000Z"
 	},
