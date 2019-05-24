@@ -58,7 +58,7 @@ $lineWidth: 2px;
 				border-right: $lineWidth solid $lineColor;
 				padding: 30px;
 				text-align: right;
-				width: 50%;
+				width: calc(50% + #{$lineWidth}/2);
 
 				&:after {
 					content: '';
@@ -113,7 +113,7 @@ $lineWidth: 2px;
 			// we are however explicitly saying left or right
 			&--left {
 				.events {
-					width: 50%;
+					width: calc(50% + #{$lineWidth}/2);
 					float: left;
 					border-left: 0;
 					border-right: $lineWidth solid $lineColor;
@@ -148,7 +148,7 @@ $lineWidth: 2px;
 
 			&--right {
 				.events {
-					width: calc(50% + #{$lineWidth});
+					width: calc(50% + #{$lineWidth}/2);
 					float: right;
 					border-right: 0;
 					border-left: $lineWidth solid $lineColor;
