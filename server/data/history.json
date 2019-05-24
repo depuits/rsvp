@@ -12,5 +12,12 @@
         "name": "history.her.birth",
         "desc": "",
         "date": "1996-10-14T00:00:00.000Z"
+    },
+    {
+        "class": "us",
+        "image": "images/placeholder.png",
+        "name": "history.us.first",
+        "desc": "",
+        "date": "2012-04-21T00:00:00.000Z"
     }
 ]

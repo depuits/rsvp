@@ -17,11 +17,15 @@
 		"party": "party"
 	},
 	"history": {
+		"intro": "Our history",
 		"him": {
 			"birth": "birth"
 		},
 		"her": {
 			"birth": "birth"
+		},
+		"us": {
+			"first": "something something first"
 		}
 	},
 	"login": {

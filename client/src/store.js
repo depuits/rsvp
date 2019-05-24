@@ -16,9 +16,34 @@ export default new Vuex.Store({
 			state.loading = loading;
 		},
 		SET_SHEDULE(state, shedule) {
+			//parse dates
+			shedule = shedule.map(e => {
+				e.start = new Date(e.start);
+				e.end = new Date(e.end);
+				return e;
+			});
+			//order events by date
+			shedule.sort((a, b) => {
+				if (a.start < b.start) return -1;
+				if (a.start > b.start) return 1;
+				return 0;
+			});
+
+			//order events by start
 			state.shedule = shedule;
 		},
 		SET_HISTORY(state, history) {
+			//parse dates
+			history = history.map(e => {
+				e.date = new Date(e.date);
+				return e;
+			});
+			//order events by date
+			history.sort((a, b) => {
+				if (a.date < b.date) return -1;
+				if (a.date > b.date) return 1;
+				return 0;
+			});
 			state.history = history;
 		},
 		SET_EVENTS(state, events) {

@@ -11,7 +11,7 @@ module.exports = {
 
 		indent: ['error', 'tab'],
 		'vue/html-indent': ['error', 'tab'],
-		'no-unused-vars': ['error', { 'args': 'none' }]
+		'no-unused-vars': ['error', { args: 'none' }],
 	},
 	parserOptions: {
 		parser: 'babel-eslint',
