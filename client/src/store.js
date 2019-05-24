@@ -19,7 +19,9 @@ export default new Vuex.Store({
 			//parse dates
 			shedule = shedule.map(e => {
 				e.start = new Date(e.start);
-				e.end = new Date(e.end);
+				if (e.end) {
+					e.end = new Date(e.end);
+				}
 				return e;
 			});
 			//order events by date
@@ -35,16 +37,33 @@ export default new Vuex.Store({
 		SET_HISTORY(state, history) {
 			//parse dates
 			history = history.map(e => {
-				e.date = new Date(e.date);
+				if (e.date) {
+					e.date = new Date(e.date);
+				}
 				return e;
 			});
-			//order events by date
-			history.sort((a, b) => {
-				if (a.date < b.date) return -1;
-				if (a.date > b.date) return 1;
-				return 0;
-			});
-			state.history = history;
+
+			// push history event in lists for each year
+			let currentYear = null;
+			let hist = [];
+
+			for (let e of history) {
+				// when the current year is not yet set or the years don't match
+				if (!currentYear || (e.date && e.date.getFullYear() !== currentYear.year)) {
+					//start a new year
+					currentYear = {
+						year: e.date.getFullYear(),
+						events: [],
+					};
+
+					hist.push(currentYear);
+				}
+
+				//add event to current year
+				currentYear.events.push(e);
+			}
+
+			state.history = hist;
 		},
 		SET_EVENTS(state, events) {
 			state.events = events;

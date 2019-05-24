@@ -1,24 +1,29 @@
 <template>
 	<div class="history">
-		<h1>Our history</h1>
+		<h1>{{ $t('history.intro') }}</h1>
 
-		<ul>
-			<HistoricalEvent v-for="e in $store.state.history" :key="e.name" :event="e" />
-		</ul>
+		<div class="timeline">
+			<HistoricalYear v-for="(y, i) in $store.state.history" :key="y.year" :data="y" :first="i == 0" />
+			<HistoricalYear :data="{ year: new Date().getFullYear(), events: [] }" :last="true" />
+		</div>
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HistoricalEvent from '@/components/HistoricalEvent.vue';
+import HistoricalYear from '@/components/HistoricalYear.vue';
 
 export default {
 	name: 'History',
 	components: {
-		HistoricalEvent,
+		HistoricalYear,
 	},
 	created() {
 		this.$store.dispatch('loadHistory');
 	},
 };
 </script>
+
+<style lang="scss">
+@import '@/scss/timeline.scss';
+</style>

@@ -2,22 +2,19 @@
     {
         "class": "him",
         "image": "images/placeholder.png",
-        "name": "history.him.birth",
-        "desc": "",
+        "desc": "history.him.birth",
         "date": "1991-11-25T00:00:00.000Z"
     },
     {
         "class": "her",
         "image": "",
-        "name": "history.her.birth",
-        "desc": "",
+        "desc": "history.her.birth",
         "date": "1996-10-14T00:00:00.000Z"
     },
     {
         "class": "us",
         "image": "images/placeholder.png",
-        "name": "history.us.first",
-        "desc": "",
+        "desc": "history.us.first",
         "date": "2012-04-21T00:00:00.000Z"
     }
 ]
