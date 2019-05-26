@@ -8,12 +8,12 @@
 
 	{
 		"class": "him",
-		"image": "doop_joeri_pepe_en_m_55W1y.jpg"
+		"desc": "history.him.christening",
+		"date": "1992-01-19T00:00:00.000Z"
 	},
 	{
 		"class": "him",
-		"desc": "history.him.christening",
-		"date": "1992-01-19T00:00:00.000Z"
+		"image": "doop_joeri_pepe_en_m_55W1y.jpg"
 	},
 	{
 		"class": "him",
