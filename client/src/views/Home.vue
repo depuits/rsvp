@@ -1,13 +1,19 @@
 <template>
-	<div v-if="events" class="home">
+	<div v-if="shedule" class="home">
 		<h1>{{ $t('home.title') }}</h1>
 		<p>{{ $t('home.intro') }}</p>
 
-		<img alt="Vue logo" src="../assets/logo.png" />
+		<div class="timeline">
+			<div class="year year--start">
+				<div class="inner">
+					<span>{{ $d(shedule.date, 'short') }}</span>
+				</div>
+			</div>
 
-		<ul>
-			<Event v-for="e in events" :key="e._id" :event="e" />
-		</ul>
+			<ul class="days">
+				<Event v-for="e in shedule.events" :key="e.name" :event="e" />
+			</ul>
+		</div>
 	</div>
 </template>
 
@@ -23,7 +29,7 @@ export default {
 	},
 	computed: mapState([
 		// map this to store.state
-		'events',
+		'shedule',
 	]),
 	created() {
 		this.$store.dispatch('loadShedule');

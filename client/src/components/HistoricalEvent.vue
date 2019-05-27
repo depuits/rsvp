@@ -31,11 +31,11 @@ export default {
 		},
 		image() {
 			if (this.event.image) {
-				return new URL(this.event.image, process.env.VUE_APP_ROOT_IMG).href
+				return new URL(this.event.image, process.env.VUE_APP_ROOT_IMG).href;
 			}
 
 			return '';
-		}
+		},
 	},
 };
 </script>

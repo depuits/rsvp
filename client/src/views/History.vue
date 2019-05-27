@@ -23,7 +23,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss">
-@import '@/scss/timeline.scss';
-</style>

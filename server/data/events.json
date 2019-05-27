@@ -1,7 +1,7 @@
 [
 	{
 		"name": "events.law",
-		"icon": "",
+		"icon": "rings.svg",
 		"start": "2019-08-23T15:15:00.000Z",
 		"end": "2019-08-23T15:30:00.000Z",
 		"location": "address comes here",
@@ -9,7 +9,7 @@
 	},
 	{
 		"name": "events.church",
-		"icon": "",
+		"icon": "bells.svg",
 		"start": "2019-08-23T15:45:00.000Z",
 		"end": "2019-08-23T16:30:00.000Z",
 		"location": "address comes here",
@@ -17,7 +17,7 @@
 	},
 	{
 		"name": "events.reception",
-		"icon": "",
+		"icon": "drinking.svg",
 		"start": "2019-08-23T18:00:00.000Z",
 		"end": "2019-08-23T19:00:00.000Z",
 		"location": "address comes here",
@@ -25,7 +25,7 @@
 	},
 	{
 		"name": "events.diner",
-		"icon": "",
+		"icon": "cutlery.svg",
 		"start": "2019-08-23T19:00:00.000Z",
 		"end": "2019-08-23T22:30:00.000Z",
 		"location": "address comes here",
@@ -33,7 +33,7 @@
 	},
 	{
 		"name": "events.party",
-		"icon": "",
+		"icon": "music.svg",
 		"start": "2019-08-23T23:00:00.000Z",
 		"end": "2019-08-24T04:30:00.000Z",
 		"location": "address comes here",

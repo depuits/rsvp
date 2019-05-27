@@ -2,6 +2,7 @@
 //https://codepen.io/Youakeem/pen/VmOoeY/
 
 $lineColor: $primary;
+$backgroundColor: $backColor;
 $lineWidth: 2px;
 
 .timeline {
@@ -60,6 +61,11 @@ $lineWidth: 2px;
 				text-align: center;
 				width: calc(50% + #{$lineWidth}/2);
 
+				p {
+					position: relative;
+					background: $backgroundColor;
+				}
+				
 				&:before {
 					content: '';
 					display: inline-block;
