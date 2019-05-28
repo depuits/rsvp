@@ -11,8 +11,14 @@
 			</div>
 
 			<ul class="days">
-				<Event v-for="e in shedule.events" :key="e.name" :event="e" />
+				<Event v-for="(e, i) in shedule.events" :key="e.name" :event="e" :index="i" />
 			</ul>
+
+			<div class="year year--end">
+				<div class="inner">
+					<span>{{ $d(dayPlusOne, 'short') }}</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -20,6 +26,7 @@
 <script>
 // @ is an alias to /src
 import Event from '@/components/Event.vue';
+import moment from 'moment';
 import { mapState } from 'vuex';
 
 export default {
@@ -27,10 +34,13 @@ export default {
 	components: {
 		Event,
 	},
-	computed: mapState([
+	computed: {
 		// map this to store.state
-		'shedule',
-	]),
+		...mapState(['shedule']),
+		dayPlusOne() {
+			return moment(this.shedule.date).add(1, 'days');
+		},
+	},
 	created() {
 		this.$store.dispatch('loadShedule');
 	},
