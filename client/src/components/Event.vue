@@ -4,7 +4,7 @@
 			<div class="day__img">
 				<img :src="icon" />
 			</div>
-			<div v-if="event.date" class="date">
+			<div class="date">
 				<p>{{ $d(event.start, 'time') }}</p>
 				<p>{{ $t(event.name) }}</p>
 				<p>{{ $t(event.location) }}</p>
