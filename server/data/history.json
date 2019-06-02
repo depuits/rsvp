@@ -241,14 +241,14 @@
 
 	{
 		"class": "us",
-		"image": "Samen_rijden.jpg",
+		"image": "samen_rijden.jpg",
 		"desc": "history.us.ToTheCaravan",
 		"date": "2015-08-05T00:00:00.000Z"
 
 	},
 
 	{  	"class": "us",
-		"image": "Fietsen_in_het_bos_.jpg",
+		"image": "fietsen_in_het_bos_.jpg",
 		"date": "2015-08-05T00:00:00.000Z"
 
 	},
@@ -271,7 +271,7 @@
 	{
 
 		"class": "us",
-		"image": "bootje_Varen.jpg",
+		"image": "bootje_varen.jpg",
 		"date": "2015-09-16T00:00:00.000Z"
 	},
 
