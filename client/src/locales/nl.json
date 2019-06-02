@@ -1,3 +1,96 @@
 {
-	"message": "hello i18n !!"
+	"error": {
+		"loadingData": "Error loading data.",
+		"btn": {
+			"retry": "Retry"
+		}
+	},
+	"nav": {
+		"home": "The day",
+		"history": "History",
+		"rsvp": "RSVP"
+	},
+	"home": {
+		"title": "Wedding day!",
+		"intro": "Welcome to our wedding site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante ac eros ornare sagittis quis id mauris. Proin vulputate nec leo non scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+	},
+	"events": {
+		"new": "new event",
+		"law": "Trouw wet",
+		"church": "Kerkelijke dienst",
+		"reception": "Receptie",
+		"diner": "Diner",
+		"party": "Avondfeest"
+	},
+	"history": {
+		"intro": "Onze geschiedenis",
+		"him": {
+			"birth": "Geboorte",
+			"christening": "Doopsel Joeri",
+			"brother01": "Samen bij de kerstman",
+			"firstSacrament":"Eerste Communie",
+			"friend":"Joeri en Ruben",
+			"tenthBirthday": "Joeri zijn 10de Verjaardag",
+			"secondSacrament": "Plechtige Communie",
+			"smile": "Joeri probeert te lachen",
+			"Firtelstoet":"Firtelstoet",
+			"TripToNederland": " Uistapje naar Nederland"
+
+			
+		},
+		"her": {
+			"birth": "Geboorte",
+			"hug":"Knuffel",
+			"sick":"Er was er eentje ziek",
+			"firstSacrament": "Eerste Communie",
+			"secondSacrament":"Plechtige Communie",
+			"18Birthday":"Elien haar 18de verjaardag",
+			"togehterToTheCaravan": "Samen aan de caravan",
+			"WeddingAunt&Uncle": "Trouw Koen en Yn",
+			"SisterMeetingInParis":" Zusjes ontmoeting in Parijs",
+			"UitstapjeVersailles": "Uitstap naar Versailles"
+		},
+		"us": {
+			"first": "Eerste foto samen"
+		}
+	},
+	"login": {
+		"code": "code",
+		"prompt": "Geef u code in",
+		"error": {
+			"empty": "A code must be present",
+			"incorrect": "De code was niet correct"
+		},
+		"btn": {
+			"submit": "Volgende"
+		}
+	},
+	"admin": {
+		"guest": {
+			"create": "create guest",
+			"createFailed": "Create guest failed."
+		}
+	},
+	"rsvp": {
+		"welcome": "Hallo, bedankt voor onze RSVP in te vullen.",
+		"and": "En",
+		"deadline": "Je kan u antwoord veranderen tot en met {date}.",
+		"attending": "Aanwezig",
+		"attendingSelect": "Selecteren wie aanwezig zal zijn:",
+		"yes": "Ja",
+		"no": "Nee",
+		"partner": {
+			"attending": "Neem je een partner mee?",
+			"name": "Naam van u partner",
+			"fiction": " Ik heb een denkbeeldige partner" 
+		},
+		"save": "Antwoord verzenden",
+		"successText": "Alles is succesvol verzonden",
+		"successConfirm": "Cool!"
+	},
+	"question": {
+		"remarks": "Ik heb een opmerking:",
+		"food": "Speciale voedingsvereisten?",
+		"music": "Dit liedje brengt mij op de dansvloer"
+	}
 }

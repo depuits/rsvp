@@ -1,4 +1,10 @@
 {
+	"error": {
+		"loadingData": "Error loading data.",
+		"btn": {
+			"retry": "Retry"
+		}
+	},
 	"nav": {
 		"home": "The day",
 		"history": "History",
