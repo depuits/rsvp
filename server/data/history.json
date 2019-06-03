@@ -160,7 +160,7 @@
 	{
 		"class": "us",
 		"image": "communiefeest_elien.jpg"
-		
+
 	},
 	{
 		"class": "her",
@@ -210,7 +210,7 @@
 	{
 		"class": "us",
 		"image": "samen_naar_de_zee_2.jpg"
-	
+
 	},
 	{
 		"class": "us",
@@ -241,14 +241,14 @@
 
 	{
 		"class": "us",
-		"image": "Samen_rijden.jpg",
+		"image": "samen_rijden.jpg",
 		"desc": "history.us.ToTheCaravan",
 		"date": "2015-08-05T00:00:00.000Z"
-		
+
 	},
 
 	{  	"class": "us",
-		"image": "Fietsen_in_het_bos_.jpg",
+		"image": "fietsen_in_het_bos_.jpg",
 		"date": "2015-08-05T00:00:00.000Z"
 
 	},
@@ -261,7 +261,7 @@
 		"class": "us",
 		"image": "samen_in_de_boom_kli_TqCQa.jpg"
 	},
-		
+
 	{
 		"class": "us",
 		"image": "groepsfoto_provence.jpg",
@@ -271,7 +271,7 @@
 	{
 
 		"class": "us",
-		"image": "bootje_Varen.jpg",
+		"image": "bootje_varen.jpg",
 		"date": "2015-09-16T00:00:00.000Z"
 	},
 
@@ -311,7 +311,6 @@
 		"date": "2016-04-09T00:00:00.000Z"
 	},
 	{
-
 		"class": "us",
 		"image": "love_you_.jpg"
 	},
@@ -324,7 +323,6 @@
 		"image": "gentse_feesten_2016.jpg",
 		"desc": "history.us. PartyInGent",
 		"date": "2016-07-22T00:00:00.000Z"
-
 	},
 	{
 		"class": "her",
@@ -333,24 +331,20 @@
 		"date": "2016-07-29T00:00:00.000Z"
 	},
 	{
-		
 		"class": "us",
 		"image": "lachen.jpg",
 		"date": "2016-07-29T00:00:00.000Z"
-
 	},
 	{
 		"class": "us",
 		"image": "lachen_2_.jpg",
 		"date": "2016-07-29T00:00:00.000Z"
-
 	},
 	{
 		"class": "him",
 		"image": "firtelstoet.jpg",
 		"desc": "history.him. Firtelstoet",
 		"date": "2016-10-02T00:00:00.000Z"
-
 	},
 	{
 		"class": "us",
@@ -364,7 +358,6 @@
 		"date": "2016-11-01T00:00:00.000Z"
 	},
 	{
-
 		"class": "us",
 		"image": "l_g_trouw_kerk.jpg",
 		"desc": "history.us.WeddingLaetitia&Guillaume",
@@ -374,22 +367,18 @@
 		"class": "us",
 		"image": "uitstapje_ieper.jpg",
 		"desc": "history.us.SupriseWeekendDad",
-		"date": "2017-02-18T00:00:00.000Z"	
-
+		"date": "2017-02-18T00:00:00.000Z"
 	},
 	{
-
 		"class": "us",
 		"image": "lachen_ieper.jpg",
 		"date": "2017-02-18T00:00:00.000Z"
-
 	},
 	{
 		"class": "us",
 		"image": "nivelles_.jpg",
 		"desc": "history.us.VisitingOnOurWayBackHome",
-		"date": "2017-04-29T00:00:00.000Z"	
-
+		"date": "2017-04-29T00:00:00.000Z"
 	},
 	{
 		"class": "her",
@@ -398,34 +387,26 @@
 		"date": "2017-08-11T00:00:00.000Z"
 	},
 	{
-
 		"class": "us",
 		"image": "frietjes_wet_k_en_y.jpg"
-	
 	},
 	{
-
 		"class": "him",
 		"image": "trouw_wet_k_en_y.jpg"
-
 	},
 	{
 		"class": "us",
 		"image": "zee_en_doodle.jpg",
 		"desc": "history.us.FreshAirAtSae",
 		"date": "2017-08-25T00:00:00.000Z"
-
 	},
 	{
 		"class": "us",
 		"image": "zee_en_doodle_2.jpg"
 	},
 	{
-	
 		"class": "her",
-		"image": "etentje_bij_elien_ha_2YHun.jpg",
-		
-
+		"image": "etentje_bij_elien_ha_2YHun.jpg"
 	},
 	{
 		"class": "her",
@@ -532,10 +513,5 @@
 	{
 		"class": "him",
 		"image": "versailles_2_.jpg"
-	}	
-	
-
-]	
-
-	
-
+	}
+]
