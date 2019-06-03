@@ -66,3 +66,10 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+.admin ul {
+	list-style-type: none;
+	margin: 0;
+}
+</style>

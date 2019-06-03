@@ -4,10 +4,10 @@
 		<div id="wrapper">
 			<Head />
 
-			<div v-if="$store.state.loading">
+			<router-view class="content section" />
+			<div v-show="$store.state.loading">
 				<img class="lds-heart frontColor" src="./assets/images/heart.png" />
 			</div>
-			<router-view v-else class="content section" />
 		</div>
 		<footer>
 			<select v-model="$i18n.locale">
