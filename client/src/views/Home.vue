@@ -1,9 +1,9 @@
 <template>
-	<div v-if="shedule" class="home">
+	<div class="home">
 		<h1>{{ $t('home.title') }}</h1>
 		<p>{{ $t('home.intro') }}</p>
 
-		<div class="timeline">
+		<div v-if="shedule" class="timeline">
 			<div class="year year--start">
 				<div class="inner">
 					<span>{{ $d(shedule.date, 'short') }}</span>
