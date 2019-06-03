@@ -36,7 +36,7 @@
 			"Firtelstoet":"Firtelstoet",
 			"TripToNederland": " Uistapje naar Nederland"
 
-			
+
 		},
 		"her": {
 			"birth": "Geboorte",
@@ -51,7 +51,26 @@
 			"UitstapjeVersailles": "Uitstap naar Versailles"
 		},
 		"us": {
-			"first": "Eerste foto samen"
+			"together":"Eerste foto als een koppel",
+			"seaTogetherOne":"Samen genieten aan de zee!!",
+			"EersteSkireis":"Eerste skireis samen",
+			"ToTheCaravan":"Samen naar de caravan",
+			" TripProvence":"Reisje naar de Provence",
+			"WeddingT&D":"Trouw Talitha & Dries",
+			" WeddingSophie&Fré":"Trouw Sohie & Frederick",
+			"Skireis":"Skireis",
+			"BirtdayPepe":"Verjaardagsfeest Pepe",
+			"PartyInGent":"Gentse feesten",
+			"EnjoyingTheFreshAir":"Genieten van de gezonde buitenlucht",
+			"WeddingLaetitia&Guillaume":"Trouw Laetitia & Guillaume",
+			"supriseWeekend":"Verrassingsweekend Dirk",
+			"VisitingOnOurWayBackHome":"Een bezoekje aan Nivelles",
+			"FreshAirAtSae":"Naar het zeetje",
+			"DayInBruges":"Dagje Brugge",
+			"BestRoadTripEver":"Best Road Trip Ever !!!",
+			"ChurchWeddingYn&Koen":"Trouw Koen en yn",
+			"SamenPoseren":"Samen poseren"
+
 		}
 	},
 	"login": {
@@ -82,7 +101,7 @@
 		"partner": {
 			"attending": "Neem je een partner mee?",
 			"name": "Naam van u partner",
-			"fiction": " Ik heb een denkbeeldige partner" 
+			"fiction": " Ik heb een denkbeeldige partner"
 		},
 		"save": "Antwoord verzenden",
 		"successText": "Alles is succesvol verzonden",

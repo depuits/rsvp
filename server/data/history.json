@@ -194,7 +194,6 @@
 	{
 		"class": "us",
 		"image": "doop_elisa_2013.jpg",
-		"desc": "history.us.christeningElisa",
 		"date": "2014-02-16T00:00:00.000Z"
 	},
 	{
@@ -226,7 +225,6 @@
 		"image": "18_de_verjaardag__el_8OmC7.jpg",
 		"desc": "history.her.18Birthday",
 		"date": "2014-10-11T00:00:00.000Z"
-
 	},
 	{
 		"class": "us",
@@ -244,21 +242,18 @@
 		"image": "samen_rijden.jpg",
 		"desc": "history.us.ToTheCaravan",
 		"date": "2015-08-05T00:00:00.000Z"
-
 	},
 
 	{  	"class": "us",
 		"image": "fietsen_in_het_bos_.jpg",
 		"date": "2015-08-05T00:00:00.000Z"
-
 	},
 	{	"class": "us",
 		"image": "uitkijktoren.jpg",
 		"date": "2015-08-08T00:00:00.000Z"
-
 	},
 	{
-		"class": "us",
+		"class": "him",
 		"image": "samen_in_de_boom_kli_TqCQa.jpg"
 	},
 
@@ -269,8 +264,7 @@
 		"date": "2015-09-11T00:00:00.000Z"
 	},
 	{
-
-		"class": "us",
+		"class": "him",
 		"image": "bootje_varen.jpg",
 		"date": "2015-09-16T00:00:00.000Z"
 	},
@@ -366,7 +360,7 @@
 	{
 		"class": "us",
 		"image": "uitstapje_ieper.jpg",
-		"desc": "history.us.SupriseWeekendDad",
+		"desc": "history.us.supriseWeekend",
 		"date": "2017-02-18T00:00:00.000Z"
 	},
 	{
