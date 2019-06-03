@@ -43,7 +43,7 @@ export default {
 						this.guests = result.data;
 					},
 					error => {
-						console.error(error);
+						alert(this.$t('error.loadingData'));
 					}
 				);
 		},
