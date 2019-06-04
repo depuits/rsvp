@@ -5,7 +5,7 @@
 		<h2>Guests</h2>
 		<div v-if="guests && guests.length">
 			<ul>
-				<Guest v-for="g in guests" :key="g._id" :guest="g" :auth-data="authData" @removed="guestRemoved" />
+				<Guest v-for="g in guests" :key="g._id" :guest="g" :auth-data="authData" />
 			</ul>
 		</div>
 		<div v-else>No guests created</div>
@@ -16,7 +16,7 @@
 
 <script>
 import Guest from '@/components/Guest.vue';
-import Api from '@/services/Api';
+import { mapMultiRowFields } from 'vuex-map-fields';
 
 export default {
 	name: 'Admin',
@@ -26,42 +26,16 @@ export default {
 	props: {
 		authData: { type: Object, required: true },
 	},
-	data() {
-		return {
-			guests: [],
-		};
+	computed: {
+		// map this to store.state
+		...mapMultiRowFields(['guests']),
 	},
 	created() {
-		this.loadGuests();
+		this.$store.dispatch('loadGuests', { code: this.authData.code });
 	},
 	methods: {
-		loadGuests: function() {
-			Api()
-				.get('response/all', { headers: { 'x-code': this.authData.code } })
-				.then(
-					result => {
-						this.guests = result.data;
-					},
-					error => {
-						console.error(error);
-					}
-				);
-		},
 		createGuest: function() {
-			let data = {};
-			Api()
-				.post('response/create', data, { headers: { 'x-code': this.authData.code } })
-				.then(
-					result => {
-						this.guests.push(result.data);
-					},
-					error => {
-						alert(this.$t('admin.guest.createFailed'));
-					}
-				);
-		},
-		guestRemoved(resp) {
-			this.loadGuests();
+			this.$store.dispatch('createGuest', { code: this.authData.code });
 		},
 	},
 };

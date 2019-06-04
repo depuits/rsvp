@@ -1,5 +1,5 @@
 <template>
-	<li>
+	<li class="guest">
 		<div class="columns">
 			<div class="column is-four-fifths">
 				<b-field horizontal label="Code"><b-input v-model="guest.info.code" readonly custom-class="is-uppercase"/></b-field>
@@ -32,7 +32,7 @@
 
 <script>
 import debounce from 'lodash.debounce';
-import Api from '@/services/Api';
+//import { mapFields } from 'vuex-map-fields';
 
 export default {
 	name: 'Guest',
@@ -43,19 +43,17 @@ export default {
 	data: function() {
 		return {
 			change: debounce(() => {
-				Api()
-					.put(`response/${this.guest._id}`, this.guest.info, { headers: { 'x-code': this.authData.code } })
-					.then(
-						result => {
-							this.guest = result.data;
-							this.$emit('changed', this.guest);
-						},
-						error => {
-							console.error(error);
-						}
-					);
+				this.$store.dispatch('updateGuest', { code: this.authData.code, guest: this.guest });
 			}, 1000),
 		};
+	},
+	computed: {
+		/*...mapFields([
+			'form.firstName',
+			'form.lastName',
+			'form.message',
+			// ...
+		]),*/
 	},
 	methods: {
 		addName: function() {
@@ -73,17 +71,7 @@ export default {
 			this.$dialog.confirm({
 				message: 'Are you sure?',
 				onConfirm: () => {
-					Api()
-						.delete(`response/${this.guest._id}`, { headers: { 'x-code': this.authData.code } })
-						.then(
-							result => {
-								this.$emit('removed', this.guest);
-							},
-							error => {
-								this.$toast.open('failed');
-								console.error(error);
-							}
-						);
+					this.$store.dispatch('deleteGuest', { code: this.authData.code, guest: this.guest });
 				},
 			});
 		},
