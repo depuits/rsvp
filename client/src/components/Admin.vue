@@ -10,13 +10,14 @@
 		</div>
 		<div v-else>No guests created</div>
 
-		<b-button @click="createGuest">{{ $t('admin.guest.create') }}</b-button>
+		<b-button @click="createGuest({ code: authData.code })">{{ $t('admin.guest.create') }}</b-button>
 	</div>
 </template>
 
 <script>
-import Guest from '@/components/Guest.vue';
+import Vuex from 'vuex';
 import { mapMultiRowFields } from 'vuex-map-fields';
+import Guest from '@/components/Guest.vue';
 
 export default {
 	name: 'Admin',
@@ -31,12 +32,10 @@ export default {
 		...mapMultiRowFields(['guests']),
 	},
 	created() {
-		this.$store.dispatch('loadGuests', { code: this.authData.code });
+		this.loadGuests({ code: this.authData.code });
 	},
 	methods: {
-		createGuest: function() {
-			this.$store.dispatch('createGuest', { code: this.authData.code });
-		},
+		...Vuex.mapActions(['loadGuests', 'createGuest']),
 	},
 };
 </script>
