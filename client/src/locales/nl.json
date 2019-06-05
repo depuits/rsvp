@@ -1,13 +1,14 @@
 {
 	"error": {
 		"loadingData": "Error loading data.",
+		"saveResponse": "Opslaan van antwoord mislukt!",
 		"btn": {
 			"retry": "Retry"
 		}
 	},
 	"nav": {
-		"home": "The day",
-		"history": "History",
+		"home": "De dag",
+		"history": "Geschiedenis",
 		"rsvp": "RSVP"
 	},
 	"home": {
@@ -15,7 +16,6 @@
 		"intro": "Welcome to our wedding site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante ac eros ornare sagittis quis id mauris. Proin vulputate nec leo non scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 	},
 	"events": {
-		"new": "new event",
 		"law": "Trouw wet",
 		"church": "Kerkelijke dienst",
 		"reception": "Receptie",
@@ -35,8 +35,6 @@
 			"smile": "Joeri probeert te lachen",
 			"Firtelstoet":"Firtelstoet",
 			"TripToNederland": " Uistapje naar Nederland"
-
-
 		},
 		"her": {
 			"birth": "Geboorte",
@@ -70,7 +68,6 @@
 			"BestRoadTripEver":"Best Road Trip Ever !!!",
 			"ChurchWeddingYn&Koen":"Trouw Koen en yn",
 			"SamenPoseren":"Samen poseren"
-
 		}
 	},
 	"login": {
@@ -87,7 +84,8 @@
 	"admin": {
 		"guest": {
 			"create": "create guest",
-			"createFailed": "Create guest failed."
+			"createFailed": "Create guest failed.",
+			"deleteConfirm": "Bent u zeker dat u deze gast wilt verwijderen?"
 		}
 	},
 	"rsvp": {

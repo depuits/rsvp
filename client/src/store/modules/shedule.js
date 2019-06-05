@@ -3,15 +3,17 @@ import i18n from '@/i18n';
 import { Snackbar } from 'buefy/dist/components/snackbar';
 
 export default {
-	namespaced: false,
+	namespaced: true,
 	state: {
-		shedule: null,
+		loaded: false,
+		events: [],
+		date: null,
 	},
 	mutations: {
-		SET_SHEDULE(state, shedule) {
+		SET(state, shedule) {
 			//parse dates
-			shedule.date = new Date(shedule.date);
-			shedule.events = shedule.events.map(e => {
+			state.date = new Date(shedule.date);
+			state.events = shedule.events.map(e => {
 				e.start = new Date(e.start);
 				if (e.end) {
 					e.end = new Date(e.end);
@@ -19,19 +21,18 @@ export default {
 				return e;
 			});
 			//order events by date
-			shedule.events.sort((a, b) => {
+			state.events.sort((a, b) => {
 				if (a.start < b.start) return -1;
 				if (a.start > b.start) return 1;
 				return 0;
 			});
 
-			//order events by start
-			state.shedule = shedule;
+			state.loaded = true;
 		},
 	},
 	actions: {
-		loadShedule(context, force) {
-			if (context.state.shedule && !force) {
+		load(context, force) {
+			if (context.state.loaded && !force) {
 				return; // data is already loaded
 			}
 
@@ -40,7 +41,7 @@ export default {
 				.get('shedule')
 				.then(
 					result => {
-						context.commit('SET_SHEDULE', result.data);
+						context.commit('SET', result.data);
 					},
 					error => {
 						Snackbar.open({
@@ -49,7 +50,7 @@ export default {
 							position: 'is-bottom',
 							type: 'is-danger',
 							onAction: () => {
-								context.dispatch('loadShedule');
+								context.dispatch('load');
 							},
 						});
 					}

@@ -3,7 +3,7 @@
 		<h1>{{ $t('history.intro') }}</h1>
 
 		<div class="timeline">
-			<HistoricalYear v-for="(y, i) in $store.state.history" :key="y.year" :data="y" :first="i == 0" />
+			<HistoricalYear v-for="(y, i) in $store.state.history.events" :key="y.year" :data="y" :first="i == 0" />
 			<HistoricalYear :data="{ year: new Date().getFullYear(), events: [] }" :last="true" />
 		</div>
 	</div>
@@ -19,7 +19,7 @@ export default {
 		HistoricalYear,
 	},
 	created() {
-		this.$store.dispatch('loadHistory');
+		this.$store.dispatch('history/load');
 	},
 };
 </script>

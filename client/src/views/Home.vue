@@ -42,7 +42,7 @@ export default {
 		},
 	},
 	created() {
-		this.$store.dispatch('loadShedule');
+		this.$store.dispatch('shedule/load');
 	},
 };
 </script>

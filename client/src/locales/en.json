@@ -1,6 +1,7 @@
 {
 	"error": {
 		"loadingData": "Error loading data.",
+		"saveResponse": "Saving of response failed!",
 		"btn": {
 			"retry": "Retry"
 		}
@@ -15,12 +16,11 @@
 		"intro": "Welcome to our wedding site. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante ac eros ornare sagittis quis id mauris. Proin vulputate nec leo non scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 	},
 	"events": {
-		"new": "new event",
-		"law": "wedding law",
-		"church": "wedding church",
-		"reception": "reception",
-		"diner": "diner",
-		"party": "party"
+		"law": "Wedding law",
+		"church": "Wedding church",
+		"reception": "Reception",
+		"diner": "Diner",
+		"party": "Party"
 	},
 	"history": {
 		"intro": "Our history",
@@ -48,7 +48,8 @@
 	"admin": {
 		"guest": {
 			"create": "Create guest",
-			"createFailed": "Guest creation failed."
+			"createFailed": "Guest creation failed.",
+			"deleteConfirm": "Are you sure you want to delete this guest?"
 		}
 	},
 	"rsvp": {

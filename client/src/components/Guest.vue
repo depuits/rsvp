@@ -31,8 +31,8 @@
 </template>
 
 <script>
+import Vuex from 'vuex';
 import debounce from 'lodash.debounce';
-//import { mapFields } from 'vuex-map-fields';
 
 export default {
 	name: 'Guest',
@@ -43,19 +43,13 @@ export default {
 	data: function() {
 		return {
 			change: debounce(() => {
-				this.$store.dispatch('updateGuest', { code: this.authData.code, guest: this.guest });
+				this.update({ code: this.authData.code, guest: this.guest });
 			}, 1000),
 		};
 	},
-	computed: {
-		/*...mapFields([
-			'form.firstName',
-			'form.lastName',
-			'form.message',
-			// ...
-		]),*/
-	},
+
 	methods: {
+		...Vuex.mapActions('guests', ['update', 'delete']),
 		addName: function() {
 			this.guest.info.names.push('');
 			this.change();
@@ -69,9 +63,9 @@ export default {
 		},
 		remove: function() {
 			this.$dialog.confirm({
-				message: 'Are you sure?',
+				message: this.$t('admin.guest.deleteConfirm'),
 				onConfirm: () => {
-					this.$store.dispatch('deleteGuest', { code: this.authData.code, guest: this.guest });
+					this.delete({ code: this.authData.code, guest: this.guest });
 				},
 			});
 		},

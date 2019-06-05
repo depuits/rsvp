@@ -125,7 +125,6 @@ export default {
 				.post('response/update', data, { headers: { 'x-code': this.authData.info.code } })
 				.then(
 					result => {
-						console.log(this.$t('rsvp.successText'));
 						this.$dialog.alert({
 							message: this.$t('rsvp.successText'),
 							confirmText: this.$t('rsvp.successConfirm'),
@@ -135,7 +134,16 @@ export default {
 						});
 					},
 					error => {
-						this.response = 'login.error.incorrect';
+						this.$snackbar.open({
+							duration: 10000,
+							message: this.$t('error.saveResponse'),
+							actionText: this.$t('error.btn.retry'),
+							position: 'is-bottom',
+							type: 'is-danger',
+							onAction: () => {
+								this.send();
+							},
+						});
 					}
 				)
 				.then(() => {

@@ -3,11 +3,13 @@ import i18n from '@/i18n';
 import { Snackbar } from 'buefy/dist/components/snackbar';
 
 export default {
+	namespaced: true,
 	state: {
-		history: null,
+		loaded: false,
+		events: [],
 	},
 	mutations: {
-		SET_HISTORY(state, history) {
+		SET(state, history) {
 			//parse dates
 			history = history.map(e => {
 				if (e.date) {
@@ -18,7 +20,7 @@ export default {
 
 			// push history event in lists for each year
 			let currentYear = null;
-			let hist = [];
+			state.events = []; // clear old data and initiate
 
 			for (let e of history) {
 				// when the current year is not yet set or the years don't match
@@ -29,19 +31,19 @@ export default {
 						events: [],
 					};
 
-					hist.push(currentYear);
+					state.events.push(currentYear);
 				}
 
 				//add event to current year
 				currentYear.events.push(e);
 			}
 
-			state.history = hist;
+			state.loaded = true;
 		},
 	},
 	actions: {
-		loadHistory(context, force) {
-			if (context.state.history && !force) {
+		load(context, force) {
+			if (context.state.loaded && !force) {
 				return; // data is already loaded
 			}
 
@@ -50,7 +52,7 @@ export default {
 				.get('history')
 				.then(
 					result => {
-						context.commit('SET_HISTORY', result.data);
+						context.commit('SET', result.data);
 					},
 					error => {
 						Snackbar.open({
@@ -59,7 +61,7 @@ export default {
 							position: 'is-bottom',
 							type: 'is-danger',
 							onAction: () => {
-								context.dispatch('loadHistory');
+								context.dispatch('load');
 							},
 						});
 					}

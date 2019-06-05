@@ -6,7 +6,7 @@ import { getField, updateField } from 'vuex-map-fields';
 
 import shedule from '@/store/modules/shedule';
 import history from '@/store/modules/history';
-import guests from '@/store/modules/guests';
+import rsvp from '@/store/modules/rsvp';
 
 Vue.use(Vuex);
 
@@ -20,7 +20,7 @@ export default new Vuex.Store({
 	modules: {
 		shedule,
 		history,
-		guests,
+		rsvp,
 	},
 	mutations: {
 		updateField,

@@ -3,12 +3,20 @@ import i18n from '@/i18n';
 import { Snackbar } from 'buefy/dist/components/snackbar';
 
 export default {
+	namespaced: true,
 	state: {
+		loaded: false,
 		guests: [],
 	},
+	getters: {
+		getGuestsByFilter: state => f => {
+			return state.guests.filter(g => g.info.names.find(n => n.toLowerCase().includes(f.toLowerCase())));
+		},
+	},
 	mutations: {
-		SET_GUESTS(state, guests) {
+		SET(state, guests) {
 			state.guests = guests;
+			state.loaded = true;
 		},
 		ADD_GUEST(state, guest) {
 			state.guests.push(guest);
@@ -22,8 +30,8 @@ export default {
 		},
 	},
 	actions: {
-		loadGuests(context, data) {
-			if (context.state.guests && context.state.guests.length && !data.force) {
+		load(context, data) {
+			if (context.state.loaded && !data.force) {
 				return; // data is already loaded
 			}
 
@@ -32,7 +40,7 @@ export default {
 				.get('response/all', { headers: { 'x-code': data.code } })
 				.then(
 					result => {
-						context.commit('SET_GUESTS', result.data);
+						context.commit('SET', result.data);
 					},
 					error => {
 						Snackbar.open({
@@ -41,7 +49,7 @@ export default {
 							position: 'is-bottom',
 							type: 'is-danger',
 							onAction: () => {
-								context.dispatch('loadGuests', data.code);
+								context.dispatch('load', data.code);
 							},
 						});
 					}
@@ -100,7 +108,7 @@ export default {
 				.delete(`response/${data.guest._id}`, { headers: { 'x-code': data.code } })
 				.then(
 					result => {
-						context.dispatch('loadGuests', { code: data.code, force: true });
+						context.dispatch('load', { code: data.code, force: true });
 					},
 					error => {
 						Snackbar.open({

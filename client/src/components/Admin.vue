@@ -2,13 +2,15 @@
 	<div class="admin">
 		<h1>This is the admin page</h1>
 
-		<h2>Guests</h2>
-		<div v-if="guests && guests.length">
-			<ul>
-				<Guest v-for="g in guests" :key="g._id" :guest="g" :auth-data="authData" />
-			</ul>
+		<div v-show="loaded">
+			<h2>Guests</h2>
+			<div v-if="guests.length">
+				<ul>
+					<Guest v-for="g in guests" :key="g._id" :guest="g" :auth-data="authData" />
+				</ul>
+			</div>
+			<div v-else>No guests created</div>
 		</div>
-		<div v-else>No guests created</div>
 
 		<b-button @click="createGuest({ code: authData.code })">{{ $t('admin.guest.create') }}</b-button>
 	</div>
@@ -29,13 +31,14 @@ export default {
 	},
 	computed: {
 		// map this to store.state
-		...mapMultiRowFields(['guests']),
+		...Vuex.mapState(['rsvp.loaded']),
+		...mapMultiRowFields(['rsvp.guests']),
 	},
 	created() {
-		this.loadGuests({ code: this.authData.code });
+		this.load({ code: this.authData.code });
 	},
 	methods: {
-		...Vuex.mapActions(['loadGuests', 'createGuest']),
+		...Vuex.mapActions('rsvp', ['load', 'createGuest']),
 	},
 };
 </script>
