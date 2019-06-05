@@ -35,7 +35,7 @@ export default {
 				return; // data is already loaded
 			}
 
-			context.commit('SET_LOADING', true);
+			context.commit('SET_LOADING', true, { root: true });
 			Api()
 				.get('response/all', { headers: { 'x-code': data.code } })
 				.then(
@@ -59,7 +59,7 @@ export default {
 				});
 		},
 		createGuest(context, data) {
-			context.commit('SET_LOADING', true);
+			context.commit('SET_LOADING', true, { root: true });
 			Api()
 				.post('response/create', data.guest || {}, { headers: { 'x-code': data.code } })
 				.then(
@@ -79,7 +79,7 @@ export default {
 					}
 				)
 				.then(() => {
-					context.commit('SET_LOADING', false);
+					context.commit('SET_LOADING', false, { root: true });
 				});
 		},
 		updateGuest(context, data) {
@@ -103,7 +103,7 @@ export default {
 				);
 		},
 		deleteGuest(context, data) {
-			context.commit('SET_LOADING', true);
+			context.commit('SET_LOADING', true, { root: true });
 			Api()
 				.delete(`response/${data.guest._id}`, { headers: { 'x-code': data.code } })
 				.then(
@@ -123,7 +123,7 @@ export default {
 					}
 				)
 				.then(() => {
-					context.commit('SET_LOADING', false);
+					context.commit('SET_LOADING', false, { root: true });
 				});
 		},
 	},

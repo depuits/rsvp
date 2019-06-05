@@ -31,8 +31,8 @@ export default {
 	},
 	computed: {
 		// map this to store.state
-		...Vuex.mapState(['rsvp.loaded']),
-		...mapMultiRowFields(['rsvp.guests']),
+		...Vuex.mapState('rsvp', ['loaded']),
+		...mapMultiRowFields('rsvp', ['guests']),
 	},
 	created() {
 		this.load({ code: this.authData.code });

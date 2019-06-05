@@ -47,7 +47,7 @@ export default {
 				return; // data is already loaded
 			}
 
-			context.commit('SET_LOADING', true);
+			context.commit('SET_LOADING', true, { root: true });
 			Api()
 				.get('history')
 				.then(
@@ -67,7 +67,7 @@ export default {
 					}
 				)
 				.then(() => {
-					context.commit('SET_LOADING', false);
+					context.commit('SET_LOADING', false, { root: true });
 				});
 		},
 	},
