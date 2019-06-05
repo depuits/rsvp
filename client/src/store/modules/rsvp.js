@@ -58,7 +58,7 @@ export default {
 					}
 				)
 				.then(() => {
-					//context.commit('SET_LOADING', false);
+					context.commit('SET_LOADING', false, { root: true });
 				});
 		},
 		createGuest(context, data) {
