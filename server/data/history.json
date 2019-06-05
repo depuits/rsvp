@@ -119,12 +119,15 @@
 		"desc": "history.him.tenthBirthday",
 		"date": "2001-11-25T00:00:00.000Z"
 	},
-
 	{
 		"class": "her",
 		"image": "communie_elien_boven.jpg",
 		"desc": "history.her.firstSacrament",
 		"date": "2003-05-29T00:00:00.000Z"
+	},
+	{
+		"class": "her",
+		"image": "rhaniEnElienCommunie.jpg"
 	},
 	{
 		"class": "him",
