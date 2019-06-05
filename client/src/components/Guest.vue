@@ -13,7 +13,7 @@
 					</div>
 				</b-field>
 				<b-field v-show="guest.info.names.length < 2" horizontal label="partner" style="text-align: left;">
-					<b-switch v-model="guest.info.partner"></b-switch>
+					<b-switch v-model="guest.info.partner" @input="change"></b-switch>
 				</b-field>
 				<b-field horizontal>
 					<div class="control">
@@ -43,13 +43,13 @@ export default {
 	data: function() {
 		return {
 			change: debounce(() => {
-				this.update({ code: this.authData.code, guest: this.guest });
+				this.updateGuest({ code: this.authData.code, guest: this.guest });
 			}, 1000),
 		};
 	},
 
 	methods: {
-		...Vuex.mapActions('guests', ['update', 'delete']),
+		...Vuex.mapActions('rsvp', ['updateGuest', 'deleteGuest']),
 		addName: function() {
 			this.guest.info.names.push('');
 			this.change();
@@ -65,7 +65,7 @@ export default {
 			this.$dialog.confirm({
 				message: this.$t('admin.guest.deleteConfirm'),
 				onConfirm: () => {
-					this.delete({ code: this.authData.code, guest: this.guest });
+					this.deleteGuest({ code: this.authData.code, guest: this.guest });
 				},
 			});
 		},

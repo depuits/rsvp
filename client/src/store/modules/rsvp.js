@@ -1,6 +1,7 @@
 import Api from '@/services/Api';
 import i18n from '@/i18n';
 import { Snackbar } from 'buefy/dist/components/snackbar';
+import { getField, updateField } from 'vuex-map-fields';
 
 export default {
 	namespaced: true,
@@ -9,11 +10,13 @@ export default {
 		guests: [],
 	},
 	getters: {
+		getField,
 		getGuestsByFilter: state => f => {
 			return state.guests.filter(g => g.info.names.find(n => n.toLowerCase().includes(f.toLowerCase())));
 		},
 	},
 	mutations: {
+		updateField,
 		SET(state, guests) {
 			state.guests = guests;
 			state.loaded = true;
