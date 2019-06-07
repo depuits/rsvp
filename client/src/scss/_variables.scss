@@ -46,6 +46,7 @@ $colors: (
 );
 
 @import '@/scss/timeline.scss';
+@import '@/scss/eventline.scss';
 
 // Import Bulma and Buefy styles
 @import "~bulma";
