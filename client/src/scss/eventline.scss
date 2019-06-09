@@ -4,14 +4,13 @@
 $lineColor: $primary;
 $backgroundColor: $backColor;
 $lineWidth: 2px;
-$eventPadding: 2rem;
 
-.timeline {
+.eventline {
 	text-align: center;
 
 	.year {
 		display: inline-block;
-		font-size: 3rem;
+		font-size: 36px;
 		font-weight: bold;
 		position: relative;
 
@@ -57,10 +56,10 @@ $eventPadding: 2rem;
 			.events {
 				position: relative;
 				float: left;
-				left: 0;
-				padding: $eventPadding;
+				left: 25%;
+				padding: 30px;
 				text-align: center;
-				width: calc(100% + #{$lineWidth}/2);
+				width: calc(50% + #{$lineWidth}/2);
 
 				p {
 					position: relative;
@@ -86,21 +85,21 @@ $eventPadding: 2rem;
 					background: $lineColor;
 
 					position: absolute;
-					right: 30%;
-					left: 30%;
+					right: 10%;
+					left: 10%;
 				}
 
 				.date {
 					position: absolute;
-					bottom: 0;
-					left: 0;
-					transform: translateY(50%);
+					top: 50%;
+					left: 100%;
+					transform: translateY(-50%);
 
-					padding: $eventPadding;
+					padding: 30px;
 					text-align: left;
 
 					color: $lineColor;
-					font-size: 2rem;
+					font-size: 24px;
 					white-space: nowrap;
 				}
 
@@ -109,20 +108,7 @@ $eventPadding: 2rem;
 					overflow: hidden;
 
 					img {
-						width: 100%;
 						display: block;
-					}
-
-					.caption {
-						position: absolute;
-						margin: 0;
-
-						bottom: 0;
-						left: 0;
-						right: 0;
-						padding: 1rem;
-						background: rgba(#000, 0.7);
-						color: #fff;
 					}
 				}
 			}
@@ -134,11 +120,9 @@ $eventPadding: 2rem;
 				.events {
 					left: 0;
 					float: left;
-					padding: $eventPadding;
 					border-left: 0;
 					border-right: $lineWidth solid $lineColor;
 					text-align: right;
-					width: calc(50% + #{$lineWidth}/2);
 
 					&::before {
 						content: none;
@@ -150,25 +134,17 @@ $eventPadding: 2rem;
 					}
 
 					.date {
-						top: 50%;
-						bottom: auto;
-						left: 100%;
 						right: auto;
+						left: 100%;
 						text-align: left;
-						transform: translateY(-50%);
 					}
 
 					.day__img {
 						margin-left: auto;
-						margin-right: -$eventPadding;
+						margin-right: 30px;
 
 						img {
 							float: right;
-						}
-
-						.caption {
-							left: auto;
-							right: 0;
 						}
 					}
 				}
@@ -178,11 +154,9 @@ $eventPadding: 2rem;
 				.events {
 					left: 0;
 					float: right;
-					padding: $eventPadding;
 					border-right: 0;
 					border-left: $lineWidth solid $lineColor;
 					text-align: left;
-					width: calc(50% + #{$lineWidth}/2);
 
 					&::before {
 						content: none;
@@ -194,25 +168,17 @@ $eventPadding: 2rem;
 					}
 
 					.date {
-						top: 50%;
-						bottom: auto;
 						left: auto;
 						right: 100%;
 						text-align: right;
-						transform: translateY(-50%);
 					}
 
 					.day__img {
 						margin-right: auto;
-						margin-left: -$eventPadding;
+						margin-left: 30px;
 
 						img {
 							float: left;
-						}
-
-						.caption {
-							right: auto;
-							left: 0;
 						}
 					}
 				}

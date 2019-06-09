@@ -3,7 +3,7 @@
 		<h1>{{ $t('home.title') }}</h1>
 		<p>{{ $t('home.intro') }}</p>
 
-		<div v-if="shedule.loaded" class="timeline">
+		<div v-if="shedule.loaded" class="eventline">
 			<div class="year year--start">
 				<div class="inner">
 					<span>{{ $d(shedule.date, 'short') }}</span>
