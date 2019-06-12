@@ -46,6 +46,8 @@
 		}
 	},
 	"admin": {
+		"print": "Print codes",
+		"selectAll": "Select all for print",
 		"guest": {
 			"create": "Create guest",
 			"createFailed": "Guest creation failed.",

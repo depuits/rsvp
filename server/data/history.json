@@ -280,7 +280,7 @@
 	{
 		"class": "us",
 		"image": "trouw_talitha_en_dri_5hcyl.jpg",
-		"desc": "history.us. WeddingT&D",
+		"desc": "history.us.WeddingT&D",
 		"date": "2015-10-02T00:00:00.000Z"
 	},
 	{
@@ -292,19 +292,19 @@
 	{
 		"class": "us",
 		"image": "trouw_sophie_.jpg",
-		"desc": "history.us. WeddingSophie&Fré",
+		"desc": "history.us.WeddingSophie&Fré",
 		"date": "2015-11-19T00:00:00.000Z"
 	},
 	{	"class": "us",
 		"image": "skireis_2016_.jpg",
-		"desc": "history.us. Skireis",
+		"desc": "history.us.Skireis",
 		"date": "2016-02-02T00:00:00.000Z"
 	},
 
 	{
 		"class": "us",
 		"image": " verjaardagsfeest_pep_nVuNJ.jpg",
-		"desc": "history.us. BirtdayPepe",
+		"desc": "history.us.BirtdayPepe",
 		"date": "2016-04-09T00:00:00.000Z"
 	},
 	{
@@ -318,7 +318,7 @@
 	{
 		"class": "us",
 		"image": "gentse_feesten_2016.jpg",
-		"desc": "history.us. PartyInGent",
+		"desc": "history.us.PartyInGent",
 		"date": "2016-07-22T00:00:00.000Z"
 	},
 	{
@@ -340,13 +340,13 @@
 	{
 		"class": "him",
 		"image": "firtelstoet.jpg",
-		"desc": "history.him. Firtelstoet",
+		"desc": "history.him.Firtelstoet",
 		"date": "2016-10-02T00:00:00.000Z"
 	},
 	{
 		"class": "us",
 		"image": "samen_naar_lozeren_b_gw0WL.jpg",
-		"desc": "history.us. EnjoyingTheFreshAir",
+		"desc": "history.us.EnjoyingTheFreshAir",
 		"date": "2016-11-01T00:00:00.000Z"
 	},
 	{

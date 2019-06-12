@@ -53,9 +53,9 @@
 			"seaTogetherOne":"Samen genieten aan de zee!!",
 			"EersteSkireis":"Eerste skireis samen",
 			"ToTheCaravan":"Samen naar de caravan",
-			" TripProvence":"Reisje naar de Provence",
+			"TripProvence":"Reisje naar de Provence",
 			"WeddingT&D":"Trouw Talitha & Dries",
-			" WeddingSophie&Fré":"Trouw Sohie & Frederick",
+			"WeddingSophie&Fré":"Trouw Sohie & Frederick",
 			"Skireis":"Skireis",
 			"BirtdayPepe":"Verjaardagsfeest Pepe",
 			"PartyInGent":"Gentse feesten",
@@ -82,6 +82,8 @@
 		}
 	},
 	"admin": {
+		"print": "Print codes",
+		"selectAll": "Select all for print",
 		"guest": {
 			"create": "create guest",
 			"createFailed": "Create guest failed.",

@@ -10,6 +10,11 @@ const ObjectId = require('mongodb').ObjectID;
 const db = mongo.getDb();
 const col = db.collection('guest');
 
+const path = require('path');
+const Promise = require('bluebird');
+const fs = Promise.promisifyAll(require('fs'));
+const PDFDocument = require('pdfkit');
+const SVGtoPDF = require('svg-to-pdfkit');
 
 function checkAdmin(req, res, next) {
 	if (res.locals.admin) {
@@ -133,8 +138,78 @@ router.delete('/:id', checkAdmin, async function (req, res, next) {
 });
 
 router.post('/print', checkAdmin, async function (req, res, next) {
-	//TODO return printable pdf
-	res.send("test");
+	let guests = [];
+	for(let c of req.body) {
+		let g = await col.findOne({ 'info.code': c });
+		if (g) {
+			guests.push(g);
+		}
+	}
+
+	const baseSvg = await fs.readFileAsync(path.join(__dirname, '../data/codeTemplate.svg'), 'UTF8');
+
+	// create pdf doc and add first page
+	let doc = new PDFDocument({ autoFirstPage: false });
+
+	const fontName = 'FunnyDuck';
+	const fontPath = path.join(__dirname, '../data/fonts/FunnyDuck.ttf')
+	doc.registerFont(fontName, fontPath);
+
+	let pageWidth = 595;
+	let pageHeight = 842;
+
+	let cardWidth = 240;
+	let cardHeight = 156;
+
+	doc.addPage({ compress: true, size: [pageWidth, pageHeight] });
+
+	let cols = Math.floor(pageWidth / cardWidth);
+	let rows = Math.floor (pageHeight / cardHeight);
+
+	let marginX = (pageWidth - (cols * cardWidth)) / 2;
+	let marginY = (pageHeight - (rows * cardHeight)) / 2;
+
+	let currentCol = 0;
+	let currentRow = 0;
+
+	for (let g of guests) {
+		let svg = baseSvg;
+		svg = svg.replace('{code}', g.info.code.toUpperCase());
+
+		//TODO replace {names}
+
+		let x = cardWidth * currentCol + marginX;
+		let y = cardHeight * currentRow + marginY;
+
+		SVGtoPDF(doc, svg, x, y, {
+			width: cardWidth,
+			height: cardHeight,
+			assumePt: true,
+			preserveAspectRatio: 'xMidYMid slice',
+			fontCallback: () => fontName,
+		});
+
+		//increase left to right then up down
+		++currentCol;
+		if (currentCol >= cols) {
+			currentCol = 0;
+			++currentRow;
+
+			if (currentRow >= rows) {
+				currentRow = 0;
+				doc.addPage({ compress: true, size: [pageWidth, pageHeight] });
+			}
+		}
+	}
+
+	// return the pdf
+	res.setHeader('Content-type', 'application/pdf')
+	doc.pipe(res);
+
+	stream = fs.createWriteStream('file.pdf');
+	doc.pipe(stream);
+
+	doc.end();
 });
 
 module.exports = router;

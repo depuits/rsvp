@@ -5,6 +5,11 @@
 		<div v-show="loaded">
 			<h2>Guests</h2>
 			<div v-if="guests.length">
+				<div class="columns">
+					<div class="column is-one-fifth is-offset-four-fifths">
+						<b-button @click="selectAllPrint">{{ $t('admin.selectAll') }}</b-button>
+					</div>
+				</div>
 				<ul>
 					<Guest v-for="g in guests" :key="g._id" :guest="g" :auth-data="authData" />
 				</ul>
@@ -40,29 +45,29 @@ export default {
 		this.load({ code: this.authData.code });
 	},
 	methods: {
-		...Vuex.mapActions('rsvp', ['load', 'createGuest', 'deselectPrint']),
+		...Vuex.mapActions('rsvp', ['load', 'createGuest', 'deselectPrint', 'selectAllPrint']),
 		print: function() {
-			let pg = this.guests.filter(g => g.print);
+			let pg = this.guests.filter(g => g.print).map(g => g.info.code);
 
-			alert('todo print:' + pg.length);
-			Api.post(
-				'print',
-				{
-					/* data */
-				},
-				{
+			if (!pg.length) {
+				alert('select codes to print');
+				return;
+			}
+
+			Api()
+				.post('response/print', pg, {
 					headers: { 'x-code': this.authData.code },
 					responseType: 'blob', // important
-				}
-			).then(response => {
-				const url = window.URL.createObjectURL(new Blob([response.data]));
-				const link = document.createElement('a');
-				link.href = url;
-				link.setAttribute('download', 'file.pdf'); //or any other extension
-				document.body.appendChild(link);
-				link.click();
-				this.deselectPrint();
-			});
+				})
+				.then(response => {
+					const url = window.URL.createObjectURL(new Blob([response.data]));
+					const link = document.createElement('a');
+					link.href = url;
+					link.setAttribute('download', 'file.pdf'); //or any other extension
+					document.body.appendChild(link);
+					link.click();
+					this.deselectPrint();
+				});
 		},
 	},
 };

@@ -41,6 +41,11 @@ export default {
 				g.print = false;
 			}
 		},
+		SELECTALL_PRINT(state) {
+			for (let g of state.guests) {
+				g.print = true;
+			}
+		},
 	},
 	actions: {
 		load(context, data) {
@@ -141,6 +146,9 @@ export default {
 		},
 		deselectPrint(context) {
 			context.commit('DESELECT_PRINT');
+		},
+		selectAllPrint(context) {
+			context.commit('SELECTALL_PRINT');
 		},
 	},
 };

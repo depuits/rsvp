@@ -183,7 +183,7 @@
          id="tspan872-4"
          x="56.991184"
          y="274.23279"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Funny Duck';-inkscape-font-specification:'Funny Duck';text-align:center;text-anchor:middle;fill:#8a1e35;fill-opacity:1;stroke-width:0.26458332">AXAXAXA</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Funny Duck';-inkscape-font-specification:'Funny Duck';text-align:center;text-anchor:middle;fill:#8a1e35;fill-opacity:1;stroke-width:0.26458332">{code}</tspan></text>
     <rect
        transform="translate(0,242)"
        inkscape:label="outline"
@@ -205,6 +205,6 @@
          y="295.85806"
          x="42.504673"
          id="tspan6137"
-         sodipodi:role="line">names</tspan></text>
+         sodipodi:role="line">{names}</tspan></text>
   </g>
 </svg>
