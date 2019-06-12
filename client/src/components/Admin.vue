@@ -13,6 +13,7 @@
 		</div>
 
 		<b-button @click="createGuest({ code: authData.code })">{{ $t('admin.guest.create') }}</b-button>
+		<b-button @click="print({ code: authData.code })">{{ $t('admin.print') }}</b-button>
 	</div>
 </template>
 
@@ -38,7 +39,14 @@ export default {
 		this.load({ code: this.authData.code });
 	},
 	methods: {
-		...Vuex.mapActions('rsvp', ['load', 'createGuest']),
+		...Vuex.mapActions('rsvp', ['load', 'createGuest', 'deselectPrint']),
+		print:  function() {
+			let pg = this.guests.filter(g => g.print);
+
+			alert('todo print:' + pg.length);
+
+			this.deselectPrint();
+		}
 	},
 };
 </script>

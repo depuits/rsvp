@@ -18,17 +18,27 @@ export default {
 	mutations: {
 		updateField,
 		SET(state, guests) {
+			for (let g of guests) {
+				g.print = false;
+			}
 			state.guests = guests;
 			state.loaded = true;
 		},
 		ADD_GUEST(state, guest) {
+			guest.print = false;
 			state.guests.push(guest);
 		},
 		UPDATE_GUEST(state, guest) {
 			var index = state.guests.indexOf(guest.old);
 
 			if (index !== -1) {
+				guest.new.print = guest.old.print;
 				state.guests[index] = guest.new;
+			}
+		},
+		DESELECT_PRINT(state) {
+			for (let g of state.guests) {
+				g.print = false;
 			}
 		},
 	},
@@ -128,6 +138,9 @@ export default {
 				.then(() => {
 					context.commit('SET_LOADING', false, { root: true });
 				});
+		},
+		deselectPrint(context) {
+			context.commit('DESELECT_PRINT');
 		},
 	},
 };
