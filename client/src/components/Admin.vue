@@ -13,7 +13,7 @@
 		</div>
 
 		<b-button @click="createGuest({ code: authData.code })">{{ $t('admin.guest.create') }}</b-button>
-		<b-button @click="print({ code: authData.code })">{{ $t('admin.print') }}</b-button>
+		<b-button @click="print">{{ $t('admin.print') }}</b-button>
 	</div>
 </template>
 
@@ -21,6 +21,7 @@
 import Vuex from 'vuex';
 import { mapMultiRowFields } from 'vuex-map-fields';
 import Guest from '@/components/Guest.vue';
+import Api from '@/services/Api';
 
 export default {
 	name: 'Admin',
@@ -40,13 +41,29 @@ export default {
 	},
 	methods: {
 		...Vuex.mapActions('rsvp', ['load', 'createGuest', 'deselectPrint']),
-		print:  function() {
+		print: function() {
 			let pg = this.guests.filter(g => g.print);
 
 			alert('todo print:' + pg.length);
-
-			this.deselectPrint();
-		}
+			Api.post(
+				'print',
+				{
+					/* data */
+				},
+				{
+					headers: { 'x-code': this.authData.code },
+					responseType: 'blob', // important
+				}
+			).then(response => {
+				const url = window.URL.createObjectURL(new Blob([response.data]));
+				const link = document.createElement('a');
+				link.href = url;
+				link.setAttribute('download', 'file.pdf'); //or any other extension
+				document.body.appendChild(link);
+				link.click();
+				this.deselectPrint();
+			});
+		},
 	},
 };
 </script>

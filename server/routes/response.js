@@ -132,4 +132,9 @@ router.delete('/:id', checkAdmin, async function (req, res, next) {
 	res.send();
 });
 
+router.post('/print', checkAdmin, async function (req, res, next) {
+	//TODO return printable pdf
+	res.send("test");
+});
+
 module.exports = router;
