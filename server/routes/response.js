@@ -174,13 +174,23 @@ router.post('/print', checkAdmin, async function (req, res, next) {
 
 	for (let g of guests) {
 		let svg = baseSvg;
+		// replace {code}
 		svg = svg.replace('{code}', g.info.code.toUpperCase());
 
-		//TODO replace {names}
+		// replace {names}
+		let names = [];
+		for (let n of g.info.names) {
+			let nameParts = n.split(' ');
+			let fn = (nameParts.length > 0) ? nameParts[0] : n;
+			names.push(fn);
+		}
+		svg = svg.replace('{names}', names.join(', '));
 
+		//determine svg position
 		let x = cardWidth * currentCol + marginX;
 		let y = cardHeight * currentRow + marginY;
-
+		
+		// render svg to pdf
 		SVGtoPDF(doc, svg, x, y, {
 			width: cardWidth,
 			height: cardHeight,
@@ -192,22 +202,25 @@ router.post('/print', checkAdmin, async function (req, res, next) {
 		//increase left to right then up down
 		++currentCol;
 		if (currentCol >= cols) {
+			//if the columns loop then go to the next row and first column
 			currentCol = 0;
 			++currentRow;
 
 			if (currentRow >= rows) {
+				//if the columns loop then go back to the start and add a new page
 				currentRow = 0;
 				doc.addPage({ compress: true, size: [pageWidth, pageHeight] });
 			}
 		}
 	}
 
-	// return the pdf
+	// return the pdf to the client
 	res.setHeader('Content-type', 'application/pdf')
 	doc.pipe(res);
 
-	stream = fs.createWriteStream('file.pdf');
-	doc.pipe(stream);
+	// enable this part to save the pdf on the server
+	//stream = fs.createWriteStream('file.pdf');
+	//doc.pipe(stream);
 
 	doc.end();
 });
