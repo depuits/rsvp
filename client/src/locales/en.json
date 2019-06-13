@@ -69,11 +69,13 @@
 		},
 		"save": "Send reply",
 		"successText": "Everythnig was saved successfull.",
-		"successConfirm": "Cool!"
+		"successConfirm": "Cool!",
+		"required": "Please don't be lazy and fill in this field!"
 	},
 	"question": {
 		"remarks": "I need to mention:",
 		"food": "Any special food requirements?",
-		"music": "This song will get me on the dancefloor."
+		"music": "This song will get me on the dancefloor:",
+		"from": "I'll be there as soon as possible but at least from:"
 	}
 }

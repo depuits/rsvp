@@ -40,11 +40,11 @@
 			<hr />
 
 			<b-field v-for="q in authData.defaultQuestions" :key="q" :label="$t(q)">
-				<b-input v-model="questions[q]" type="textarea" />
+				<b-input v-model="questions[q]" type="textarea" required :validation-message="$t('rsvp.required')" />
 			</b-field>
 
 			<b-field v-for="q in authData.info.questions" :key="q" :label="$t(q)">
-				<b-input v-model="questions[q]" type="textarea" />
+				<b-input v-model="questions[q]" type="textarea" required :validation-message="$t('rsvp.required')" />
 			</b-field>
 		</div>
 

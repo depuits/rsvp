@@ -105,11 +105,13 @@
 		},
 		"save": "Antwoord verzenden",
 		"successText": "Alles is succesvol verzonden",
-		"successConfirm": "Cool!"
+		"successConfirm": "Cool!",
+		"required": "Gelieve dit veld in te vullen!"
 	},
 	"question": {
 		"remarks": "Ik heb een opmerking:",
 		"food": "Speciale voedingsvereisten?",
-		"music": "Dit liedje brengt mij op de dansvloer"
+		"music": "Dit liedje brengt mij op de dansvloer:",
+		"from": "Ik ben aanwezig vanaf:"
 	}
 }
