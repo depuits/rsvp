@@ -3,7 +3,7 @@
 
 $lineColor: $primary;
 $backgroundColor: $backColor;
-$lineWidth: 0.4rem;
+$lineWidth: 6px;
 $eventPadding: 2rem;
 
 .eventline {
@@ -66,6 +66,11 @@ $eventPadding: 2rem;
 					position: relative;
 					background: $backgroundColor;
 					margin: 0;
+
+					&.address {
+						color: black;
+						font-size: $size-5;
+					}
 				}
 
 				&:before {

@@ -11,7 +11,7 @@ $family-primary: 'FunnyDuck', Helvetica, Arial, sans-serif;
 $frontColor: #333;
 $backColor: #fff;
 
-$activeColor: #f14628;
+$activeColor: #8a1e35;
 $hoverColor: #1d1b1b;
 
 //calculate filter from hex https://codepen.io/sosuke/pen/Pjoqqp
@@ -30,7 +30,7 @@ $backColorFilter: invert(100%) sepia(1%) saturate(1136%) hue-rotate(208deg) brig
 
 //bulma overides
 // https://bulma.io/documentation/customize/variables/
-$primary: #f14628;
+$primary: #8a1e35;
 $primary-invert: findColorInvert($primary);
 
 $colors: (
