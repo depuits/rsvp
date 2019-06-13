@@ -126,6 +126,10 @@ router.put('/:id', checkAdmin, async function (req, res, next) {
 	}
 
 	delete req.body._id;
+	let names = req.body.names;
+	for (let i = 0; i < names.length; ++i) {
+		names[i] = names[i].trim(); // trim whitspace on all names
+	}
 	//trust client to insert correct data
 	let ret = await col.findOneAndUpdate({ _id: ObjectId(req.params.id) }, { $set: { info: req.body } }, { returnOriginal: false });
 	res.send(ret.value);
@@ -180,9 +184,13 @@ router.post('/print', checkAdmin, async function (req, res, next) {
 		// replace {names}
 		let names = [];
 		for (let n of g.info.names) {
+			n = n.trim();
 			let nameParts = n.split(' ');
 			let fn = (nameParts.length > 0) ? nameParts[0] : n;
-			names.push(fn);
+			// only push the name if it is filled in
+			if (fn) {
+				names.push(fn);
+			}
 		}
 		svg = svg.replace('{names}', names.join(', '));
 
