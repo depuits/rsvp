@@ -10,10 +10,10 @@ var config = {
 	eventDate: new Date(2019, 7, 23),
 	deadLine: new Date(2019, 7, 1),
 	defaultQuestions: [
-		'question.from',
-		'question.music',
-		'question.food',
-		'question.remarks',
+		'question_from',
+		'question_music',
+		'question_food',
+		'question_remarks',
 	],
 };
 

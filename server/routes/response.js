@@ -197,7 +197,7 @@ router.post('/print', checkAdmin, async function (req, res, next) {
 		//determine svg position
 		let x = cardWidth * currentCol + marginX;
 		let y = cardHeight * currentRow + marginY;
-		
+
 		// render svg to pdf
 		SVGtoPDF(doc, svg, x, y, {
 			width: cardWidth,
