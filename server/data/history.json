@@ -285,8 +285,7 @@
 	},
 	{
 		"class": "us",
-		"image": "trouw_talitha_en_dri_h4lpg.jpg",
-		"date": "2015-10-02T00:00:00.000Z"
+		"image": "trouw_talitha_en_dri_h4lpg.jpg"
 	},
 
 	{
@@ -351,8 +350,7 @@
 	},
 	{
 		"class": "us",
-		"image": "samen_naar_lozeren_b_ONp43.jpg",
-		"date": "2016-11-01T00:00:00.000Z"
+		"image": "samen_naar_lozeren_b_ONp43.jpg"
 	},
 	{
 		"class": "us",
@@ -368,8 +366,7 @@
 	},
 	{
 		"class": "us",
-		"image": "lachen_ieper.jpg",
-		"date": "2017-02-18T00:00:00.000Z"
+		"image": "lachen_ieper.jpg"
 	},
 	{
 		"class": "us",
@@ -443,8 +440,7 @@
 	{
 		"class": "her",
 		"image": "parijs_ellen_.jpg",
-		"desc": "history.her.SisterMeetingInParis",
-		"date": "2018-04-23T00:00:00.000Z"
+		"desc": "history.her.SisterMeetingInParis"
 	},
 	{
 		"class": "us",
@@ -504,7 +500,7 @@
 	{
 		"class": "her",
 		"image": "versailles_1_.jpg",
-		"desc": "history.us.UitstapjeVersailles",
+		"desc": "history.her.UitstapjeVersailles",
 		"date": "2019-03-27T00:00:00.000Z"
 	},
 	{

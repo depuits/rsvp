@@ -67,7 +67,7 @@ $eventPadding: 2rem;
 					background: $backgroundColor;
 					margin: 0;
 				}
-				
+
 				&:before {
 					content: '';
 					display: inline-block;
@@ -113,7 +113,7 @@ $eventPadding: 2rem;
 					overflow: hidden;
 
 					img {
-						width: 60%;
+						width: 40%;
 						display: block;
 					}
 
@@ -130,9 +130,9 @@ $eventPadding: 2rem;
 					}
 				}
 			}
-			
+
 			// selector for switching side each event
-			// &:nth-child(odd) { 
+			// &:nth-child(odd) {
 			// we are however explicitly saying left or right
 			&--left {
 				.events {
@@ -148,7 +148,7 @@ $eventPadding: 2rem;
 						content: none;
 					}
 					&:after {
-						width: 15%;
+						width: 10%;
 						left: auto;
 						right: 0;
 					}
@@ -164,8 +164,8 @@ $eventPadding: 2rem;
 
 					.day__img {
 						margin-left: auto;
-						margin-right: auto;
-						//margin-right: -$eventPadding;
+						//margin-right: auto;
+						margin-right: $eventPadding * 2;
 
 						img {
 							float: right;
@@ -193,7 +193,7 @@ $eventPadding: 2rem;
 						content: none;
 					}
 					&:after {
-						width: 15%;
+						width: 10%;
 						right: auto;
 						left: 0;
 					}
@@ -208,9 +208,8 @@ $eventPadding: 2rem;
 					}
 
 					.day__img {
-						margin-left: auto;
 						margin-right: auto;
-						//margin-left: -$eventPadding;
+						margin-left: $eventPadding * 2;
 
 						img {
 							float: left;

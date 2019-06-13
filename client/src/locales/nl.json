@@ -13,14 +13,14 @@
 	},
 	"home": {
 		"title": "Wedding day!",
-		"intro": " Welkom op onze trouw website. Hier vind u de verschillende evenemten met de tijd en locatie. We hopen dat jullie deel kunnen uitmaken van onze prachtige dag!!! Veel liefs Joeri&Elien."
+		"intro": "Welkom op onze trouw website. Hier vind u de verschillende evenemten met de tijd en locatie. We hopen dat jullie deel kunnen uitmaken van onze prachtige dag!!! Veel liefs Joeri & Elien."
 	},
 	"events": {
-		"law": "Trouw wet",
+		"law": "Guldepoort",
 		"church": "Kerkelijke dienst",
 		"reception": "Receptie",
 		"diner": "Diner",
-		"party": "Avondfeest"
+		"party": "Feest"
 	},
 	"history": {
 		"intro": "Onze geschiedenis",
@@ -34,7 +34,7 @@
 			"secondSacrament": "Plechtige Communie",
 			"smile": "Joeri probeert te lachen",
 			"Firtelstoet":"Firtelstoet",
-			"TripToNederland": " Uistapje naar Nederland"
+			"TripToNederland": "Uistapje naar Nederland"
 		},
 		"her": {
 			"birth": "Geboorte",
@@ -45,7 +45,7 @@
 			"18Birthday":"Elien haar 18de verjaardag",
 			"togehterToTheCaravan": "Samen aan de caravan",
 			"WeddingAunt&Uncle": "Trouw Koen en Yn",
-			"SisterMeetingInParis":" Zusjes ontmoeting in Parijs",
+			"SisterMeetingInParis":"Zusjes ontmoeting in Parijs",
 			"UitstapjeVersailles": "Uitstap naar Versailles"
 		},
 		"us": {
@@ -55,7 +55,7 @@
 			"ToTheCaravan":"Samen naar de caravan",
 			"TripProvence":"Reisje naar de Provence",
 			"WeddingT&D":"Trouw Talitha & Dries",
-			"WeddingSophie&Fré":"Trouw Sohie & Frederick",
+			"WeddingSophie&Fré":"Trouw Sophie & Frederick",
 			"Skireis":"Skireis",
 			"BirtdayPepe":"Verjaardagsfeest Pepe",
 			"PartyInGent":"Gentse feesten",
