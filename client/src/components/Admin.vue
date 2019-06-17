@@ -2,6 +2,9 @@
 	<div class="admin">
 		<h1>This is the admin page</h1>
 
+		<h2>Responses</h2>
+		<!-- insert graph here -->
+
 		<div v-show="loaded">
 			<h2>Guests</h2>
 			<div v-if="guests.length">
@@ -40,6 +43,79 @@ export default {
 		// map this to store.state
 		...Vuex.mapState('rsvp', ['loaded']),
 		...mapMultiRowFields('rsvp', ['guests']),
+		guestStats() {
+			let stats = {
+				// stats for guests invited (number of codes)
+				guests: {
+					unknown: 0,
+					total: 0,
+					yes: 0,
+					no: 0,
+				},
+				// stats for actual people
+				real: {
+					unknown: 0,
+					total: 0,
+					yes: 0,
+					no: 0,
+				},
+				partners: {
+					without: 0, // number of partners left behind (people who are coming and may take a partner but don't)
+					unknown: 0,
+					total: 0,
+					yes: 0,
+					no: 0,
+				}
+			};
+
+			for (let g in this.guests) {
+				let realNr = g.info.names.length;
+				let partner = g.info.partner;
+				if (partner) {
+					++stats.parters.total;
+					++realNr;
+				}
+				++stats.guests.total;
+
+				if (g.response) {
+					if (g.response.coming == 'yes') {
+						++stats.guests.yes;
+						//when the answer is yes then the real number can still contain no anwsers
+						realYes = g.response.comingNames.length;
+						realNo = g.info.names.length - realYes;
+						
+						if (partner) {
+							if (g.response.partnerName) {
+								++stats.partners.yes;
+								++realYes;
+							} else {
+								++stats.partners.no;
+								++stats.partners.without;
+								++realNo;
+							}
+						}
+
+						stats.real.yes += realYes;
+						stats.real.no += realNo;
+
+					} else {
+						++stats.guests.no;
+						stats.real.no += realNr;
+						if (partner) {
+							++stata.partners.no;
+						}
+					}
+				} else {
+					++stats.guests.unknown;
+					stats.real.unknown += realNr;
+					if (partner) {
+						++stata.partners.unknown;
+					}
+				}
+			}
+			
+			return stats;
+		},
 	},
 	created() {
 		this.load({ code: this.authData.code });
