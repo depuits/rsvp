@@ -64,3 +64,5 @@ typings/
 server/public/images/*
 # except for the placeholder
 !server/public/images/placeholder.png
+
+server/file.pdf
