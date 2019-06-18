@@ -25,13 +25,50 @@
 	"history": {
 		"intro": "Our history",
 		"him": {
-			"birth": "birth"
+			"birth": "Birth Joeri",
+			"christening": "Christening Joeri",
+			"brother01": "The brothers with santa",
+			"firstSacrament":"First Sacrement",
+			"friend":"Joeri and Ruben",
+			"tenthBirthday": "Joeri his 10th birthday",
+			"secondSacrament": "Second Sacrement",
+			"smile": "Joeri tries to laugh",
+			"Firtelstoet":"Firtel",
+			"TripToNederland": "Trip to the Netherlands"
+
 		},
 		"her": {
-			"birth": "birth"
+			"birth": "Birth Elien",
+			"hug":"Hug",
+			"sick":"Someone was sick",
+			"firstSacrament": "First Sacrement",
+			"secondSacrament":"Second Sacrement",
+			"18Birthday":"Elien her 18th birthday",
+			"togehterToTheCaravan": "Together at the camping",
+			"WeddingAunt&Uncle": "Wedding Koen en Yn",
+			"SisterMeetingInParis":"Sister meeting in Paris",
+			"UitstapjeVersailles": "Trip to Versailles"
 		},
 		"us": {
-			"first": "something something first"
+			"together":"First picture as a pair",
+			"seaTogetherOne":"Enjoying the sea togheter!!",
+			"EersteSkireis":"First skitrip togheter",
+			"ToTheCaravan":"Together at the camping",
+			"TripProvence":"Holiday to the Provence",
+			"WeddingT&D":"Wedding Talitha & Dries",
+			"WeddingSophie&Fré":"Wedding Sophie & Frederick",
+			"Skireis":"Skitrip",
+			"BirtdayPepe":"Birthdayparty grandfather",
+			"PartyInGent":"Gentse feesten",
+			"EnjoyingTheFreshAir":"Enjoying the fresh outdour air",
+			"WeddingLaetitia&Guillaume":"Wedding Laetitia & Guillaume",
+			"supriseWeekend":"Suprise weekend Dirk",
+			"VisitingOnOurWayBackHome":"A visit to Nivelles",
+			"FreshAirAtSae":"To the sea",
+			"DayInBruges":"Day in Bruges",
+			"BestRoadTripEver":"Best Road Trip Ever !!!",
+			"ChurchWeddingYn&Koen":"Wedding Koen en yn",
+			"SamenPoseren":"Posing together"
 		}
 	},
 	"login": {
