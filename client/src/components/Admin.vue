@@ -4,7 +4,7 @@
 
 		<h2>Responses</h2>
 		<!-- insert graph here -->
-		<vue-chart type="bar" :data="chartData" :options="chartOptions"></vue-chart>
+		<GuestsChart :chart-data="chartData" />
 
 		<div v-show="loaded">
 			<h2>Guests</h2>
@@ -30,16 +30,14 @@
 import Vuex from 'vuex';
 import { mapMultiRowFields } from 'vuex-map-fields';
 import Guest from '@/components/Guest.vue';
+import GuestsChart from '@/components/GuestsChart.js';
 import Api from '@/services/Api';
-//import 'chartjs-plugin-colorschemes';
-
-import 'chartjs-plugin-colorschemes/src/plugins/plugin.colorschemes';
-import { Atlas6 } from 'chartjs-plugin-colorschemes/src/colorschemes/colorschemes.office';
 
 export default {
 	name: 'Admin',
 	components: {
 		Guest,
+		GuestsChart,
 	},
 	props: {
 		authData: { type: Object, required: true },
@@ -118,7 +116,6 @@ export default {
 					}
 				}
 			}
-
 			return stats;
 		},
 		chartData() {
@@ -141,27 +138,9 @@ export default {
 				],
 			};
 		},
-		chartOptions() {
-			return {
-				plugins: {
-					colorschemes: {
-						scheme: Atlas6,
-					},
-				},
-				scales: {
-					yAxes: [
-						{
-							ticks: {
-								beginAtZero: true,
-							},
-						},
-					],
-				},
-			};
-		},
 	},
 	created() {
-		this.load({ code: this.authData.code });
+		this.load({ code: this.authData.code, force: true });
 	},
 	methods: {
 		...Vuex.mapActions('rsvp', ['load', 'createGuest', 'deselectPrint', 'selectAllPrint']),
