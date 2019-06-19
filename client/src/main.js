@@ -5,6 +5,7 @@ import store from '@/store/store';
 import i18n from '@/i18n';
 import Buefy from 'buefy';
 import LetItSnow from 'vue-let-it-snow';
+import VueChart from 'vue-chart-js';
 
 import '@mdi/font/css/materialdesignicons.min.css';
 
@@ -12,6 +13,7 @@ Vue.config.productionTip = false;
 
 Vue.use(Buefy);
 Vue.use(LetItSnow);
+Vue.use(VueChart);
 
 new Vue({
 	router,

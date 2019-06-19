@@ -23,7 +23,7 @@
 			</div>
 			<div class="column buttons">
 				<b-button type="is-danger" @click="remove">Delete</b-button>
-				<b-button type="is-info" @click="viewResponse">View response</b-button>
+				<b-button type="is-info" :disabled="!guest.response" @click="viewResponse">View response</b-button>
 				<b-field horizontal label="print" style="text-align: left;">
 					<b-switch v-model="guest.print"></b-switch>
 				</b-field>
@@ -62,7 +62,7 @@ export default {
 			this.change();
 		},
 		viewResponse: function() {
-			alert('todo');
+			alert('response info:' + this.guest.response);
 		},
 		remove: function() {
 			this.$dialog.confirm({

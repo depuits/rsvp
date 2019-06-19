@@ -4,6 +4,7 @@
 
 		<h2>Responses</h2>
 		<!-- insert graph here -->
+		<vue-chart type="bar" :data="chartData" :options="chartOptions"></vue-chart>
 
 		<div v-show="loaded">
 			<h2>Guests</h2>
@@ -30,6 +31,10 @@ import Vuex from 'vuex';
 import { mapMultiRowFields } from 'vuex-map-fields';
 import Guest from '@/components/Guest.vue';
 import Api from '@/services/Api';
+//import 'chartjs-plugin-colorschemes';
+
+import 'chartjs-plugin-colorschemes/src/plugins/plugin.colorschemes';
+import { Atlas6 } from 'chartjs-plugin-colorschemes/src/colorschemes/colorschemes.office';
 
 export default {
 	name: 'Admin',
@@ -53,7 +58,7 @@ export default {
 					no: 0,
 				},
 				// stats for actual people
-				real: {
+				people: {
 					unknown: 0,
 					total: 0,
 					yes: 0,
@@ -65,25 +70,26 @@ export default {
 					total: 0,
 					yes: 0,
 					no: 0,
-				}
+				},
 			};
 
-			for (let g in this.guests) {
+			for (let g of this.guests) {
 				let realNr = g.info.names.length;
 				let partner = g.info.partner;
 				if (partner) {
-					++stats.parters.total;
+					++stats.partners.total;
 					++realNr;
 				}
 				++stats.guests.total;
+				stats.people.total += realNr;
 
 				if (g.response) {
 					if (g.response.coming == 'yes') {
 						++stats.guests.yes;
 						//when the answer is yes then the real number can still contain no anwsers
-						realYes = g.response.comingNames.length;
-						realNo = g.info.names.length - realYes;
-						
+						let realYes = g.response.comingNames.length;
+						let realNo = g.info.names.length - realYes;
+
 						if (partner) {
 							if (g.response.partnerName) {
 								++stats.partners.yes;
@@ -95,26 +101,63 @@ export default {
 							}
 						}
 
-						stats.real.yes += realYes;
-						stats.real.no += realNo;
-
+						stats.people.yes += realYes;
+						stats.people.no += realNo;
 					} else {
 						++stats.guests.no;
-						stats.real.no += realNr;
+						stats.people.no += realNr;
 						if (partner) {
-							++stata.partners.no;
+							++stats.partners.no;
 						}
 					}
 				} else {
 					++stats.guests.unknown;
-					stats.real.unknown += realNr;
+					stats.people.unknown += realNr;
 					if (partner) {
-						++stata.partners.unknown;
+						++stats.partners.unknown;
 					}
 				}
 			}
-			
+
 			return stats;
+		},
+		chartData() {
+			let stat = this.guestStats;
+			return {
+				labels: ['Yes', 'No', 'Unknown'],
+				datasets: [
+					{
+						label: 'Invites',
+						data: [stat.guests.yes, stat.guests.no, stat.guests.unknown],
+					},
+					{
+						label: 'People',
+						data: [stat.people.yes, stat.people.no, stat.people.unknown],
+					},
+					{
+						label: 'Partners',
+						data: [stat.partners.yes, stat.partners.no, stat.partners.unknown],
+					},
+				],
+			};
+		},
+		chartOptions() {
+			return {
+				plugins: {
+					colorschemes: {
+						scheme: Atlas6,
+					},
+				},
+				scales: {
+					yAxes: [
+						{
+							ticks: {
+								beginAtZero: true,
+							},
+						},
+					],
+				},
+			};
 		},
 	},
 	created() {
