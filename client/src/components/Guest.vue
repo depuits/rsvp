@@ -31,33 +31,27 @@
 		</div>
 		<hr />
 
-		<b-modal :active.sync="modalActive" :width="640" scroll="keep">
+		<b-modal :active.sync="modalActive" scroll="keep" v-if="guest.response">
 			<div class="card">
 				<div class="card-image">
-					<figure class="image is-4by3">
-						<img src="/static/img/placeholder-1280x960.png" alt="Image" />
+					<figure class="image">
+						<b-icon icon="account-multiple-check" size="is-large" type="is-success" /> <!--TODO image coming or not coming-->
+						<b-icon icon="account-remove" size="is-large" type="is-danger" /> <!--TODO image coming or not coming-->
 					</figure>
 				</div>
 				<div class="card-content">
 					<div class="media">
-						<div class="media-left">
-							<figure class="image is-48x48">
-								<img src="/static/img/placeholder-1280x960.png" alt="Image" />
-							</figure>
-						</div>
 						<div class="media-content">
-							<p class="title is-4">John Smith</p>
-							<p class="subtitle is-6">@johnsmith</p>
+							<!--TODO fill in names of the people that are coming-->
+							<p class="title is-5">John Smith</p>
 						</div>
 					</div>
 
 					<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-						<a>@bulmaio</a>.
-						<a>#css</a>
-						<a>#responsive</a>
+						<!--TODO fill in question answers-->
+						{{ guest.response }}
 						<br />
-						<small>11:09 PM - 1 Jan 2016</small>
+						<small>{{ $d(new Date(guest.lastUpdate), 'long') }}</small>
 					</div>
 				</div>
 			</div>
@@ -95,8 +89,7 @@ export default {
 			this.change();
 		},
 		viewResponse: function() {
-			this.modalActive = true;
-			alert('response info:' + this.guest.response);
+			this.modalActive = !!this.guest.response;
 		},
 		remove: function() {
 			this.$dialog.confirm({
