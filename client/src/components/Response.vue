@@ -40,11 +40,11 @@
 			<hr />
 
 			<b-field v-for="q in authData.defaultQuestions" :key="q" :label="$t(q.replace('_', '.'))" custom-class="is-size-5">
-				<b-input v-model="questions[q]" type="textarea" required :validation-message="$t('rsvp.required')" />
+				<b-input v-model="questions[q]" type="textarea" required :validation-message="$t('rsvp.required')" maxlength="255" />
 			</b-field>
 
 			<b-field v-for="q in authData.info.questions" :key="q" :label="$t(q.replace('_', '.'))" custom-class="is-size-5">
-				<b-input v-model="questions[q]" type="textarea" required :validation-message="$t('rsvp.required')" />
+				<b-input v-model="questions[q]" type="textarea" required :validation-message="$t('rsvp.required')" maxlength="255" />
 			</b-field>
 		</div>
 
