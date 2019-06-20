@@ -3,12 +3,13 @@
 		<h1>This is the admin page</h1>
 
 		<h2>Responses</h2>
-		<!-- insert graph here -->
 		<GuestsChart :chart-data="chartData" />
 
 		<div v-show="loaded">
 			<h2>Guests</h2>
 			<div v-if="guests.length">
+				<!-- insert filters here (name, responded, comming) -->
+
 				<div class="columns">
 					<div class="column is-one-fifth is-offset-four-fifths">
 						<b-button @click="selectAllPrint">{{ $t('admin.selectAll') }}</b-button>

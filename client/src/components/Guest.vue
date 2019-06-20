@@ -27,32 +27,38 @@
 				<b-field horizontal label="print" style="text-align: left;">
 					<b-switch v-model="guest.print"></b-switch>
 				</b-field>
+				<b-icon :icon="visual.icon" size="is-large" :type="visual.color" />
 			</div>
 		</div>
 		<hr />
 
-		<b-modal :active.sync="modalActive" scroll="keep" v-if="guest.response">
+		<b-modal v-if="guest.response" :active.sync="modalActive" scroll="keep" :width="320">
 			<div class="card">
-				<div class="card-image">
-					<figure class="image">
-						<b-icon icon="account-multiple-check" size="is-large" type="is-success" /> <!--TODO image coming or not coming-->
-						<b-icon icon="account-remove" size="is-large" type="is-danger" /> <!--TODO image coming or not coming-->
-					</figure>
-				</div>
-				<div class="card-content">
-					<div class="media">
-						<div class="media-content">
-							<!--TODO fill in names of the people that are coming-->
-							<p class="title is-5">John Smith</p>
+				<div class="card-header">
+					<div class="card-header-icon">
+						<b-icon :icon="visual.icon" size="is-large" :type="visual.color" />
+					</div>
+					<div class="card-header-title">
+						<div class="media">
+							<div class="media-content">
+								<p class="title is-5">{{ comingNames }}</p>
+								<p class="subtitle is-6">{{ notComingNames }}</p>
+							</div>
 						</div>
 					</div>
-
+				</div>
+				<div class="card-content">
 					<div class="content">
 						<!--TODO fill in question answers-->
 						{{ guest.response }}
 						<br />
-						<small>{{ $d(new Date(guest.lastUpdate), 'long') }}</small>
 					</div>
+				</div>
+
+				<div class="card-footer">
+					<p class="card-footer-item">
+						<small>{{ $d(new Date(guest.lastUpdate), 'long') }}</small>
+					</p>
 				</div>
 			</div>
 		</b-modal>
@@ -77,7 +83,58 @@ export default {
 			}, 1000),
 		};
 	},
+	computed: {
+		visual() {
+			let resp = this.guest.response;
+			let info = this.guest.info;
+			if (resp) {
+				if (resp.coming) {
+					if (info.partner) {
+						if (resp.partnerName) {
+							// comming with partner
+							return { icon: 'account-plus', color: 'is-success' };
+						} else {
+							// comming without partner
+							return { icon: 'account-minus', color: 'is-success' };
+						}
+					} else {
+						if (info.names.length === resp.comingNames.length) {
+							// everyone invited is comming
+							return { icon: 'account-multiple-check', color: 'is-success' };
+						} else {
+							// comming but not all invited
+							return { icon: 'account-check', color: 'is-warning' };
+						}
+					}
+				} else {
+					// not comming
+					return { icon: 'account-remove', color: 'is-danger' };
+				}
+			}
+			// response not filled in yet
+			return { icon: 'account-question', color: 'is-grey' };
+		},
+		comingNames() {
+			let names = this.guest.response.comingNames.slice(); // clone the array
+			if (this.guest.info.partner && this.guest.response.partnerName) {
+				names.push(this.guest.response.partnerName + ' (partner)');
+			}
+			return names.join(', ');
+		},
+		notComingNames() {
+			let allNames = this.guest.info.names;
+			if (!this.guest.response) {
+				return allNames.join(', ');
+			}
 
+			if (this.guest.info.partner && !this.guest.response.partnerName) {
+				return 'No partner';
+			}
+
+			let comingNames = this.guest.response.comingNames;
+			return allNames.filter(n => !comingNames.includes(n)).join(', ');
+		},
+	},
 	methods: {
 		...Vuex.mapActions('rsvp', ['updateGuest', 'deleteGuest']),
 		addName: function() {
