@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const history = require('connect-history-api-fallback');
+const rateLimit = require("express-rate-limit");
 
 const config = require('config');
 const port = config.get('port');
@@ -13,12 +14,24 @@ const mongo = require('./lib/mongoUtil');
 const app = express();
 
 mongo.connect().then(() => {
-	app.use(morgan('dev'));
+	// Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
+	// see https://expressjs.com/en/guide/behind-proxies.html
+	app.set('trust proxy', 1);
+
+	// limit requests to 1.8 seconds per request for 15 minutes
+	const apiLimiter = rateLimit({
+		windowMs: 15 * 60 * 1000, // 15 minutes
+		max: 500,
+	});
+
+	app.use("/api/", apiLimiter);
+
+	app.use(morgan(':remote-addr - [:date[iso]] ":method :url" :status - :response-time ms - :res[content-length]'));
 	app.use(bodyParser.json());
 	app.use(cors());
 
 	app.use('/api', require('./routes')); // api endpoints
-	
+
 	app.use(express.static('public')); // static resources
 
 	const staticFileMiddleware = express.static('client'); // client resources
