@@ -88,7 +88,7 @@ export default {
 			let resp = this.guest.response;
 			let info = this.guest.info;
 			if (resp) {
-				if (resp.coming) {
+				if (resp.coming === 'yes') {
 					if (info.partner) {
 						if (resp.partnerName) {
 							// comming with partner
