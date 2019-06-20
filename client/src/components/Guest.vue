@@ -49,7 +49,12 @@
 				</div>
 
 				<div class="card-content">
-					<b-field v-for="(q, key) in guest.response.questions" :key="key" :label="$t(key.replace('_', '.'))" custom-class="is-size-5">
+					<b-field
+						v-for="(q, key) in guest.response.questions"
+						:key="key"
+						:label="$t(key.replace('_', '.'))"
+						custom-class="is-size-5"
+					>
 						<b-input :value="q" type="textarea" readonly />
 					</b-field>
 				</div>
