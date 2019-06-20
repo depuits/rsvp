@@ -32,7 +32,7 @@
 		</div>
 		<hr />
 
-		<b-modal v-if="guest.response" :active.sync="modalActive" scroll="keep" :width="320">
+		<b-modal v-if="guest.response" :active.sync="modalActive" scroll="keep" :width="640">
 			<div class="card">
 				<div class="card-header">
 					<div class="card-header-icon">
@@ -47,12 +47,11 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="card-content">
-					<div class="content">
-						<!--TODO fill in question answers-->
-						{{ guest.response }}
-						<br />
-					</div>
+					<b-field v-for="(q, key) in guest.response.questions" :key="key" :label="$t(key.replace('_', '.'))" custom-class="is-size-5">
+						<b-input :value="q" type="textarea" readonly />
+					</b-field>
 				</div>
 
 				<div class="card-footer">
