@@ -16,7 +16,7 @@
 					</div>
 				</div>
 				<ul>
-					<Guest v-for="g in guests" :key="g._id" :guest="g" :auth-data="authData" />
+					<Guest v-for="g in filteredGuests" :key="g._id" :guest="g" :auth-data="authData" />
 				</ul>
 			</div>
 			<div v-else>No guests created</div>
@@ -43,10 +43,37 @@ export default {
 	props: {
 		authData: { type: Object, required: true },
 	},
+	data: function() {
+		return {
+			filters: {
+				name: '',
+				reply: '', //yes, no, unknown
+			},
+		};
+	},
 	computed: {
 		// map this to store.state
 		...Vuex.mapState('rsvp', ['loaded']),
 		...mapMultiRowFields('rsvp', ['guests']),
+		filteredGuests() {
+			return this.guests
+				.filter(g => {
+					let f = this.filters.name.toLowerCase();
+					return g.info.names.find(n => n.toLowerCase().includes(f)) !== undefined;
+				})
+				.filter(g => {
+					switch (this.filters.reply) {
+					case 'yes':
+						return g.response && g.response.coming == 'yes';
+					case 'no':
+						return g.response && g.response.coming != 'yes';
+					case 'unknown':
+						return !g.response;
+					default:
+						return true;
+					}
+				});
+		},
 		guestStats() {
 			let stats = {
 				// stats for guests invited (number of codes)
