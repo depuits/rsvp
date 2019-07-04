@@ -63,14 +63,14 @@ export default {
 				})
 				.filter(g => {
 					switch (this.filters.reply) {
-					case 'yes':
-						return g.response && g.response.coming == 'yes';
-					case 'no':
-						return g.response && g.response.coming != 'yes';
-					case 'unknown':
-						return !g.response;
-					default:
-						return true;
+						case 'yes':
+							return g.response && g.response.coming == 'yes';
+						case 'no':
+							return g.response && g.response.coming != 'yes';
+						case 'unknown':
+							return !g.response;
+						default:
+							return true;
 					}
 				});
 		},

@@ -19,7 +19,6 @@ export default {
 	},
 	computed: {
 		sideClass() {
-			/* eslint-disable */
 			switch (this.event.class) {
 				case 'him':
 					return 'day--left';
