@@ -9,15 +9,30 @@
 			<h2>Guests</h2>
 			<div v-if="guests.length">
 				<!-- insert filters here (name, responded, comming) -->
+				<b-field label="Filter">
+					<b-field position="is-centered">
+						<b-input v-model="filters.name" placeholder="Name" icon="filter"></b-input>
+
+						<div class="control">
+							<b-select v-model="filters.reply" icon="account-search">
+								<option value="all">All</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+								<option value="unknown">Unknown</option>
+							</b-select>
+						</div>
+					</b-field>
+				</b-field>
 
 				<div class="columns">
 					<div class="column is-one-fifth is-offset-four-fifths">
 						<b-button @click="selectAllPrint">{{ $t('admin.selectAll') }}</b-button>
 					</div>
 				</div>
-				<ul>
+
+				<transition-group tag="ul" name="guestList">
 					<Guest v-for="g in filteredGuests" :key="g._id" :guest="g" :auth-data="authData" />
-				</ul>
+				</transition-group>
 			</div>
 			<div v-else>No guests created</div>
 		</div>
@@ -47,7 +62,7 @@ export default {
 		return {
 			filters: {
 				name: '',
-				reply: '', //yes, no, unknown
+				reply: 'all', //yes, no, unknown
 			},
 		};
 	},
@@ -58,6 +73,10 @@ export default {
 		filteredGuests() {
 			return this.guests
 				.filter(g => {
+					if (!this.filters.name) {
+						return true;
+					}
+
 					let f = this.filters.name.toLowerCase();
 					return g.info.names.find(n => n.toLowerCase().includes(f)) !== undefined;
 				})
@@ -203,5 +222,32 @@ export default {
 .admin ul {
 	list-style-type: none;
 	margin: 0;
+}
+
+.guestList-enter-active,
+.guestList-leave-active,
+.guestList-move {
+	transition: 500ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+	transition-property: opacity, transform;
+}
+
+.guestList-enter {
+	opacity: 0;
+	transform: translateX(50px) scaleY(0.5);
+}
+
+.guestList-enter-to {
+	opacity: 1;
+	transform: translateX(0) scaleY(1);
+}
+
+.guestList-leave-active {
+	position: absolute;
+}
+
+.guestList-leave-to {
+	opacity: 0;
+	transform: scaleY(0);
+	transform-origin: center top;
 }
 </style>
