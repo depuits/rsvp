@@ -120,7 +120,7 @@ export default {
 		},
 		comingNames() {
 			let names = this.guest.response.comingNames.slice(); // clone the array
-			if (info.names.length == 1 && this.guest.info.partner && this.guest.response.partnerName) {
+			if (this.guest.info.names.length == 1 && this.guest.info.partner && this.guest.response.partnerName) {
 				names.push(this.guest.response.partnerName + ' (partner)');
 			}
 			return names.join(', ');
