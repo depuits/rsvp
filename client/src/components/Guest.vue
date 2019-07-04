@@ -93,7 +93,7 @@ export default {
 			let info = this.guest.info;
 			if (resp) {
 				if (resp.coming === 'yes') {
-					if (info.partner) {
+					if (info.partner && info.names.length == 1) {
 						if (resp.partnerName) {
 							// comming with partner
 							return { icon: 'account-plus', color: 'is-success' };
@@ -120,7 +120,7 @@ export default {
 		},
 		comingNames() {
 			let names = this.guest.response.comingNames.slice(); // clone the array
-			if (this.guest.info.partner && this.guest.response.partnerName) {
+			if (info.names.length == 1 && this.guest.info.partner && this.guest.response.partnerName) {
 				names.push(this.guest.response.partnerName + ' (partner)');
 			}
 			return names.join(', ');

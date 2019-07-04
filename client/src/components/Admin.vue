@@ -120,7 +120,7 @@ export default {
 
 			for (let g of this.guests) {
 				let realNr = g.info.names.length;
-				let partner = g.info.partner;
+				let partner = g.info.partner && g.info.names.length == 1;
 				if (partner) {
 					++stats.partners.total;
 					++realNr;
