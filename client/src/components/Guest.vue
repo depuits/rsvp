@@ -88,12 +88,15 @@ export default {
 		};
 	},
 	computed: {
+		mayHavePartner() {
+			return this.guest.info.names.length == 1 && this.guest.info.partner;
+		},
 		visual() {
 			let resp = this.guest.response;
 			let info = this.guest.info;
 			if (resp) {
 				if (resp.coming === 'yes') {
-					if (info.partner && info.names.length == 1) {
+					if (this.mayHavePartner) {
 						if (resp.partnerName) {
 							// comming with partner
 							return { icon: 'account-plus', color: 'is-success' };
@@ -120,7 +123,7 @@ export default {
 		},
 		comingNames() {
 			let names = this.guest.response.comingNames.slice(); // clone the array
-			if (this.guest.info.names.length == 1 && this.guest.info.partner && this.guest.response.partnerName) {
+			if (this.mayHavePartner && this.guest.response.partnerName) {
 				names.push(this.guest.response.partnerName + ' (partner)');
 			}
 			return names.join(', ');
@@ -131,7 +134,7 @@ export default {
 				return allNames.join(', ');
 			}
 
-			if (this.guest.info.partner && !this.guest.response.partnerName) {
+			if (this.mayHavePartner && !this.guest.response.partnerName) {
 				return 'No partner';
 			}
 
