@@ -38,7 +38,8 @@
 		</div>
 
 		<b-button @click="createGuest({ code: authData.code })">{{ $t('admin.guest.create') }}</b-button>
-		<b-button @click="print">{{ $t('admin.print') }}</b-button>
+		<b-button @click="printCodes">{{ $t('admin.print') }}</b-button>
+		<b-button @click="exportData">{{ $t('admin.export') }}</b-button>
 	</div>
 </template>
 
@@ -191,7 +192,7 @@ export default {
 	},
 	methods: {
 		...Vuex.mapActions('rsvp', ['load', 'createGuest', 'deselectPrint', 'selectAllPrint']),
-		print: function() {
+		printCodes: function() {
 			let pg = this.guests.filter(g => g.print).map(g => g.info.code);
 
 			if (!pg.length) {
@@ -213,6 +214,53 @@ export default {
 					link.click();
 					this.deselectPrint();
 				});
+		},
+		exportData: function() {
+
+			let csvContent =
+				'data:text/csv;charset=utf-8,' +
+				'id,code,name,coming,date,from,music,food,other,debug\n' + //TODO remove hard coded stuff
+				this.guests.map(g => {
+					let no = !g.response || g.response.coming !== 'yes';
+					let debug = JSON.stringify(g);
+					let date = g.responded;
+					// console.log (debug);
+					// console.log (g);
+
+					let ndata = g.info.names.map(n => [
+						g._id,
+						g.info.code,
+						n,
+						no ? 'no': (g.response.comingNames.map(nn => nn.trim()).includes(n.trim()) ? 'yes' : 'no'),
+						date,
+						no ? '': g.response.questions['question_from'],
+						no ? '': g.response.questions['question_music'],
+						no ? '': g.response.questions['question_food'],
+						no ? '': g.response.questions['question_remarks'],
+						debug,
+					].map(v => '"' + v + '"').join(',')).join('\n');
+
+					// don't forget the partners
+					if (!no && g.info.partner && g.response.partnerName) {
+						ndata += '\n' + [
+							g._id,
+							g.info.code,
+							g.response.partnerName + ' (partner)',
+							'yes',
+							date,
+							g.response.questions['question_from'],
+							g.response.questions['question_music'],
+							g.response.questions['question_food'],
+							g.response.questions['question_remarks'],
+							debug,
+						].map(v => '"' + v + '"').join(',');
+					}
+
+					return ndata;
+				}).join('\n');
+
+			var encodedUri = encodeURI(csvContent);
+			window.open(encodedUri);
 		},
 	},
 };

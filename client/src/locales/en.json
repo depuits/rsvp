@@ -84,6 +84,7 @@
 	},
 	"admin": {
 		"print": "Print codes",
+		"export": "Export",
 		"selectAll": "Select all for print",
 		"guest": {
 			"create": "Create guest",

@@ -4,11 +4,11 @@ var path = require('path');
 
 var config = {
 	port: 8083,
-	dbUrl: 'mongodb://localhost:27017',
+	dbUrl: 'mongodb://10.163.205.50:27017',
 	dbName: 'rsvp',
 	adminPass: 'secret',
 	eventDate: new Date(2019, 7, 23),
-	deadLine: new Date(2019, 7, 1),
+	deadLine: new Date(2019, 8, 1),
 	defaultQuestions: [
 		'question_from',
 		'question_music',
